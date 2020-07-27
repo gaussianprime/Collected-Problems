@@ -1,0 +1,281 @@
+\documentclass[11pt]{article}
+\usepackage{william}
+\title{Collected Problems}
+\author{William Dai}
+\date{Started June 30, 2020}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+I use the following scheme: 1 point is roughly AMC 10 8-14 level. 2 points is roughly AMC 10 \# 15-17 level. 3 points is AMC 10 \# 18-21 level. 4 and 5 points are AMC 10 \# 22-25 level.
+
+Most of these problems are from more obscure contests that will serve as good AIME and AMC practice.
+\section{Combinatorics}
+
+\prob{1}{Mandelbrot Nationals Sample Test}{Michael Jordan's probability of hitting any basketball shot is three times greater than mine, which never exceeds a third. To beat him in a game, I need to hit a shot myself and have Jordan miss the same shot. If I pick my shot optimally, what is the maximum probability of winning which I can attain?}
+
+\sol What's the max of $p(1-3p)$? 
+
+\prob{2}{MA$\theta$ 2016}{The product of any two of the elements of the set $\{30, 54, N\}$ is divisible by the third. Find
+the number of possible values of N.}
+
+\sol Consider the primes $2,3,5$ separately and get independent inequalities. 
+
+\prob{3}{PHS ARML TST 2017}{Consider a group of eleven high school students. To create a middle school math contest, they must
+pick a four-person committee to write problems and a four-person committee to proofread. Every
+student can be on neither committee, one committee, or both committees, except for one student who
+does not want to be on both. How many combinations of committees are possible?}
+
+\sol Complementary counting, find how many committees have that student on both and how many committees without that restriction
+
+\prob{3}{Mandelbrot Regionals 2009}{Mr. Strump has formed three person groups in his math class for working on projects. Every student is in exactly two groups, and any two groups have at most one person in common. In fact, if two groups are chosen at random then the probability that they have exactly one person in common is one-third. How many students are there in Mr. Strump’s class?}
+
+\prob{4}{PHS HMMT TST 2016}{Compute the number of ordered triples of sets $(A_{1},A_{2},A_{3})$ that satisfy the following:
+\begin{enumerate}
+\item $A_{1}\cup A_{2}\cup A_{3} = \{1,2,3,4,5,6\}$
+\item $A_{1}\cap A_{2}\cap A_{3} = \emptyset$
+\end{enumerate} 
+}
+
+\prob{4}{Purple Comet 2015 HS}{
+Seven people of seven different ages are attending a meeting. The seven people leave the meeting one at a
+time in random order. Given that the youngest person leaves the meeting sometime before the oldest
+person leaves the meeting, the probability that the third, fourth, and ﬁfth people to leave the meeting do so in order of their ages (youngest to oldest) is $\frac{m}{n}$ , where m and n are relatively prime positive integers. Find $m + n$.}
+
+\prob{5}{HMMT November 2014}{Consider the set of 5-tuples of positive integers at most $5$. We say the tuple $(a_1, a_2, a_3, a_4, a_5)$ is perfect if for any distinct indices $i, j, k$, the three numbers $a_i
+, a_j , a_k$ do not form an arithmetic progression (in any order). Find the number of perfect 5-tuples.}
+
+\prob{6}{CRMT Team 2019}{A deck of the first 100 positive integers is randomly shuffled. Find the expected number of
+draws it takes to get a prime number if there is no replacement.}
+
+\prob{6}{CNCM PoTD}{Find the remainder when $\sum_{n=0}^{333}\sum_{k=3n}^{999} \binom{k}{3n}$ is divided by $70$.}
+
+\setcounter{problem}{0}
+\section{Number Theory}
+\subsection{Divisors}
+\prob{1}{MA$\theta$ 2018}{How many distinct prime numbers are in the first 50 rows of Pascal’s Triangle?}
+
+\sol If $k\neq 1,n-1$ for $\binom{n}{k}$, then $\binom{n}{k}$ is composite by its explicit formula. So, $\binom{n}{1}=n$, how many of those are prime for $1\leq n\leq 50$? 
+
+\prob{2}{AHSME 1984}{ How many triples $(a,b,c)$ of positive integers satisify the simultaneous equations:
+$$ab+bc=44$$
+$$ac+bc=23$$}
+
+\prob{2}{PHS ARML TST 2017}{Compute the greatest prime factor of 
+$$3^8+2\cdot 2^4\cdot 4^4+2^{16}$$}
+
+\sol Let $3^4=x$ and $4^4=y$. Then, this is just $x^2+2xy+y^2=(x+y)^2$.
+
+\prob{2}{HMMT November 2014}{Compute the greatest common divisor of $4^8 - 1$ and $8^{12} - 1$}
+
+\prob{3}{MA$\theta$ 2018}{The number $1 \cdot 1! + 2 \cdot 2! + 3 \cdot 3! +\cdots + 100 \cdot 100!$ ends with a string of 9s. How many
+consecutive 9s are at the end of the number?}
+
+\sol $n\cdot n! = (n+1)!-n!$, then telescope to get $101!-1!$. How many $0$'s does $101!$ have?
+
+\subsection{Modulo}
+
+\prob{1}{MA$\theta$ 2018}{The number $4^{14}-1$ is divisible by $29$ but $2^{14}-1$ is not. What is the remainder when $2^{14}-1$ is divided by $29$?}
+
+\sol $4^{14}-1=(2^{14}-1)(2^{14}+1)=0\pmod{29}$. Since $2^{14}-1\neq 0 \pmod{29}$, $2^{14}+1=0\pmod{29}\implies 2^{14}-1=27\pmod{29}$
+
+\prob{3}{CNCM PoTD}{Find the number of positive integer $x$ less than $100$ such that 
+$$3^x+5^x+7^x+11^x+13^x+17^x+19^x$$ is prime.}
+
+\sol Considering $\pmod{3}$, we get $3(1)^x+3(-1)^x=0\pmod{3}$ which is impossible as the expression is clearly $>3$. So, $\boxed{0}$.
+
+\prob{5}{PHS HMMT TST 2020}{Find the largest integer $0 < n < 100$ such that $n^2 + 2n$ divides $4(n-1)! + n + 4$.}
+
+\sol For $n$ is even, $n^2+2n=(n)(n+2)=4(\frac{n}{2})(\frac{n+2}{2})$. $4(n-1)!=0\pmod{4(\frac{n}{2})(\frac{n+2}}{2})$, then we get $n+4=0\pmod{n^2+2n}$ which is impossible. For $n$ is odd, $n^2+2n=(n)(n+2)$ and $\gcd(n,n+2)=1$. If either of $n, n+2$ are composite, WLOG $n=0\pmod{p}$ for some prime $p<n$, then $(n-1)!=0\pmod{p}\implies n+4=0\pmod{p}\implies 4 =0\pmod{p}$ contradiction. Similar for $n+2$. Then, we have that $n,n+2$ must be both primes. We show that this works. We have $4(n-1)!+n+4\pmod{n}=-4+4=0\pmod{n}$ by Wilsons'. Also, $4(n-1)!+n+4\pmod{n+2}=2+4\frac{-1}{(n+1)(n)}\pmod{n+2}=2+4\frac{-1}{2}\pmod{n+2}=2-2=0\pmod{n+2}$. Since $\gcd(n,n+2)=1$, we're done.
+
+The largest twin primes in the range are $\boxed{71},73$.
+
+\prob{7}{HMMT November 2014}{Suppose that $m$ and $n$ are integers with $1 \leq m \leq 49$ and $n \ge 0$ such that $m$ divides $n^{n+1} + 1$. What is the number of possible values of $m$?}
+
+\subsection{Bases}
+\prob{4}{HMMT November 2014}{Mark and William are playing a game with a stored value. On his turn, a player may either multiply
+the stored value by 2 and add 1 or he may multiply the stored value by 4 and add 3. The first player
+to make the stored value exceed 2100 wins. The stored value starts at 1 and Mark goes first. Assuming
+both players play optimally, what is the maximum number of times that William can make a move?
+(By optimal play, we mean that on any turn the player selects the move which leads to the best possible
+outcome given that the opponent is also playing optimally. If both moves lead to the same outcome,
+the player selects one of them arbitrarily.)
+}
+
+\prob{6}{HMMT November 2014}{For any positive integers $a$ and $b$, define $a \oplus b$ to be the result when adding a to b in binary (base 2), neglecting any carry-overs. For example, $20 \oplus 14 = 101002 \oplus 11102 = 110102 = 26$. (The operation $\oplus$ is called the exclusive or.) Compute the sum
+$$\sum_{k=0}^{2^{2014}-1} (k\oplus \lfloor \frac{k}{2} \rfloor)$$}
+
+\subsection{Miscellenous}
+
+\prob{5}{PHS HMMT TST 2020}{Find the unique triplet of integers $(a, b, c)$ with $a > b > c$ such that $a+b+c = 95$ and $a^2+b^2+c^3=3083$.}
+
+\prob{6}{CNCM PoTD}{How many positive integers $k$ are there such that $101\leq k\leq 10000$ and $\lfloor \sqrt{k-100}\rfloor$ is a divisor of $k$?}
+
+\setcounter{problem}{0}
+\section{Algebra}
+
+\subsection{Polynomials}
+\prob{1}{CRMT Math Bowl 2019}{Find the sum of all real numbers such that 
+$$\sqrt[4]{16x^4-32x^3+24x^2-8x+1}=5$$
+}
+
+\prob{2}{TAMU 2019}{In the expansion of $(1+ax-x^2)^8$ where a is a positive constant, the coefficient of $x^2$ is $244$. Find the value of $a$}
+
+\prob{3}{HMMT November 2014}{Let $f(x) = x^2 + 6x + 7$. Determine the smallest possible value of $f(f(f(f(x))))$ over all real numbers $x$.}
+\prob{4}{TAMU 2018}{Suppose $f$ is a cubic polynomial with roots $a,b,c$ such that 
+$$a = \frac{1}{3-bc}$$
+$$b = \frac{1}{5-ac}$$
+$$c = \frac{1}{7-ab}$$
+If $f(0)=1$, find $f(abc+1)$.
+}
+
+\prob{3}{HMMT February 2014}{Find the sum of all real numbers x such that $5x^4+10x^3 + 10x^2+5x+11 = 0$}
+
+\prob{5}{HMMT February 2014}{Find all real numbers $k$ such that $r^4+kr^3+r^2+4kr+16=0$ is true for exactly one real number $r$.}
+
+\sol Symmetric about $1$. Monotonic after $1$ so only two real roots that sum to $1$.
+
+\prob{4}{PHS HMMT TST 2020}{Let $a,b,c$ be the distinct real roots of $x^3+2x+5$. Find $(8-a^3)(8-b^3)(8-c^3)$.}
+
+\subsection{Manipulation}
+
+\prob{2}{PHS HMMT TST 2020}{What is the value of $\frac{\frac{1}{1^2}+\frac{1}{2^2}+\frac{1}{3^2} \cdots}{\frac{1}{1^2}+\frac{1}{3^2}+\frac{1}{5^2}\cdots}$? Remember that $\frac{1}{1^2}+\frac{1}{2^2}\cdots = \frac{\pi^2}{6}$}
+
+\prob{2}{Mandelbrot}{If $\frac{x^2}{y^2}=\frac{8y}{x}=z$, find the sum of all possible $z$.
+}
+
+\prob{3}{MA$\theta$ 2018}{The solutions to $3\sqrt{2x^2-5x-3}+2x^2-5x=7$ can be written in the form $x=\frac{a \pm \sqrt{b}}{c}$ where $a,b,c$ are positive integers and $x$ is in simplest form. Find $a+b+c$.}
+
+\prob{4}{Mandelbrot Nationals 2008}{
+Find the positive real number $x$ for which $5\sqrt{1-x}+5\sqrt{1+x}=7\sqrt{2}$.}
+
+\prob{5}{2014 November HMMT}{ Let $a, b, c, x$ be reals with $(a + b)(b + c)(c + a) \neq 0$ that satisfy
+$$\frac{a^2}{a+b}=\frac{a^2}{a+c}+20, \frac{b^2}{b+c}=\frac{b^2}{b+a} + 14 \text{, and } \frac{c^2}{c+a}=\frac{c^2}{c+b}+x$$
+Compute $x$.}
+
+\prob{5}{Math Prizes For Girls 2015}{
+Let $S$ be the sum of all distinct real solutions of the equation 
+$$\sqrt{x + 2015} = x^2 - 2015.$$
+Compute $\lfloor 1/S \rfloor$.  Recall that if $r$ is a real number, then $\lfloor r \rfloor$ (the floor of $r$) is the greatest integer that is less than or equal to $r$}
+
+\sol Let $2015=y$. Then, we have $\sqrt{x+y}=x^2-y\implies x+y=x^4-2x^2y+y^2\implies y^2+(-2x^2-1)y+x^4-x=0$. Then, $y=\frac{2x^2+1 \pm (2x+1)}{2}$. Now, we have $2015=x^2+x+1$ or $2015=x^2-x$. These give $x=\frac{-1 \pm \sqrt{8057}}{2}$ and $x=\frac{1 \pm \sqrt{8061}}{2}$. Now, note that we have $x+y\ge 0 \implies x \ge -2015$ and $x^2-y\ge 0\implies |x|\ge \sqrt{2015}$. \\
+\\
+We can see that $\frac{-1 + \sqrt{8057}}{2}>\sqrt{2015}$ and that $\frac{-1-\sqrt{8057}}{2} < -\sqrt{2015}$. Also, $\frac{1-\sqrt{8061}}{2} > - \sqrt{2015}$ and $\frac{1+\sqrt{8061}}{2} > \sqrt{2015}$. So, we have that our two solutions are $\frac{-1-\sqrt{8057}}{2}$ and $\frac{1+\sqrt{8061}}{2}$. \\
+\\
+Then, $\frac{1}{S}=\frac{2}{\sqrt{8061}-\sqrt{8057}}=\frac{\sqrt{8061}+\sqrt{8057}}{2}$. So, $89 < \frac{1}{S} < 90$ so our answer is $\boxed{89}$
+
+\subsection{Telescoping}
+
+\prob{3}{Purple Comet 2015 HS}{
+$$\left(1 + \frac{1}{1+2^1}\right)\left(1+\frac{1}{1+2^2}\right)\left(1 + \frac{1}{1+2^3}\right)\cdots\left(1 + \frac{1}{1+2^{10}}\right)= \frac{m}{n},$$ where $m$ and $n$ are relatively prime positive integers. Find $m + n$.}
+
+\subsection{Trigonometry}
+
+\prob{4}{MA$\theta$ 1992}{If $A$ and $B$ are both in $[0,2\pi)$ and $A$ and $B$ satisfy the equations
+$$\sin A + \sin B = \frac{1}{3}$$
+$$\cos A + \cos B  = \frac{4}{3}$$
+find $\cos(A-B)$}
+
+\prob{4}{TAMU 2019}{Simplify $\arctan \frac{1}{1+1+1^2}+ \arctan \frac{1}{1+2+2^2} + \arctan \frac{1}{1+3+3^2} \cdots + \arctan \frac{1}{1+n+n^2}$}
+
+\prob{6}{Purple Comet 2015 HS}{
+Let $x$ be a real number between 0 and $\tfrac{\pi}{2}$ for which the function  $3\sin^2 x + 8\sin x \cos x + 9\cos^2 x$ obtains its maximum value, $M$. Find the value of $M + 100\cos^2x$.}
+
+\subsection{Logarithms}
+
+\prob{4}{PHS ARML TST 2017}{Positive real numbers $x, y$, and $z$ satisfy the following system of equations:
+$$x^{\log(yz)} = 100$$
+$$y^{\log(xz)} = 10$$
+$$z^{\log(xy)} = 10\sqrt{10}$$
+Compute the value of the expression $(\log(xyz))^2$}
+
+\subsection{Functions}
+\prob{3}{Mandelbrot Nationals 2009}{Let $f(x)$ be a function defined for all positive real numbers satisfying the conditions $f(x) > 0$ for all $x > 0$ and $f(x-y) = \sqrt{f(xy) + 1}$ for all $x > y > 0$. Determine $f(2009)$.}
+
+\subsection{Inequalities}
+\prob{4}{HMMT February 2014}{Suppose that $x$ and $y$ are positive real numbers such that $x^2-xy+2y^2=8$.  Find the maximum possible value of $x^2+xy+2y^2$.}
+
+\subsection{Fake Algebra}
+\prob{6}{HMMT February 2014}{Given that $a, b,$ and $c$ are complex numbers satisfying
+$$a^2 + ab + b^2 = 1+ i$$
+$$b^2 + bc + c^2 = 2$$
+$$c^2 + ca + a^2 = 1,$$
+compute $(ab + bc + ca)^2$}
+
+\setcounter{problem}{0}
+\section{Geometry}
+
+\prob{1}{MA$\theta$ 2018}{A parallelograms has diagonals of length $10$ and $20$. Find the area inclosed by the circle inscribed in the parallelogram.
+}
+
+\prob{1}{TAMU 2019}{An acute isosceles triangle ABC is inscribed in a circle. Through B and C, tangents to
+the circle are drawn, meeting at D. If $\angle ABC = 2\angle CDB$, then find the radian measure of
+$\angle BAC$.}
+
+\prob{1}{PHS PuMAC TST 2017}{In triangle $ABC$, let $D$ and $E$ be the midpoints of $BC$ and $AC$. Suppose $AD$ and $BE$ meet at $F$. If
+the area of $\triangle DEF$ is $50$, then what is the area of $\triangle CDE$?}
+
+\prob{2}{TAMU 2019}{Let $AA_{1}$ be an altitude of triangle $\triangle ABC$, and let $A_{2}$ be the midpoint of the side $BC$.
+Suppose that $AA_{1}$ and $AA_{2}$ divide angle $\angle BAC$ into three equal angles. Find the product of the angles of 
+$\triangle ABC$ when the angles are expressed in degrees.}
+
+\sol Let $\angle BAA_{1}=\angle A_{1}AA_{2}=\angle A_{2}AC = \alpha$. We have that $\triangle ABA_{2}$ is an isosceles triangle as $\angle ABA_{1}=\angle AA_{2}A_{1}=90-\alpha$. Then, as $AA_{1}$ is an altitude, $BA_{1}=A_{1}A_{2}$. Let $BA_{1}=A_{1}A_{2}=x$, then $A_{2}C=BA_{2}=2x$. Consider triangles $BAA_{1}$ and $\triangle A_{1}AC$. We have that $\tan \alpha = \frac{x}{AA_{1}}$ and $\tan 2\alpha = \frac{3x}{AA_{1}}$. So, $\frac{\tan 2\alpha}{\tan \alpha}= 3 \implies \tan \alpha = \frac{1}{\sqrt{3}}\implies \alpha = 30$. So, $\angle BAC = 90$, $\angle ABC = 60$, and $\angle ACB=30$. The product is $\boxed{162000}$.
+
+\prob{2}{PHS PuMAC TST 2017}{A trapezoid has area 32, and the sum of the lengths of its two bases and altitude is 16. If one of the
+diagonals is perpendicular to both bases, then what is the length of the other diagonal?}
+
+\prob{2}{CRMT Individuals 2019}{
+Let $S$ be the set of all distinct points in the coordinate plane that form an acute isosceles triangle
+with the points $(32, 33)$ and $(63, 63)$. Given that a line $L$ crosses $S$ a finite number of times, find
+the maximum number of times $L$ can cross $S$.
+}
+
+\sol Replace $(32,33)$ and $(63,63)$ by $A$ and $B$. Then, we do casework on $AC=BC$ or $CB=AB$ or $CA=BA$. We get a line and two semicircles. A line can intersect a semicircle two times and a line one time.
+
+\prob{3}{AHSME 1984/28}{Triangle ABC has area 10. Points D, E, and F, all distinct from A, B, and C, are on sides AB, BC, and CA, respectively, and AD = 2, DB = 3. Triangle ABE and quadrilateral
+DBEF have equal areas s. Find s.}
+
+\prob{3}{HMMT February 2014 Geometry}{
+In quadrilateral ABCD, $\angle DAC = 98, \angle DBC = 82, \angle BCD = 70$, and $BC = AD$. Find $\angle ACD$.}
+
+\sol Reflect.
+
+\prob{4}{Mandelbrot Nationals 2009}{Triangle ABC has sides of length $AB =\sqrt{41}, AC = 5$,and $BC = 8$. Let O be the center of the circumcircle of $\triangle ABC$, and let $A'$ be the point diametrically opposite $A$, as shown. Determine the area of $\triangle A'BC$.
+}
+
+\prob{4}{HMMT February 2014}{Let $C$ be a circle in the $xy$ plane with radius 1 and center $(0, 0, 0)$, and let P be a point in space
+with coordinates $(3, 4, 8)$. Find the largest possible radius of a sphere that is contained entirely in the
+slanted cone with base C and vertex P.}
+
+\prob{4}{HMMT February 2014}{Triangle ABC has sides $AB = 14,BC = 13,$ and $CA = 15$. It is inscribed in circle, which has center $O$. Let $M$ be the midpoint of $AB$, let $B'$ be the point on  diametrically opposite $B$, and let $X$ be the intersection of $AO$ and $MB'$. Find the length of $AX$.}
+
+\sol AX is the centroid of $ABB'$.
+
+\prob{4}{PHS ARML TST 2017}{An algorithm starts with an equilateral triangle A0B0C0 of side length 1. At step k, points $A_k, B_k,
+$and $C_k$ are chosen on line segments $B_{k-1}C_{k-1}, C_{k-1}A_{k-1}$ and $A_{k-1}B_{k-1}$ respectively, such that
+
+$$B_{k-1}A_{k}:A_{k}C_{k-1}=1:1$$
+$$C_{k-1}B_{k}:B_{k}A_{k-1}=1:2$$ 
+$$A_{k-1}C_{k}:C_{k}B_{k-1}=1:3$$
+
+What is the value of the infinite series:
+$$\sum_{i=0}^{\infty} \text{Area}[\triangle A_{k}B_{k}C_{k}]$$}
+
+\prob{4}{PHS HMMT TST 2020}{$\triangle$ ABC has side lengths $AB = 11, BC = 13, CA = 20$. A circle is drawn with diameter $AC$. Line $AB$
+intersects the circle at $D \neq A$, and line BC intersects the circle at $E \neq B$. Find the length of $DE$.}
+
+
+\section{Associated Solutions}
+\subsection{Combinatorics}
+
+\setcounter{problem}{0}
+\subsection{Number Theory}
+
+
+\setcounter{problem}{0}
+\subsection{Algebra}
+
+\setcounter{problem}{0}
+\subsection{Geometry}
+\end{document}
