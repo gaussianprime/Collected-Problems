@@ -10,17 +10,43 @@
 \section{Introduction}
 I use the following scheme: 1 point is roughly AMC 10 8-14 level. 2 points is roughly AMC 10 \# 15-17 level. 3 points is AMC 10 \# 18-21 level. 4 and 5 points are AMC 10 \# 22-25 level.
 
-Most of these problems are from more obscure contests that will serve as good AIME and AMC practice.
+Most of these problems are from more obscure contests that will serve as good AIME and AMC practice. 
 \section{Combinatorics}
+\subsection{Casework}
+ \prob{4}{Purple Comet 2015 HS}{
+Seven people of seven different ages are attending a meeting. The seven people leave the meeting one at a
+time in random order. Given that the youngest person leaves the meeting sometime before the oldest
+person leaves the meeting, the probability that the third, fourth, and ﬁfth people to leave the meeting do so in order of their ages (youngest to oldest) is $\frac{m}{n}$ , where m and n are relatively prime positive integers. Find $m + n$.}
+
+\prob{5}{HMMT November 2014}{Consider the set of 5-tuples of positive integers at most $5$. We say the tuple $(a_1, a_2, a_3, a_4, a_5)$ is perfect if for any distinct indices $i, j, k$, the three numbers $a_i
+, a_j , a_k$ do not form an arithmetic progression (in any order). Find the number of perfect 5-tuples.}
+
+\prob{5}{HMMT November 2013}{Find the number of positive integer divisors of $12!$ that leave a remainder of $1$ when divided by $3$.}
+\subsection{Perspectives}
+\prob{2}{MA$\theta$ 2016}{The product of any two of the elements of the set $\{30, 54, N\}$ is divisible by the third. Find
+the number of possible values of N.}
+
+\sol Consider the primes $2,3,5$ separately and get independent inequalities.
+
+\prob{4}{PHS HMMT TST 2016}{Compute the number of ordered triples of sets $(A_{1},A_{2},A_{3})$ that satisfy the following:
+\begin{enumerate}
+\item $A_{1}\cup A_{2}\cup A_{3} = \{1,2,3,4,5,6\}$
+\item $A_{1}\cap A_{2}\cap A_{3} = \emptyset$
+\end{enumerate}
+
+\prob{6} {HMMT Feburary 2014}{We have a calculator with two buttons that displays an integer x. Pressing the first button replaces
+$x$ by $\lfloor \frac{x}{2} \rfloor$ , and pressing the second button replaces $x$ by $4x + 1$. Initially, the calculator displays 0.
+How many integers less than or equal to 2014 can be achieved through a sequence of arbitrary button
+presses? (It is permitted for the number displayed to exceed 2014 during the sequence. Here, byc
+denotes the greatest integer less than or equal to the real number y.)}
+
+\sol Any number with $1$ digits separated by one or more $0$'s  is valid. Notice that for $2015$ through $2047$, the first two digits are $11$ so they are not valid. Casework on number of digits now.
+}
+\subsection{Miscellaneous}
 
 \prob{1}{Mandelbrot Nationals Sample Test}{Michael Jordan's probability of hitting any basketball shot is three times greater than mine, which never exceeds a third. To beat him in a game, I need to hit a shot myself and have Jordan miss the same shot. If I pick my shot optimally, what is the maximum probability of winning which I can attain?}
 
 \sol What's the max of $p(1-3p)$? 
-
-\prob{2}{MA$\theta$ 2016}{The product of any two of the elements of the set $\{30, 54, N\}$ is divisible by the third. Find
-the number of possible values of N.}
-
-\sol Consider the primes $2,3,5$ separately and get independent inequalities. 
 
 \prob{3}{PHS ARML TST 2017}{Consider a group of eleven high school students. To create a middle school math contest, they must
 pick a four-person committee to write problems and a four-person committee to proofread. Every
@@ -31,31 +57,8 @@ does not want to be on both. How many combinations of committees are possible?}
 
 \prob{3}{Mandelbrot Regionals 2009}{Mr. Strump has formed three person groups in his math class for working on projects. Every student is in exactly two groups, and any two groups have at most one person in common. In fact, if two groups are chosen at random then the probability that they have exactly one person in common is one-third. How many students are there in Mr. Strump’s class?}
 
-\prob{4}{PHS HMMT TST 2016}{Compute the number of ordered triples of sets $(A_{1},A_{2},A_{3})$ that satisfy the following:
-\begin{enumerate}
-\item $A_{1}\cup A_{2}\cup A_{3} = \{1,2,3,4,5,6\}$
-\item $A_{1}\cap A_{2}\cap A_{3} = \emptyset$
-\end{enumerate} 
-}
-
-\prob{4}{Purple Comet 2015 HS}{
-Seven people of seven different ages are attending a meeting. The seven people leave the meeting one at a
-time in random order. Given that the youngest person leaves the meeting sometime before the oldest
-person leaves the meeting, the probability that the third, fourth, and ﬁfth people to leave the meeting do so in order of their ages (youngest to oldest) is $\frac{m}{n}$ , where m and n are relatively prime positive integers. Find $m + n$.}
-
-\prob{5}{HMMT November 2014}{Consider the set of 5-tuples of positive integers at most $5$. We say the tuple $(a_1, a_2, a_3, a_4, a_5)$ is perfect if for any distinct indices $i, j, k$, the three numbers $a_i
-, a_j , a_k$ do not form an arithmetic progression (in any order). Find the number of perfect 5-tuples.}
-
 \prob{6}{CRMT Team 2019}{A deck of the first 100 positive integers is randomly shuffled. Find the expected number of
 draws it takes to get a prime number if there is no replacement.}
-
-\prob{6} {HMMT Feburary 2014}{We have a calculator with two buttons that displays an integer x. Pressing the first button replaces
-$x$ by $\lfloor \frac{x}{2} \rfloor$ , and pressing the second button replaces $x$ by $4x + 1$. Initially, the calculator displays 0.
-How many integers less than or equal to 2014 can be achieved through a sequence of arbitrary button
-presses? (It is permitted for the number displayed to exceed 2014 during the sequence. Here, byc
-denotes the greatest integer less than or equal to the real number y.)}
-
-\sol Any number with $1$ digits separated by one or more $0$'s  is valid. Notice that for $2015$ through $2047$, the first two digits are $11$ so they are not valid. Casework on number of digits now.
 
 \prob{6}{CNCM PoTD}{Find the remainder when $\sum_{n=0}^{333}\sum_{k=3n}^{999} \binom{k}{3n}$ is divided by $70$.}
 
@@ -110,6 +113,9 @@ both players play optimally, what is the maximum number of times that William ca
 outcome given that the opponent is also playing optimally. If both moves lead to the same outcome,
 the player selects one of them arbitrarily.)
 }
+
+\prob{4}{HMMT November 2013}{ How many of the first 1000 positive integers can be written as the sum of finitely many distinct
+numbers from the sequence $3^{0},3^{1},3^{2}\cdots$?}
 
 \prob{6}{HMMT November 2014}{For any positive integers $a$ and $b$, define $a \oplus b$ to be the result when adding a to b in binary (base 2), neglecting any carry-overs. For example, $20 \oplus 14 = 101002 \oplus 11102 = 110102 = 26$. (The operation $\oplus$ is called the exclusive or.) Compute the sum
 $$\sum_{k=0}^{2^{2014}-1} (k\oplus \lfloor \frac{k}{2} \rfloor)$$}
@@ -205,6 +211,8 @@ Compute the value of the expression $(\log(xyz))^2$}
 \subsection{Inequalities}
 \prob{4}{HMMT February 2014}{Suppose that $x$ and $y$ are positive real numbers such that $x^2-xy+2y^2=8$.  Find the maximum possible value of $x^2+xy+2y^2$.}
 
+\prob{4}{HMMT November 2013}{ Find the largest real number $\lambda$ such that $a^2 + b^2 + c^2 + d^2 \geq ab + \lambda bc + cd$ for all real numbers $a, b, c, d$.}
+
 \subsection{Fake Algebra}
 \prob{6}{HMMT February 2014}{Given that $a, b,$ and $c$ are complex numbers satisfying
 $$a^2 + ab + b^2 = 1+ i$$
@@ -215,6 +223,27 @@ compute $(ab + bc + ca)^2$}
 \setcounter{problem}{0}
 \section{Geometry}
 
+\subsection{Coordinate Geometry}
+
+\prob{2}{CRMT Individuals 2019}{
+Let $S$ be the set of all distinct points in the coordinate plane that form an acute isosceles triangle
+with the points $(32, 33)$ and $(63, 63)$. Given that a line $L$ crosses $S$ a finite number of times, find
+the maximum number of times $L$ can cross $S$.
+}
+
+\sol Replace $(32,33)$ and $(63,63)$ by $A$ and $B$. Then, we do casework on $AC=BC$ or $CB=AB$ or $CA=BA$. We get a line and two semicircles. A line can intersect a semicircle two times and a line one time.
+
+\prob{3}{HMMT November 2013}{Plot points A, B, C at coordinates (0, 0), (0, 1), and (1, 1) in the plane, respectively. Let S denote
+the union of the two line segments AB and BC. Let X1 be the area swept out when Bobby rotates
+S counterclockwise 45 degrees about point A. Let X2 be the area swept out when Calvin rotates S
+clockwise 45 degrees about point A. Find $\frac{X_{1}+X_{2}}{2}$}
+
+\subsection{3D Geometry}
+\prob{4}{HMMT February 2014}{Let $C$ be a circle in the $xy$ plane with radius 1 and center $(0, 0, 0)$, and let P be a point in space
+with coordinates $(3, 4, 8)$. Find the largest possible radius of a sphere that is contained entirely in the
+slanted cone with base C and vertex P.}
+
+\subsection{General}
 \prob{1}{MA$\theta$ 2018}{A parallelograms has diagonals of length $10$ and $20$. Find the area inclosed by the circle inscribed in the parallelogram.
 }
 
@@ -234,28 +263,19 @@ $\triangle ABC$ when the angles are expressed in degrees.}
 \prob{2}{PHS PuMAC TST 2017}{A trapezoid has area 32, and the sum of the lengths of its two bases and altitude is 16. If one of the
 diagonals is perpendicular to both bases, then what is the length of the other diagonal?}
 
-\prob{2}{CRMT Individuals 2019}{
-Let $S$ be the set of all distinct points in the coordinate plane that form an acute isosceles triangle
-with the points $(32, 33)$ and $(63, 63)$. Given that a line $L$ crosses $S$ a finite number of times, find
-the maximum number of times $L$ can cross $S$.
-}
-
-\sol Replace $(32,33)$ and $(63,63)$ by $A$ and $B$. Then, we do casework on $AC=BC$ or $CB=AB$ or $CA=BA$. We get a line and two semicircles. A line can intersect a semicircle two times and a line one time.
 
 \prob{3}{AHSME 1984/28}{Triangle ABC has area 10. Points D, E, and F, all distinct from A, B, and C, are on sides AB, BC, and CA, respectively, and AD = 2, DB = 3. Triangle ABE and quadrilateral
 DBEF have equal areas s. Find s.}
 
-\prob{3}{HMMT February 2014 Geometry}{
+\prob{3}{HMMT February 2014}{
 In quadrilateral ABCD, $\angle DAC = 98, \angle DBC = 82, \angle BCD = 70$, and $BC = AD$. Find $\angle ACD$.}
 
 \sol Reflect.
 
+\prob{3}{HMMT November 2013}{Let ABC be an isosceles triangle with $AB = AC$. Let D and E be the midpoints of segments $AB$ and $AC$, respectively. Suppose that there exists a point F on ray $\overrightarrow{DE}$ outside of $ABC$ such that triangle $BFA$ is similar to triangle $ABC$. Compute $\frac{AB}{BC}$ .}
+
 \prob{4}{Mandelbrot Nationals 2009}{Triangle ABC has sides of length $AB =\sqrt{41}, AC = 5$,and $BC = 8$. Let O be the center of the circumcircle of $\triangle ABC$, and let $A'$ be the point diametrically opposite $A$, as shown. Determine the area of $\triangle A'BC$.
 }
-
-\prob{4}{HMMT February 2014}{Let $C$ be a circle in the $xy$ plane with radius 1 and center $(0, 0, 0)$, and let P be a point in space
-with coordinates $(3, 4, 8)$. Find the largest possible radius of a sphere that is contained entirely in the
-slanted cone with base C and vertex P.}
 
 \prob{4}{HMMT February 2014}{Triangle ABC has sides $AB = 14,BC = 13,$ and $CA = 15$. It is inscribed in circle, which has center $O$. Let $M$ be the midpoint of $AB$, let $B'$ be the point on  diametrically opposite $B$, and let $X$ be the intersection of $AO$ and $MB'$. Find the length of $AX$.}
 
