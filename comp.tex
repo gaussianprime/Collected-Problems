@@ -8,7 +8,7 @@
 \maketitle
 
 \section{Introduction}
-I use the following scheme: 1 point is roughly AMC 10 8-14 level. 2 points is roughly AMC 10 \# 15-17 level. 3 points is AMC 10 \# 18-21 level. 4 and 5 points are AMC 10 \# 22-25 level.
+I use the following scheme: 1 point is roughly AMC 10 8-14 level. 2 points is roughly AMC 10 \# 15-17 level. 3 points is AMC 10 \# 18-21 level. 4 and 5 points are AMC 10 \# 22-25 level. Points above $5$ scale similarily.
 
 Most of these problems are from more obscure contests that will serve as good AIME and AMC practice. 
 \section{Combinatorics}
@@ -123,6 +123,9 @@ $$\sum_{k=0}^{2^{2014}-1} (k\oplus \lfloor \frac{k}{2} \rfloor)$$}
 \subsection{Miscellenous}
 
 \prob{5}{PHS HMMT TST 2020}{Find the unique triplet of integers $(a, b, c)$ with $a > b > c$ such that $a+b+c = 95$ and $a^2+b^2+c^3=3083$.}
+
+\prob{4}{BMT 2019}{For a positive integer $n$, define $\phi(n)$ as the number of positive integers less than or equal to $n$
+that are relatively prime to $n$. Find the sum of all positive integers $n$ such that $\phi(n)=20$}
 
 \prob{5}{BMT 2019}{0. Let S(n) be the sum of the squares of the positive integers less than and coprime to n. For
 example, $S(5) = 1^2 + 2^2 + 3^2 + 4^2$, but $S(4) = 1^2 + 3^2$.
@@ -310,8 +313,16 @@ In quadrilateral ABCD, $\angle DAC = 98, \angle DBC = 82, \angle BCD = 70$, and 
 
 \sol AX is the centroid of $ABB'$.
 
+\prob{4}{AIME 1989}{Triangle $ABC$ has an right angle at $B$ and contains a point $P$ such that $AP=10$, $BP=6$, and $\angle APC = \angle CPB =\angle BPA$. Find $CP$.
+}
+\sol Law of Cosines and Pythagorean Theorem gives $CP=33$.
+
+\prob{4}{106 Geometry Problems}{In triangle $ABC$, medians $BB_{1}$ and $CC_{1}$ are perepndicular. Given that $AC=19$ and $AB=22$, find $BC$.}
+
+\sol Let $BG=2x, GB_{1}=x$ and $CG=2y, GC_{1}=y$. Set systems of equations and solve.
+
 \prob{4}{PHS ARML TST 2017}{An algorithm starts with an equilateral triangle A0B0C0 of side length 1. At step k, points $A_k, B_k,
-$and $C_k$ are chosen on line segments $B_{k-1}C_{k-1}, C_{k-1}A_{k-1}$ and $A_{k-1}B_{k-1}$ respectively, such that
+$and $C_k$ are cosehn on line segments $B_{k-1}C_{k-1}, C_{k-1}A_{k-1}$ and $A_{k-1}B_{k-1}$ respectively, such that
 
 $$B_{k-1}A_{k}:A_{k}C_{k-1}=1:1$$
 $$C_{k-1}B_{k}:B_{k}A_{k-1}=1:2$$ 
@@ -320,14 +331,19 @@ $$A_{k-1}C_{k}:C_{k}B_{k-1}=1:3$$
 What is the value of the infinite series:
 $$\sum_{i=0}^{\infty} \text{Area}[\triangle A_{k}B_{k}C_{k}]$$}
 
+\prob{4}{AIME 2005}{In quadrilateral $ABCD$, let $BC=8, CD=12, AD=10$ and $\angle A = \angle B = 60^{\circ}$.}
+
+\sol Extend $AD$ and $BC$ to make an equilateral triangle and then Law of Cosines.
+
 \prob{4}{PHS HMMT TST 2020}{$\triangle$ ABC has side lengths $AB = 11, BC = 13, CA = 20$. A circle is drawn with diameter $AC$. Line $AB$
 intersects the circle at $D \neq A$, and line BC intersects the circle at $E \neq B$. Find the length of $DE$.}
 
+\setcounter{problem}{0}
 \section{Misc}
 These are problems that don't really fall into any other category at all.
 \subsection{Games}
 
-\prob{4}{BmMT 2016}{
+\prob{3}{BmMT 2016}{
 Suppose you have a $20 \times 16$ bar of chocolate squares. You want to break the bar into smaller
 chunks, so that after some sequence of breaks, no piece has an area of more than 5. What is the
 minimum possible number of times that you must break the bar?}
