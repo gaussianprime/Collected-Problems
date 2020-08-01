@@ -127,6 +127,9 @@ throwback \#8 jersey with equal probability. Let $p(n)$ be the probability that 
 divide the $n$ jerseys into two piles such that the sum of all jersey numbers in each pile is
 the same. If}
 
+\prob{5}{BMT 2019}{Compute the remainder when the product of all positive integers less than and relatively prime
+to 2019 is divided by 2019.}
+
 \prob{5}{PHS HMMT TST 2020}{Find the largest integer $0 < n < 100$ such that $n^2 + 2n$ divides $4(n-1)! + n + 4$.}
 
 \sol For $n$ is even, $n^2+2n=(n)(n+2)=4(\frac{n}{2})(\frac{n+2}{2})$. $4(n-1)!=0\pmod{4(\frac{n}{2})(\frac{n+2}}{2})$, then we get $n+4=0\pmod{n^2+2n}$ which is impossible. For $n$ is odd, $n^2+2n=(n)(n+2)$ and $\gcd(n,n+2)=1$. If either of $n, n+2$ are composite, WLOG $n=0\pmod{p}$ for some prime $p<n$, then $(n-1)!=0\pmod{p}\implies n+4=0\pmod{p}\implies 4 =0\pmod{p}$ contradiction. Similar for $n+2$. Then, we have that $n,n+2$ must be both primes. We show that this works. We have $4(n-1)!+n+4\pmod{n}=-4+4=0\pmod{n}$ by Wilsons'. Also, $4(n-1)!+n+4\pmod{n+2}=2+4\frac{-1}{(n+1)(n)}\pmod{n+2}=2+4\frac{-1}{2}\pmod{n+2}=2-2=0\pmod{n+2}$. Since $\gcd(n,n+2)=1$, we're done.
@@ -172,6 +175,8 @@ where $a, b$, and $c$ are positive integers, with $b$ and $c$ coprime and $b < c
 \section{Algebra}
 
 \subsection{Polynomials}
+Generally uses the following techniques: Vieta's, Binomial Theorem, Multinomial Theorem, Remainder Theorem, Newton's Sums, Reciprocal Roots Trick, Quadratic Formula (including using Determinant), 
+
 \prob{1}{CRMT Math Bowl 2019}{Find the sum of all real numbers such that 
 $$\sqrt[4]{16x^4-32x^3+24x^2-8x+1}=5$$
 }
@@ -189,20 +194,27 @@ If $f(0)=1$, find $f(abc+1)$.
 
 \prob{3}{HMMT February 2014}{Find the sum of all real numbers x such that $5x^4+10x^3 + 10x^2+5x+11 = 0$}
 
+\prob{3}{BMT 2014}{Consider the graph of $f(x) = x^3 + x + 2014$. A line intersects this cubic at three points, two
+of which have x-coordinates 20 and 14. Find the x-coordinate of the third intersection point}
+
+\sol Vieta's! 
+
 \prob{4}{HMMT February 2014}{Find all real numbers $k$ such that $r^4+kr^3+r^2+4kr+16=0$ is true for exactly one real number $r$.}
 
 \sol Symmetric about $1$. Monotonic after $1$ so only two real roots that sum to $1$.
 
 \prob{4}{PHS HMMT TST 2020}{Let $a,b,c$ be the distinct real roots of $x^3+2x+5$. Find $(8-a^3)(8-b^3)(8-c^3)$.}
 
-\prob{6}{SLKK AIME 2020}{Let $a, b,$ and $c$ be the three distinct solutions to $x^{3} - 4x^{2} + 5x + 1 = 0$.
-Find $$(a^3+b^3)(a^3+c^3)(b^3+c^3).$$
-}
-
 \subsubsection{Newton's Sums}
+
+
 \prob{4}{BMT 2019}{
 Let $r_1, r_2, r_3$ be the (possibly complex) roots of the polynomial $x^3 + ax^2 + bx + \frac{4}{3}$. How many
 pairs of integers a, b exist such that $r_{1}^3 + r_{2}^3 + r_{3}^3 = 0$ ?}
+
+\prob{6}{SLKK AIME 2020}{Let $a, b,$ and $c$ be the three distinct solutions to $x^{3} - 4x^{2} + 5x + 1 = 0$.
+Find $$(a^3+b^3)(a^3+c^3)(b^3+c^3).$$
+}
 
 \subsection{Roots of Unity}
 \prob{5}{BMT 2019}{ Let $a_n$ be the product of the complex roots of $x^{2n} = 1$ that are in the first quadrant of the
