@@ -16,15 +16,39 @@ Most of these problems are from more obscure contests that will serve as good AI
 \prob{3}{BmMT 2014}{Call a positive integer top-heavy if at least half of its digits are in the set {7, 8, 9}. How many
 three digit top-heavy numbers exist? (No number can have a leading zero.)}
 
- \prob{4}{Purple Comet 2015 HS}{
+\sol Consider $7,8,9$ to be the same and assign actual values at end, do casework on number of $7,8,9$.
+
+\prob{3}{PuMAC 2019}{Suppose Alan, Michael, Kevin, Igor, and Big Rahul are in a running race. It is given that
+exactly one pair of people tie (for example, two people both get second place), so that no other
+pair of people end in the same position. Each competitor has equal skill; this means that each
+outcome of the race, given that exactly two people tie, is equally likely. The probability that
+Big Rahul gets first place (either by himself or he ties for first) can be expressed in the form
+$m/n$, where m, n are relatively prime, positive integers. Compute $m + n$.}
+
+\sol First, find total number of outcomes. Then, casework on if Big Rahul wins by himself or if he ties for first
+
+\prob{3}{PuMAC 2019}{Prinstan Trollner and Dukejukem are competing at the game show WASS. Both players spin
+a wheel which chooses an integer from 1 to 50 uniformly at random, and this number becomes
+their score. Dukejukem then flips a weighted coin that lands heads with probability 3/5. If
+he flips heads, he adds 1 to his score. A player wins the game if their score is higher than
+the other player’s score. The probability Dukejukem defeats the Trollner to win WASS equals
+$m/n$ where $m, n$ are coprime positive integers. Compute $m + n$.}
+
+\sol Casework on if Dukejukem flips heads or tails on coin.
+
+\prob{4}{Purple Comet 2015 HS}{
 Seven people of seven different ages are attending a meeting. The seven people leave the meeting one at a
 time in random order. Given that the youngest person leaves the meeting sometime before the oldest
 person leaves the meeting, the probability that the third, fourth, and ﬁfth people to leave the meeting do so in order of their ages (youngest to oldest) is $\frac{m}{n}$ , where m and n are relatively prime positive integers. Find $m + n$.}
+
+\sol Casework on if youngest or oldest in third, fourth, fifth block.
 
 \prob{5}{HMMT November 2014}{Consider the set of 5-tuples of positive integers at most $5$. We say the tuple $(a_1, a_2, a_3, a_4, a_5)$ is perfect if for any distinct indices $i, j, k$, the three numbers $a_i
 , a_j , a_k$ do not form an arithmetic progression (in any order). Find the number of perfect 5-tuples.}
 
 \prob{5}{HMMT November 2013}{Find the number of positive integer divisors of $12!$ that leave a remainder of $1$ when divided by $3$.}
+
+\sol Casework on parity of exponent of $2,5,11$. Note that there can't be any $3$ and $7$ can be included or excluded without consequence.
 
 \prob{7}{SLKK AIME 2020}{
 Andy the Banana Thief is trying to hide from Sheriff Buffkin in a row of
@@ -38,8 +62,14 @@ number of days it takes to catch Andy can be expressed as $\frac{a}{b}$
 for relatively prime positive
 integers $a$ and $b$, find the remainder when $a + b$ is divided by $1000$.}
 
+\sol Casework on day caught and then use complementary PIE.
 
 \subsection{Perspectives}
+\prob{1}{PuMAC 2019}{How many ways can you arrange 3 Alice’s, 1 Bob, 3 Chad’s, and 1 David in a line if the Alice’s
+are all indistinguishable, the Chad’s are all indistinguishable, and Bob and David want to be
+adjacent to each other? (In other words, how many ways can you arrange 3 A’s, 1 B, 3 C’s,
+and 1 D in a row where the B and D are adjacent?)}
+
 \prob{2}{MA$\theta$ 2016}{The product of any two of the elements of the set $\{30, 54, N\}$ is divisible by the third. Find
 the number of possible values of N.}
 
@@ -49,6 +79,12 @@ the number of possible values of N.}
 will form an arithmetic sequence? (The order of the dice does matter, but we count both (1,
 3, 2) and (1, 2, 3) as arithmetic sequences.)}
 
+\prob{4}{PuMAC 2019}{Keith has 10 coins labeled 1 through 10, where the ith coin has weight $2^i$. The coins are all
+fair, so the probability of flipping heads on any of the coins is $\frac{1}{2}$. After flipping all of the
+coins, Keith takes all of the coins which land heads and measures their total weight, $W$. If the
+probability that $137 \leq W \leq 1061$ is $m/n$ for coprime positive integers $m, n$, determine $m + n$}
+
+\sol This bijects to binary numbers. There $1061-137+1=925$ binary numbers in the range $[137,1061]$. All of these are equally likely.
 \prob{4}{PHS HMMT TST 2016}{Compute the number of ordered triples of sets $(A_{1},A_{2},A_{3})$ that satisfy the following:
 \begin{enumerate}
 \item $A_{1}\cup A_{2}\cup A_{3} = \{1,2,3,4,5,6\}$
@@ -76,6 +112,14 @@ occurrences of the three-letter word “owo”. For example, the string “owowo
 score of 2 - 1 = 1. If the expected score of Woulard’s string can be expressed as $\frac{a}{b}$ for
 relatively prime positive integers a and b, find the remainder when $a+b$ is divided by $1000$.}
 
+\sol Let the $value$ of the string be the total number of uwu and owo's. Note that the value only differs from the score when there are both uwu and owo's. We can easily compute the value using Linearity of Expectation and do casework on when it differs.
+
+\prob{5}{PuMAC 2019}{. Marko lives on the origin of the Cartesian plane. Every second, Marko moves 1 unit up with
+probability 2/9, 1 unit right with probability 2/9, 1 unit up and 1 unit right with probability
+4/9, and he doesn’t move with probability 1/9. After 2019 seconds, Marko ends up on the
+point (A, B). What is the expected value of A · B?}
+
+\sol Need to do this
 \subsection{Miscellaneous}
 
 \prob{1}{Mandelbrot Nationals Sample Test}{Michael Jordan's probability of hitting any basketball shot is three times greater than mine, which never exceeds a third. To beat him in a game, I need to hit a shot myself and have Jordan miss the same shot. If I pick my shot optimally, what is the maximum probability of winning which I can attain?}
@@ -119,6 +163,11 @@ consecutive 9s are at the end of the number?}
 
 \sol $n\cdot n! = (n+1)!-n!$, then telescope to get $101!-1!$. How many $0$'s does $101!$ have?
 
+\prob{5}{BMT 2015}{There exists a unique pair of positive integers k, n such that k is divisible by 6, and $\sum_{i=1}^{k} i^2 = n^2$.
+Find $(k, n)$.}
+
+\sol You get $k\cdot (6k+1)\cdot (12k+1)=n^2$. All of these are pairwise coprime so each are squares. Trying out the first couple of squares for $k$, we get $k=4$ is a solution. Having both $b^2=6a^2+1$ and $c^2=12a^2+1$ be squares is not possible for larger $a$.
+ 
 \subsection{Modulo}
 
 \prob{1}{MA$\theta$ 2018}{The number $4^{14}-1$ is divisible by $29$ but $2^{14}-1$ is not. What is the remainder when $2^{14}-1$ is divided by $29$?}
@@ -147,6 +196,13 @@ The largest twin primes in the range are $\boxed{71},73$.
 
 \prob{7}{HMMT November 2014}{Suppose that $m$ and $n$ are integers with $1 \leq m \leq 49$ and $n \ge 0$ such that $m$ divides $n^{n+1} + 1$. What is the number of possible values of $m$?}
 
+\prob{9}{SLKK AIME 2020}{: Let p = 991 be a prime. Let S be the set of all lattice points $(x, y)$,
+with $1 \leq x, y \leq p - 1$. On each point $(x, y)$ in S, Olivia writes the number $x^2 + y^2$. Let
+$f(x, y)$ denote the product of the numbers written on all points in S that share at least
+one coordinate with (x, y). Find the remainder when
+$$\sum_{i=1}^{p-2} \sum_{j=1}^{p-2} f(i,j)$$
+is divided by p.}
+
 \subsection{Bases}
 \prob{4}{HMMT November 2014}{Mark and William are playing a game with a stored value. On his turn, a player may either multiply
 the stored value by 2 and add 1 or he may multiply the stored value by 4 and add 3. The first player
@@ -167,6 +223,10 @@ $$\sum_{k=0}^{2^{2014}-1} (k\oplus \lfloor \frac{k}{2} \rfloor)$$}
 \prob{1}{BMT 2015}{Compute the sum of the digits of $1001^{10}$.}
 
 \subsection{Miscellenous}
+\prob{3}{BMT 2015}{. Find all integer solutions to
+$$x^2+2y^2+3z^2=36$$
+$$3x^2+2y^2+z^2=84$$
+$$xy+xz+yz=-7$$}
 
 \prob{4}{BMT 2019}{For a positive integer $n$, define $\phi(n)$ as the number of positive integers less than or equal to $n$
 that are relatively prime to $n$. Find the sum of all positive integers $n$ such that $\phi(n)=20$}
@@ -206,6 +266,8 @@ If $f(0)=1$, find $f(abc+1)$.
 
 \prob{3}{HMMT February 2014}{Find the sum of all real numbers x such that $5x^4+10x^3 + 10x^2+5x+11 = 0$}
 
+\sol Symmetric about $1$. Monotonic after $1$ so only two real roots that sum to $1$.
+
 \prob{3}{BmMT 2014}{Consider the graph of $f(x) = x^3 + x + 2014$. A line intersects this cubic at three points, two
 of which have x-coordinates 20 and 14. Find the x-coordinate of the third intersection point}
 
@@ -213,7 +275,7 @@ of which have x-coordinates 20 and 14. Find the x-coordinate of the third inters
 
 \prob{4}{HMMT February 2014}{Find all real numbers $k$ such that $r^4+kr^3+r^2+4kr+16=0$ is true for exactly one real number $r$.}
 
-\sol Symmetric about $1$. Monotonic after $1$ so only two real roots that sum to $1$.
+\sol Divide by $r^2$ and subsitute $t=r+\frac{4}{r}$.
 
 \prob{4}{PHS HMMT TST 2020}{Let $a,b,c$ be the distinct real roots of $x^3+2x+5$. Find $(8-a^3)(8-b^3)(8-c^3)$.}
 
@@ -229,10 +291,14 @@ pairs of integers a, b exist such that $r_{1}^3 + r_{2}^3 + r_{3}^3 = 0$ ?}
 Find $$(a^3+b^3)(a^3+c^3)(b^3+c^3).$$
 }
 
-\subsection{Roots of Unity}
+\subsubsection{Roots of Unity}
 \prob{5}{BMT 2019}{ Let $a_n$ be the product of the complex roots of $x^{2n} = 1$ that are in the first quadrant of the
 complex plane. That is, roots of the form $a + bi$ where $a, b > 0$. Let $r = a_1 \cdot a_2 \cdot ...\cdot a_{10}$. Find
 the smallest integer $k$ such that r is a root of $x^k = 1$}
+
+\prob{6}{BMT 2015}{Evaluate $\sum_{k=0}^{37} (-1)^{k} \binom{75}{2k}$.}
+
+\sol Roots of Unity Filter
 
 \subsection{Manipulation}
 
@@ -298,6 +364,13 @@ If $\sin^2(2x)$ can be expressed as $m\sqrt{n} -p$, where $m, n$, and $p$ are po
 that $n$ is not divisible by the square of a prime, find $m + n + p$
 }
 
+\subsection{Sequences}
+\prob{3}{BMT 2015}{Let $\{a_n\}$ be a sequence of real numbers with $a_1 = -1, a_2 = 2$ and for all $n \ge 3$,
+$a_{n+1} - a_{n} - a_{n+2} = 0$.
+Find $a_{1} + a_{2} + a_{3} + . . . + a_{2015}$.}
+
+\sol Note that the condition is $a_{n+2}=a_{n+1}-a_{n}$ and that $a_{3}=3,a_{4}=1,a_{5}=-2,a_{6}=-3,a_{7}=-1,a_{8}=2$. So, it repeats with period $6$. 
+
 \subsection{Functions}
 \prob{3}{Mandelbrot Nationals 2009}{Let $f(x)$ be a function defined for all positive real numbers satisfying the conditions $f(x) > 0$ for all $x > 0$ and $f(x-y) = \sqrt{f(xy) + 1}$ for all $x > y > 0$. Determine $f(2009)$.}
 
@@ -311,6 +384,11 @@ such that $2x^2 + 3y^2 + 3z^2 + 2xy + 2xz - 4yz < 5$}
 
 \subsection{Fake Algebra}
 \prob{3}{BMT 2019}{Find the maximum value of $\frac{x}{y}$ if x and y are real numbers such that $x^2 +y^2-8x-6y + 20 = 0$.}
+
+\prob{3}{BMT 2015}{Let x and y be real numbers satisfying the equation $x^2 - 4x + y^2 + 3 = 0$. If the maximum
+and minimum values of $x^2 + y^2$
+are $M$ and $m$ respectively, compute the numerical value of
+$M - m$.}
 
 \prob{6}{HMMT February 2014}{Given that $a, b,$ and $c$ are complex numbers satisfying
 $$a^2 + ab + b^2 = 1+ i$$
@@ -437,6 +515,11 @@ Suppose you have a $20 \times 16$ bar of chocolate squares. You want to break th
 chunks, so that after some sequence of breaks, no piece has an area of more than 5. What is the
 minimum possible number of times that you must break the bar?}
 
+\prob{4}{BMT 2015}{Two players play a game with a pile with N coins is on a table. On a player’s turn, if there
+are n coins, the player can take at most $\frac{n}{2} + 1$ coins, and must take at least one coin. The
+player who grabs the last coin wins. For how many values of N between 1 and 100 (inclusive)
+does the first player have a winning strategy?}
+
 \subsection{Logic}
 \prob{2}{BmMT 2014}{Alice, Bob, Carl, and Dave are either lying or telling the truth. If the four of them make the
 following statements, who has the coin?
@@ -450,7 +533,7 @@ Carl: Exactly one of us is telling the truth.
 Dave: The person who has the coin is male.
 \end{center}}
 
-\sol Analyzing, Carl must be lying since if he was telling the truth, everyone else are lying which means Alice can't have the coin but the person who has the coin isn't male which is a contradiction. Also note that all of them can't be lying by similar reasoning. So, either two, three, or four are telling the truth. Four telling the truth is mipossible. Three telling the truth means everyone but Carl is telling the truth which is impossible. So, two must be telling the truth. Dave's and Alice's statements are true if and only if the other is false. If Dave is false and Alice is true, then Bob must also be false which is a contradiction to the fact two are telling the truth. If Dave is true and Alice is false, then Bob must be telling the truth and Carl has the coin. This is the only possible case.
+\sol Analyzing, Carl must be lying since if he was telling the truth, everyone else are lying which means Alice can't have the coin but the person who has the coin isn't male which is a contradiction. Also note that all of them can't be lying by similar reasoning. So, either two, three, or four are telling the truth. Four telling the truth is impossible as Carl's statement is false. Three telling the truth means everyone but Carl is telling the truth which is impossible as Alice and Dave's statements conflict. So, two must be telling the truth. Dave's and Alice's statements are true if and only if the other is false. If Dave is false and Alice is true, then Bob must also be false which is a contradiction to the fact two are telling the truth. If Dave is true and Alice is false, then Bob must be telling the truth and Carl has the coin. This is the only possible case.
 
 \prob{4}{Berkeley Math Circle 2013}{
 Ten people sit side by side at a long table, all facing the same direction. Each of them is either a knight (and always
