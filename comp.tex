@@ -22,6 +22,20 @@ person leaves the meeting, the probability that the third, fourth, and ﬁfth pe
 , a_j , a_k$ do not form an arithmetic progression (in any order). Find the number of perfect 5-tuples.}
 
 \prob{5}{HMMT November 2013}{Find the number of positive integer divisors of $12!$ that leave a remainder of $1$ when divided by $3$.}
+
+\prob{7}{SLKK AIME 2020}{
+Andy the Banana Thief is trying to hide from Sheriff Buffkin in a row of
+6 distinct houses labeled 1 through 6. Andy and Sheriff Buffkin each pick a permutation
+of the 6 houses, chosen uniformly at random. On the $n^{\text{th}}$ day, with $1 \leq n \leq 6$, Andy
+and Sheriff Buffkin visit the $n^{\text{th}}$ house in their respective permutations, and Andy is
+caught by the Sheriff on the first day they visit the same house. For example, if Andy’s
+permutation is $1, 3, 4, 5, 6, 2$ and Sheriff Buffkin’s permutation is $3, 4, 1, 5, 6, 2$, Andy is
+caught on day $4$. Given that Sheriff Buffkin catches Andy within 6 days and the expected
+number of days it takes to catch Andy can be expressed as $\frac{a}{b}$
+for relatively prime positive
+integers $a$ and $b$, find the remainder when $a + b$ is divided by $1000$.}
+
+
 \subsection{Perspectives}
 \prob{2}{MA$\theta$ 2016}{The product of any two of the elements of the set $\{30, 54, N\}$ is divisible by the third. Find
 the number of possible values of N.}
@@ -34,7 +48,7 @@ the number of possible values of N.}
 \item $A_{1}\cap A_{2}\cap A_{3} = \emptyset$
 \end{enumerate}
 
-\prob{6} {HMMT Feburary 2014}{We have a calculator with two buttons that displays an integer x. Pressing the first button replaces
+\prob{5} {HMMT Feburary 2014}{We have a calculator with two buttons that displays an integer x. Pressing the first button replaces
 $x$ by $\lfloor \frac{x}{2} \rfloor$ , and pressing the second button replaces $x$ by $4x + 1$. Initially, the calculator displays 0.
 How many integers less than or equal to 2014 can be achieved through a sequence of arbitrary button
 presses? (It is permitted for the number displayed to exceed 2014 during the sequence. Here, byc
@@ -42,6 +56,17 @@ denotes the greatest integer less than or equal to the real number y.)}
 
 \sol Any number with $1$ digits separated by one or more $0$'s  is valid. Notice that for $2015$ through $2047$, the first two digits are $11$ so they are not valid. Casework on number of digits now.
 }
+
+\subsubsection{Expected Value}
+
+\prob{5}{SLKK AIME 2020}{
+Woulard forms a 8 letter word by picking each letter from the set $\{w, o, u\}$
+with equal probability. The score of a word is the nonnegative difference between the
+number of distinct occurrences of the three-letter word “uwu” and the number of distinct
+occurrences of the three-letter word “owo”. For example, the string “owowouwu” has a
+score of 2 - 1 = 1. If the expected score of Woulard’s string can be expressed as $\frac{a}{b}$ for
+relatively prime positive integers a and b, find the remainder when $a+b$ is divided by $1000$.}
+
 \subsection{Miscellaneous}
 
 \prob{1}{Mandelbrot Nationals Sample Test}{Michael Jordan's probability of hitting any basketball shot is three times greater than mine, which never exceeds a third. To beat him in a game, I need to hit a shot myself and have Jordan miss the same shot. If I pick my shot optimally, what is the maximum probability of winning which I can attain?}
@@ -95,6 +120,12 @@ consecutive 9s are at the end of the number?}
 $$3^x+5^x+7^x+11^x+13^x+17^x+19^x$$ is prime.}
 
 \sol Considering $\pmod{3}$, we get $3(1)^x+3(-1)^x=0\pmod{3}$ which is impossible as the expression is clearly $>3$. So, $\boxed{0}$.
+
+\prob{4}{SLLKK AIME 2020}{Smush is a huge Kobe Bryant fan. Smush randomly draws n jerseys
+from his infinite collection of Kobe jerseys, each being either the recent \#24 jersey or the
+throwback \#8 jersey with equal probability. Let $p(n)$ be the probability that Smush can
+divide the $n$ jerseys into two piles such that the sum of all jersey numbers in each pile is
+the same. If}
 
 \prob{5}{PHS HMMT TST 2020}{Find the largest integer $0 < n < 100$ such that $n^2 + 2n$ divides $4(n-1)! + n + 4$.}
 
@@ -158,11 +189,15 @@ If $f(0)=1$, find $f(abc+1)$.
 
 \prob{3}{HMMT February 2014}{Find the sum of all real numbers x such that $5x^4+10x^3 + 10x^2+5x+11 = 0$}
 
-\prob{5}{HMMT February 2014}{Find all real numbers $k$ such that $r^4+kr^3+r^2+4kr+16=0$ is true for exactly one real number $r$.}
+\prob{4}{HMMT February 2014}{Find all real numbers $k$ such that $r^4+kr^3+r^2+4kr+16=0$ is true for exactly one real number $r$.}
 
 \sol Symmetric about $1$. Monotonic after $1$ so only two real roots that sum to $1$.
 
 \prob{4}{PHS HMMT TST 2020}{Let $a,b,c$ be the distinct real roots of $x^3+2x+5$. Find $(8-a^3)(8-b^3)(8-c^3)$.}
+
+\prob{6}{SLKK AIME 2020}{Let $a, b,$ and $c$ be the three distinct solutions to $x^{3} - 4x^{2} + 5x + 1 = 0$.
+Find $$(a^3+b^3)(a^3+c^3)(b^3+c^3).$$
+}
 
 \subsubsection{Newton's Sums}
 \prob{4}{BMT 2019}{
@@ -232,6 +267,12 @@ $$y^{\log(xz)} = 10$$
 $$z^{\log(xy)} = 10\sqrt{10}$$
 Compute the value of the expression $(\log(xyz))^2$}
 
+\prob{4}{SLKK AIME 2020}{Let $x$ be a real number in the interval $(0,\frac{\pi}{2})$ such that
+$\log_{\sin^2(x)} \cos(x) + \log_{\cos^2(x)} \sin(x) = \frac{5}{4}$.
+If $\sin^2(2x)$ can be expressed as $m\sqrt{n} -p$, where $m, n$, and $p$ are positive integers such
+that $n$ is not divisible by the square of a prime, find $m + n + p$
+}
+
 \subsection{Functions}
 \prob{3}{Mandelbrot Nationals 2009}{Let $f(x)$ be a function defined for all positive real numbers satisfying the conditions $f(x) > 0$ for all $x > 0$ and $f(x-y) = \sqrt{f(xy) + 1}$ for all $x > y > 0$. Determine $f(2009)$.}
 
@@ -269,6 +310,12 @@ the maximum number of times $L$ can cross $S$.
 the union of the two line segments AB and BC. Let X1 be the area swept out when Bobby rotates
 S counterclockwise 45 degrees about point A. Let X2 be the area swept out when Calvin rotates S
 clockwise 45 degrees about point A. Find $\frac{X_{1}+X_{2}}{2}$}
+
+\prob{5}{SLKK AIME 2020}{Mr. Duck draws points $ A = (a, 0), B = (0, b), C = (3, 5)$ and $O = (0, 0)$
+such that $a, b > 0$ and $\angle ACB = 45^{\circ}$. If the maximum possible area of $\triangle AOB$ can be
+expressed as $m-n\sqrt{p}$ where $m, n,$ and $p$ are positive integers such that p is not divisible
+by the square of a prime, find $m + n + p$
+}
 
 \subsection{3D Geometry}
 \prob{4}{HMMT February 2014}{Let $C$ be a circle in the $xy$ plane with radius 1 and center $(0, 0, 0)$, and let P be a point in space
@@ -335,9 +382,16 @@ $$\sum_{i=0}^{\infty} \text{Area}[\triangle A_{k}B_{k}C_{k}]$$}
 
 \sol Extend $AD$ and $BC$ to make an equilateral triangle and then Law of Cosines.
 
+\prob{4}{HMMT November 2013}{ Let ABC be a triangle and D a point on BC such that $AB=\sqrt{2}, BC=\sqrt{3}, \angle BAD = 30^{\circ}$, and$\angle CAD = 45^{\circ}$. Find AD.}
+
 \prob{4}{PHS HMMT TST 2020}{$\triangle$ ABC has side lengths $AB = 11, BC = 13, CA = 20$. A circle is drawn with diameter $AC$. Line $AB$
 intersects the circle at $D \neq A$, and line BC intersects the circle at $E \neq B$. Find the length of $DE$.}
 
+\prob{6}{SLKK AIME 2020}{Cyclic quadrilateral $AXBY$ is inscribed in circle $\omega$ such that $AB$ is a
+diameter of $\omega$. $M$ is the midpoint of $XY$ and $AM = 13, BM = 5$, and $AB = 16$. If the
+area of AXBY can be expressed as $m\sqrt{p}+n$, where $m, n$, and $p$ are positive integers such
+that $m$ and $n$ are relatively prime and $p$ is not divisible by the square of a prime, find
+the remainder when $m + n + p$ is divided by $1000$.}
 \setcounter{problem}{0}
 \section{Misc}
 These are problems that don't really fall into any other category at all.
