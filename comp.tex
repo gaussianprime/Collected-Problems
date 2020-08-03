@@ -121,6 +121,13 @@ Each of these transformations maps the squares onto itself, but the positions of
 
 \sol Notice that after any sequence of $19$ moves, we have a unique move that takes the square back to its original square. So, the total number of sequences is $4^{19}=\boxed{2^{38}}$.
 
+
+\prob{2}{CNCM Online Round 1}{Pooki Sooki has 8 hoodies, and he may wear any of them throughout a 7 day week. He changes hishoodie exactly $2$ times during the week, and will only do so at one of the 6 midnights. Once he changes out of a
+hoodie, he never wears it for the rest of the week. The number of ways he can wear his hoodies throughout the week
+can be expressed as $\frac{8!}{2^k}$ . Find $k$.}
+
+\sol There is $8\cdot 7\cdot 6$ ways to choose the hoodies Pooki wears and there are $\binom{6}{2}=15=3\cdot 5$ ways to choose the midnights he changes. The number of ways is then $8\cdot 7\cdot 6\cdot 5\cdot 3 = \frac{8!}{4\cdot 2}=\frac{8!}{2^{3}}$. Our answer is $\boxed{3}$.
+
 \prob{3}{BmMT 2014}{If you roll three regular six-sided dice, what is the probability that the three numbers showing
 will form an arithmetic sequence? (The order of the dice does matter, but we count both (1,
 3, 2) and (1, 2, 3) as arithmetic sequences.)}
@@ -264,14 +271,31 @@ Find $(k, n)$.}
 
 \sol $4^{14}-1=(2^{14}-1)(2^{14}+1)=0\pmod{29}$. Since $2^{14}-1\neq 0 \pmod{29}$, $2^{14}+1=0\pmod{29}\implies 2^{14}-1=\boxed{27}\pmod{29}$
 
+\prob{1}{AMC 12A 2003/18}{Let $n$ be a $5$-digit number, and let $q$ and $r$ be the quotient and the remainder, respectively, when $n$ is divided by $100$. For how many values of $n$ is $q+r$ divisible by $11$?}
+
+\sol We have $n=100q+r\implies n\pmod{11}=q+r$. So, $q+r=0\pmod{11}\iff n=0\pmod{11}$. The smallest 5-digit multiple of $11$ is $10010$ and the largest is $99990$. So, there are $\frac{99990-10010}{11}+1=9090-910+1=\boxed{8181}$.
+
+\prob{2}{AMC 10B 2019/14}{The base-ten representation for $19!$ is \[121,6T5,100,40M,832,H00,\] where $T$, $M$, and $H$ denote digits that are not given. What is $T+M+H$?}
+
+\sol Also, $19!=0\pmod{125}$ by Legendre's so $H=0$. Note that $19!=0\pmod{9}$ so $T+M+H+33=0\pmod{9}\implies T+M+H=3\pmod{9}\implies T+M=3\pmod{9}\implies T+M=3,12$.  We also have $19!=0\pmod{11}\implies H-2+3-8+M-0+4-0+0-1+5-T+6-1+2-1=0\pmod{11}\implies H+M-T+7=0\pmod{11}\implies H+M-T=4\pmod{11}\implies M-T=4\pmod{11}\implies M-T=4$ since $0\leq M,T\leq 9$. Notice that $T+M=3$ is impossible then. So, $T+M=12\implies H+T+M=\boxed{12}$
+
 \prob{2}{CNCM PoTD}{Find the number of positive integer $x$ less than $100$ such that 
 $$3^x+5^x+7^x+11^x+13^x+17^x+19^x$$ is prime.}
 
 \sol Considering $\pmod{3}$, we get $3(1)^x+3(-1)^x=0\pmod{3}$ which is impossible as the expression is clearly $>3$. So, $\boxed{0}$.
 
+\prob{3}{AMC 10B 2018/16}{Let $a_1,a_2,\dots,a_{2018}$ be a strictly increasing sequence of positive integers such that\[a_1+a_2+\cdots+a_{2018}=2018^{2018}.\]What is the remainder when $a_1^3+a_2^3+\cdots+a_{2018}^3$ is divided by $6$?}
+
+\sol Notice that $n^3=n\pmod{2}$ and that $n^3=n\pmod{3}$ by Euler's Totient Theorem. So, $n^3=n\pmod{6}$ by CRT. Then, $a_1^3+a_2^3\cdots + a_{2018}^3=a_{1}+a_{2}\cdots +a_{2018}\pmod{6}=2018^{2018}\pmod{6}$. Now, $2018^{2018}\pmod{2}=0$ and $2018^{2018}\pmod{3}=(-1)^{2018}\pmod{3}=1$. So, by CRT, $2018^{2018}=\boxed{4}\pmod{6}$.
+ 
+\prob{3}{AMC 10A 2020/18}{Let $(a,b,c,d)$ be an ordered quadruple of not necessarily distinct integers, each one of them in the set ${0,1,2,3}.$ For how many such quadruples is it true that $a\cdot d-b\cdot c$ is odd? (For example, $(0,3,1,1)$ is one such quadruple, because $0\cdot 1-3\cdot 1 = -3$ is odd.)}
+
+\sol We have two cases: $ad$ is even and $bc$ is odd or $ad$ is odd and $bc$ is even. If $ad$ is even, then we can do complementary counting and get $4^{2}-2^{2}=12$ ways for $(a,d)$. This is because if $ad$ was odd, this is equivalent to both $a,d$ being odd. If $bc$ is odd, we get $2^{2}=4$ ways for $(b,c)$.  The other case follows similarily. Altogether, are $2\cdot 12\cdot 4=\boxed{96}$ such $(a,b,c,d)$.
+
 \prob{3}{HMMT 2018 Feburary}{ There are two prime numbers $p$ so that $5p$ can be expressed in the form $\lfloor \frac{n^2}{5} \rfloor$ for some positive integer $n$. What is the sum of these two prime numbers?
 }
 \sol The two prime numbers are $5$ and $29$, consider $\pmod{25}$. $\boxed{34}$
+
 
 \prob{4}{SLLKK AIME 2020}{Smush is a huge Kobe Bryant fan. Smush randomly draws n jerseys
 from his infinite collection of Kobe jerseys, each being either the recent \#24 jersey or the
@@ -313,18 +337,41 @@ numbers from the sequence $3^{0},3^{1},3^{2}\cdots$?}
 \prob{6}{HMMT November 2014}{For any positive integers $a$ and $b$, define $a \oplus b$ to be the result when adding a to b in binary (base 2), neglecting any carry-overs. For example, $20 \oplus 14 = 101002 \oplus 11102 = 110102 = 26$. (The operation $\oplus$ is called the exclusive or.) Compute the sum
 $$\sum_{k=0}^{2^{2014}-1} (k\oplus \lfloor \frac{k}{2} \rfloor)$$}
 
+\subsection{Sum of Digits}
+\prob{3}{CNCM Online Round 1}{Akshar is reading a 500 page book, with odd numbered pages on the left, and even
+numbered pages on the right. Multiple times in the book, the sum of the digits of the two opened pages
+are 18. Find the sum of the page numbers of the last time this occurs.}
+
+\sol We have three cases: $\overline{abc}, \overline{ab(c+1)}$ and $\overline{ab9}, \overline{a(b+1)0}$ and $\overline{a99}, \overline{(a+1)00}$. For the first case, the sum of digits is $2a+2b+2c+1=1\pmod{2}$ so it is impossible. For the second case, $2a+2b+10=18\implies a+b=4$. This gives $b=4$ and $a=0$ as the maximium solution for this case. For the third case, the sum of digits is $2a+19>18$. So, the maximium solutions are $409,410$ giving a sum of $\boxed{819}$.
+
+\prob{3}{CNCM Online Round 1}{Define $S(N)$ to be the sum of the digits of $N$ when it is written in base 10, and take
+$S^{k}(N) = S(S(. . .(N). . .))$ with $k$ applications of S. The stability of a number $N$ is defined to be the
+smallest positive integer $K$ where $S^{K}(N) = S^{K+1}(N) = S^{K+2}(N) = \ldots$. Let $T_{3}$ be the set of all
+natural numbers with stability $3$. Compute the sum of the two least entries of $T_{3}$.}
+
+\sol $S^{K}(N)=S^{K+1}(N)\implies S^{K}(N)=S(S^{K}(N))$. Note that for $n\ge 10$, $S(n) <10$. So, $S^{N}(N)$ is a one digit number. So, if a number has stability $3$, this implies that the first time $S^{k}(N)$ is a one-digit number is when $k=3$. Then, $S^{2}(N)\ge 10$ and $S(N)\ge 19$. So, the two smallest are $199,289$. Summing, we get $\boxed{488}$.
+ 
 \subsection{Binomial Theorem}
 \prob{1}{BMT 2015}{Compute the sum of the digits of $1001^{10}$.}
 
 \subsection{Miscellenous}
-\prob{3}{BMT 2015}{. Find all integer solutions to
+\prob{3}{BMT 2015}{Find all integer solutions to
 $$x^2+2y^2+3z^2=36$$
 $$3x^2+2y^2+z^2=84$$
 $$xy+xz+yz=-7$$}
 
+\sol Adding the first two and dividng by $4$ gives $x^2+y^2+z^2=30$. Then, $(x+y+z)^2=x^2+y^2+z^2+2(xy+xz+yz)=16\implies x+y+z=\pm 4$. Also, $(x+y)^2+(x+z)^2+(y+z)^2=2(x^2+y^2+z^2)+2(xy+xz+yz)=46$. 
+
+Let $x+y=a, x+z=b, y+z=c$. We get $a+b+c=\pm 8$ and $a^2+b^2+c^2=46$. The only decomposition of $46$ into squares is $36,9,1$. So, $(6,3,-1)$ and $(-6,-3,1)$ are our only solutions for $(a,b,c)$ (including permutations since it is symmetric). Notice that $(a,b,c)$ being a permutation of $(6,3,-1)$ means $(x,y,z)$ is a permutation of $(5,1,-2)$. Similarily, $(a,b,c)$ being a permutation of $(-6,-3,1)$ means $(x,y,z)$ is a permutation of $(-5,-1,2)$.
+
+We look at which permutations of $(5,1,-2)$ work. We can biject any valid permutation of $(5,1,-2)$ to get a corresponding solution $(-x,-y,-z)$ for permutations of $(-5,-1,2)$. It's clear only $x$ can be $5$ otherwise $2y^2,3z^2>36$. Then, $2y^2+z^2=9\implies y=2,z=-1$. So the only valid solution is $(5,2,-1)$ and the corresponding solution is $(-5,-2,1)$.
+
+We get $\boxed{(5,2,-1),(-5,-2,1)}$.
+
 \prob{4}{BMT 2019}{For a positive integer $n$, define $\phi(n)$ as the number of positive integers less than or equal to $n$
 that are relatively prime to $n$. Find the sum of all positive integers $n$ such that $\phi(n)=20$}
 
+\sol
 \prob{5}{PHS HMMT TST 2020}{Find the unique triplet of integers $(a, b, c)$ with $a > b > c$ such that $a+b+c = 95$ and $a^2+b^2+c^3=3083$.}
 
 \prob{5}{BMT 2019}{0. Let S(n) be the sum of the squares of the positive integers less than and coprime to n. For
@@ -702,7 +749,7 @@ Dave: The person who has the coin is male.
 
 \sol Analyzing, Carl must be lying since if he was telling the truth, everyone else are lying which means Alice can't have the coin but the person who has the coin isn't male which is a contradiction. Also note that all of them can't be lying by similar reasoning. So, either two, three, or four are telling the truth. Four telling the truth is impossible as Carl's statement is false. Three telling the truth means everyone but Carl is telling the truth which is impossible as Alice and Dave's statements conflict. So, two must be telling the truth. Dave's and Alice's statements are true if and only if the other is false. If Dave is false and Alice is true, then Bob must also be false which is a contradiction to the fact two are telling the truth. If Dave is true and Alice is false, then Bob must be telling the truth and \boxed{Carl} has the coin. This is the only possible case.
 
-\prob{4}{Berkeley Math Circle 2013}{
+\prob{2}{Berkeley Math Circle 2013}{
 Ten people sit side by side at a long table, all facing the same direction. Each of them is either a knight (and always
 tells the truth) or a knave (and always lies). Each of the people announces: “There are more knaves on my left than
 knights on my right.” How many knaves are in the line?
