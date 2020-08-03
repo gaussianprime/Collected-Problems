@@ -171,6 +171,17 @@ denotes the greatest integer less than or equal to the real number y.)}
 
 \sol Let the $i$th dice roll $x_{i}$. Notice that $x_{i}\ge 1$. Let $x_{i}'=x_{1}-1$. Then, $x_{1}+x_{2}\cdots + x_{7}=10\implies x_{1}+x_{2}\cdots + x_{7}=3$ has $\binom{9}{6}=\boxed{84}$ distributions. Note that it is impossible for any of the $x_{i}$'s to exceed $6$.
 
+\prob{4}{AMC 12A 2006/25}{How many non- empty subsets $S$ of $\{1,2,3,\ldots ,15\}$ have the following two properties?
+\begin{enumerate}
+    \item No two consecutive integers belong to $S$.
+    
+    \item If $S$ contains $k$ elements, then $S$ contains no number less than $k$.
+\end{enumerate}}
+
+\sol We can do casework on the number of elements $k$. Then, we can only have numbers in the range $\{k,k+1\cdots 15\}$. Now, let the elements in the subset be $a_{1},a_{2}\cdots a_{k}$. Let $d_{1}=a_{1}-k$, $d_{2}=a_{2}-a_{1}$, $d_{3}=a_{3}-a_{2}$ and so on until $d_{k}=a_{k}-a_{k-1}$ and $d_{k+1}=15-a_{k}$. We have that $d_{1}+d_{2}\cdots + d_{k}+d_{k+1}=15-k$. 
+
+Notice that $d_{2},d_{3}\cdots d_{k}\ge 2$ to satisfy that no two consecutive integers are in $S$. So, let $d_{k}'=d_{k}-2$ for $k=2,3\cdots k$. So, $d_{1}+d_{2}'+d_{3}'\cdots +d_{k}'+d_{k+1}=15-k-2(k-1)=17-3k$. By Stars and Bars, there are $\binom{17-2k}{k}$ ordered $(k+1)$-tuplets $(d_{1},d_{2}\cdots d_{k+1})$. Notice that $(d_{1},d_{2}\cdots d_{k+1})$ determines $a_{1},a_{2}\cdots a_{k}$.
+
 \subsubsection{Expected Value}
 
 \prob{5}{SLKK AIME 2020}{
@@ -233,6 +244,10 @@ $$3^8+2\cdot 3^4\cdot 4^4+2^{16}$$}
 
 \prob{2}{HMMT November 2014}{Compute the greatest common divisor of $4^8 - 1$ and $8^{12} - 1$}
 
+
+\prob{3}{HMMT Feburary 2018}{Distinct prime numbers $p,q,r$ satisfy the equation $$2pqr + 50pq = 7pqr + 55pr = 8pqr + 12qr  =A$$ for some positive integer $A$. What is $A$?}
+
+
 \prob{3}{MA$\theta$ 2018}{The number $1 \cdot 1! + 2 \cdot 2! + 3 \cdot 3! +\cdots + 100 \cdot 100!$ ends with a string of 9s. How many
 consecutive 9s are at the end of the number?}
 
@@ -249,10 +264,14 @@ Find $(k, n)$.}
 
 \sol $4^{14}-1=(2^{14}-1)(2^{14}+1)=0\pmod{29}$. Since $2^{14}-1\neq 0 \pmod{29}$, $2^{14}+1=0\pmod{29}\implies 2^{14}-1=\boxed{27}\pmod{29}$
 
-\prob{3}{CNCM PoTD}{Find the number of positive integer $x$ less than $100$ such that 
+\prob{2}{CNCM PoTD}{Find the number of positive integer $x$ less than $100$ such that 
 $$3^x+5^x+7^x+11^x+13^x+17^x+19^x$$ is prime.}
 
 \sol Considering $\pmod{3}$, we get $3(1)^x+3(-1)^x=0\pmod{3}$ which is impossible as the expression is clearly $>3$. So, $\boxed{0}$.
+
+\prob{3}{HMMT 2018 Feburary}{ There are two prime numbers $p$ so that $5p$ can be expressed in the form $\lfloor \frac{n^2}{5} \rfloor$ for some positive integer $n$. What is the sum of these two prime numbers?
+}
+\sol The two prime numbers are $5$ and $29$, consider $\pmod{25}$. $\boxed{34}$
 
 \prob{4}{SLLKK AIME 2020}{Smush is a huge Kobe Bryant fan. Smush randomly draws n jerseys
 from his infinite collection of Kobe jerseys, each being either the recent \#24 jersey or the
@@ -341,6 +360,10 @@ of which have x-coordinates 20 and 14. Find the x-coordinate of the third inters
 
 \sol Vieta's! 
 
+\prob{3}{AMC 10A 2015/23}{The zeroes of the function $f(x)=x^2-ax+2a$ are integers. What is the sum of the possible values of $a$?}
+
+\sol If the roots are integers, then the discriminant must be a perfect square; otherwise, the roots are irrational. Then, $a^2-8a=n^2$ for some positive integer $n$. This gives $(a-4)^2-n^2=16\implies (a-n-4)(a+n-4)=16$. Note that the sum of the roots is $2a-8$. We have factor pairs $(-16,-1),(-8,-2),(-4,-4),(1,16),(2,8),(4,4)$. Note that if the roots are integers, $a$ must also be a integer because $a$ is the sum of the roots by Vieta's. From this, we get $a=-1, 0, 9, 8$. Trying, we get that all of these work. So, the sum is $\boxed{16}$.
+
 \prob{4}{TAMU 2018}{Suppose $f$ is a cubic polynomial with roots $a,b,c$ such that 
 $$a = \frac{1}{3-bc}$$
 $$b = \frac{1}{5-ac}$$
@@ -388,10 +411,17 @@ the smallest integer $k$ such that r is a root of $x^k = 1$}
 \sol Roots of Unity Filter
 
 \subsection{Manipulation}
+\prob{1}{AMC 10A 2020/7}{The $25$ integers from $-10$ to $14,$ inclusive, can be arranged to form a $5$-by-$5$ square in which the sum of the numbers in each row, the sum of the numbers in each column, and the sum of the numbers along each of the main diagonals are all the same. What is the value of this common sum?}
 
-\prob{2}{PHS HMMT TST 2020}{What is the value of $\frac{\frac{1}{1^2}+\frac{1}{2^2}+\frac{1}{3^2} \cdots}{\frac{1}{1^2}+\frac{1}{3^2}+\frac{1}{5^2}\cdots}$? Remember that $\frac{1}{1^2}+\frac{1}{2^2}\cdots = \frac{\pi^2}{6}$}
+\sol Let the common sum be $s$. Note that if we sum each of the columns, we sum each integer in $-10$ to $14$ exactly once. So, $5s=-10-9-8\cdots +13+14=11+12+13+14=50\implies s=\boxed{10}$.
 
-\sol Notice that every positive integer can be uniquely represented as $2^{k}\cdot o$ for some non-negative $k$ and odd integer $o$. Then, $\frac{1}{1^2}+\frac{1}{2^2}\cdots = (\frac{1}{1^2}+\frac{1}{2^2}+\frac{1}{4^2}\cdots)(\frac{1}{1^2}+\frac{1}{3^2}\cdots) = \frac{4}{3}(\frac{1}{1^2} + \frac{1}{3^2}\cdots)$. So, our answer is $\boxed{\frac{4}{3}}$.
+\prob{1}{2018 AMC 10A/10}{Suppose that real number $x$ satisfies $$\sqrt{49-x^2}-\sqrt{25-x^2}=3.$$ What is the value of $\sqrt{49-x^2}+\sqrt{25-x^2}$?}
+
+\sol Multiplying $(\sqrt{49-x^2}+\sqrt{25-x^2})(\sqrt{49-x^2}-\sqrt{25-x^2}) $ gives $$(49-x^2) - (25-x^2) = 24.$$ We know that $\sqrt{49-x^2}-\sqrt{25-x^2}=3$, so $\sqrt{49-x^2}+\sqrt{25-x^2}$ must be $\frac{24}{3} = \boxed{8}$.
+
+\prob{2}{2018 BmMT}{Let $x$ be a positive real number so that $x - \frac{1}{x} = 1$.  Compute  $x^8 - \frac{1}{x^8}$.}
+
+\sol We square twice to get $x^2+\frac{1}{x^2}=3$ and $x^4+\frac{1}{x^4}=7$. Then, note that $x^8-\frac{1}{x^8}=(x^4-\frac{1}{x^4})(x^4+\frac{1}{x^4})=7(x^2-\frac{1}{x^2})(x^2+\frac{1}{x^2})=21(x-\frac{1}{x})(x+\frac{1}{x})=21(x+\frac{1}{x})=21(x+\frac{1}{x})$. To find $x+\frac{1}{x}$, we set it to a value $n$. $n^2 = x^2 + \frac{1}{x^2} + 2 \implies n^2 = 5$, and we know $x+\frac{1}{x}$ is positive, so $x+\frac{1}{x} = \sqrt{5}$. So, our final answer is $\boxed{21\sqrt{5}}$.
 
 \prob{2}{HMMT November 2013}{Evaluate 
 $$\frac{1}{2-\frac{1}{2-\frac{1}{2- \cdots\frac{1}{2-\frac{1}{2}}}}}$$
@@ -399,10 +429,15 @@ where the digit $2$ appears $2013$ times}
 
 \sol We can do some pattern finding when $2$ appears $n$ times. When $n=1$, this is $\frac{1}{2}$. When $n=2$, this is $\frac{2}{3}$. We conjecture that when $2$ appears $n$ times, the expresion is $\frac{n}{n+1}$. We can prove this by induction. With $2$ appearing $n+1$ times, we have $\frac{1}{2-\frac{1}{2-\frac{1}{2\cdots}}} = \frac{1}{2-\frac{n}{n+1}}=\frac{n+1}{n+2}$.
 
+
 \prob{2}{Mandelbrot}{If $\frac{x^2}{y^2}=\frac{8y}{x}=z$, find the sum of all possible $z$.
 }
 
 \sol Let $\frac{x}{y}=k$. Then, $k^2=\frac{8}{k}\implies k^3 = 8\implies k =2$. Then, $k^2=4$ is only possible $z$. The sum is $\boxed{4}$ 
+
+\prob{2}{AMC 10A 2018/14}{What is the greatest integer less than or equal to\[\frac{3^{100}+2^{100}}{3^{96}+2^{96}}?\]}
+
+\sol Conider $\frac{3^{100}+2^{100}}{3^{96}+2^{96}}=3^4-\frac{3^{4}2^{96}-2^{100}}{3^{96}+2^{96}}$. Clearly, $3^{4}2^{96}>2^{100}$ but $3^{4}2^{96}-2^{100}=(81-16)2^{96}=65\cdot 2^{96}$ is much less than $3^{96}$. So, the expression is less than $81$ but greater than $80$. Our answer is $\boxed{80}$.
 
 \prob{3}{BMT 2016}{Simplify $\frac{1}{\sqrt[3]{81}+\sqrt[3]{72}+\sqrt[3]{64}}$.}
 
@@ -434,7 +469,16 @@ We can see that $\frac{-1 + \sqrt{8057}}{2}>\sqrt{2015}$ and that $\frac{-1-\sqr
 \\
 Then, $\frac{1}{S}=\frac{2}{\sqrt{8061}-\sqrt{8057}}=\frac{\sqrt{8061}+\sqrt{8057}}{2}$. So, $89 < \frac{1}{S} < 90$ so our answer is $\boxed{89}$
 
-\subsection{Telescoping}
+\subsection{Series and Sequences}
+\prob{1}{djmathman Mock AMC 2013/9}{ Let $p$ and $q$ be numbers with  $|p| <1$ and $|q| <1$ such that \[p+pq+pq^2+pq^3 + \dots = 2  ~~\text{and} ~~ q + qp + qp^2 + \dots = 3.\] What is $100pq$?}
+
+\sol Using the formula for an infinite geometric series, we get $\frac{p}{1-q}=2\implies p=2-2q$ and $\frac{q}{1-p}=3\implies q=3-3p\implies p=\frac{3-q}{3}$. So, $\frac{3-q}{3}=2-2q\implies 3-q=6-6q\implies 5q=3\implies q =\frac{3}{5}\implies p =\frac{4}{5}$. Then $100pq=100\cdot \frac{12}{25}=\boxed{48}$.
+
+\prob{1}{PHS HMMT TST 2020}{What is the value of $\frac{\frac{1}{1^2}+\frac{1}{2^2}+\frac{1}{3^2} \cdots}{\frac{1}{1^2}+\frac{1}{3^2}+\frac{1}{5^2}\cdots}$? Remember that $\frac{1}{1^2}+\frac{1}{2^2}\cdots = \frac{\pi^2}{6}$}
+
+\sol Notice that every positive integer can be uniquely represented as $2^{k}\cdot o$ for some non-negative $k$ and odd integer $o$. Then, $\frac{1}{1^2}+\frac{1}{2^2}\cdots = (\frac{1}{1^2}+\frac{1}{2^2}+\frac{1}{4^2}\cdots)(\frac{1}{1^2}+\frac{1}{3^2}\cdots) = \frac{4}{3}(\frac{1}{1^2} + \frac{1}{3^2}\cdots)$. So, our answer is $\boxed{\frac{4}{3}}$.
+
+\subsubsection{Telescoping}
 
 \prob{3}{Purple Comet 2015 HS}{
 $$\left(1 + \frac{1}{1+2^1}\right)\left(1+\frac{1}{1+2^2}\right)\left(1 + \frac{1}{1+2^3}\right)\cdots\left(1 + \frac{1}{1+2^{10}}\right)= \frac{m}{n},$$ where $m$ and $n$ are relatively prime positive integers. Find $m + n$.}
