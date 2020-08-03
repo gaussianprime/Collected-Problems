@@ -1,0 +1,140 @@
+\documentclass[11pt]{article}
+\usepackage{william}
+\title{Collected Problems: Olympiad}
+\author{William Dai}
+\date{Started June 30, 2020}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+This is a collection of some of the olympiad problems that I have done. Because of my inexperience, the difficulty ratings are particularly subjective compared to the list of computational problems. Because of this, there\rq{s}
+\section{Combinatorics}
+\prob{2}{Romania TST}{How many polynomials $P$ with coefficients $0, 1, 2, or 3$ satisfy $P(2) = n$, where $n$ is a given positive
+integer?}
+
+\begin{sol} Generating Functions: You get $\prod_{i=0} \frac{x^{4\cdot 2^{n}}-1}{x^{2^n}-1}= \prod_{i=0} \frac{x^{2^{n+2}}-1}{x^{2^n}-1}=\frac{1}{(x-1)(x^2-1)}=\frac{-\frac{1}{4}}{x-1}+\frac{\frac{1}{2}}{(x-1)^2}+\frac{\frac{1}{4}}{x+1}.$
+\end{sol}
+
+
+\setcounter{problem}{0}
+\section{Number Theory}
+
+\setcounter{problem}{0}
+\section{Algebra}
+
+\subsection{Inequalities}
+\prob{1}{Canada MO 2017}{
+For pairwise distinct nonnegative reals $a,b,c$, prove that
+$$\frac{a^2}{(b-c)^2}+\frac{b^2}{(c-a)^2}+\frac{c^2}{(b-a)^2}>2$$}
+
+\sol WLOG $a<b<c$ and let $b=a+x$ and $c=a+y$. Then
+$$\frac{a^2}{(b-c)^2}+\frac{b^2}{(c-a)^2}+\frac{c^2}{(b-a)^2}$$
+$$=\frac{a^2}{(y-x)^2} + \frac{(a+x)^2}{y^2}+\frac{(b+y)^2}{x^2}$$
+$$\ge \frac{x^2}{y^2}+\frac{y^2}{x^2}\ge 2$$
+by AM-GM
+
+\prob{2}{How should $n$ balls be put into $k$ boxes to mimize the number of pairs of balls which are in the same box?}
+
+\begin{sol}
+Let the number of balls in the  $i$th box be $n_{i}$. Then, $n_{1}+n_{2}\cdots + n_{k}=n$ and we want to minimize $\binom{n_{1}}{2}+\binom{n_{2}}{2}\cdots + \binom{n_{k}}{2}$. If $n_{i}-n_{j}\ge 2$ for some $i,j$, then we can replace $n_{i}$ by $n_{i}-1$ and $n_{j}+1$ (which preserves $n$) and decrease the number of pairs as:
+$$\binom{n_{i}}{2}+\binom{n_{j}}{2} \ge \binom{n_{i}-1}{2} + \binom{n_{j}+1}{2}$$
+$$\iff n_{i}-_{j}-1\ge 0$$
+$$\iff n_{i}-n_{j}\ge 1$$
+which is true.
+
+So, all $n_{i},n_{j}$ are $a,a+1$ for some $n$. Note that one of $a,a+1$ is $\lfloor \frac{k}{n} \rfloor$.
+\end{sol}
+
+\prob{3}{1974 USAMO}{
+For $a,b,c > 0$, prove $a^{a}b^{b}c^{c} \ge (abc)^{\frac{a+b+c}{3}}$.}
+
+\begin{sol}
+$$a^{a}b^{b}c^{c} \ge (abc)^{\frac{a+b+c}{3}}$$
+Taking the natural log of both sides, $$\iff \ln (a^{a}b^{b}c^{c}) \ge \ln((abc)^{\frac{a+b+c}{3}})$$
+$$\iff a\ln a + b\ln b + c\ln c \ge \frac{a+b+c}{3} \ln(abc)$$
+$$\iff \frac{a\ln a + b\ln b + c\ln c}{3} \ge \frac{a+b+c}{3} \ln((abc)^{\frac{1}{3}})$$
+We will show the last inequalty.
+
+Let $f(x)=x \ln x$. Note that $f'(x) = x'\ln(x)+x \ln'(x) = \ln(x)+1$ and $f''(x)=\ln'(x)=\frac{1}{x}\ge 0$ for positive $x$. So, $f(x)$ is convex on positive numbers. By Jensens',
+$$\frac{f(a)+f(b)+f(c)}{3}\ge f(\frac{a+b+c}{3})$$
+$$\frac{a\ln a +  b\ln b + c \ln c}{3} \ge \frac{a+b+c}{3} \ln (\frac{a+b+c}{3})$$.
+Then, by AM-GM, $\frac{a+b+c}{3}\ge \sqrt[3]{abc} = (abc)^{\frac{1}{3}}\implies \ln (\frac{a+b+c}{3}) \ge \ln (abc)^{\frac{1}{3}}$. So, $\frac{a+b+c}{3} \ln(\frac{a+b+c}{3}) \ge \ln((abc)^{\frac{1}{3}})$. Combining the chain of inequalties, we get our desired 
+$$\iff \frac{a\ln a + b\ln b + c\ln c}{3} \ge \frac{a+b+c}{3} \ln((abc)^{\frac{1}{3}})$$
+\end{sol}
+
+\prob{3}{1995 India}{
+Let $x_{1}, \cdots x_{n}$ be positive numbers whose sum is $1$. Prove
+$$\frac{x_{1}}{\sqrt{1-x_{1}}} + \cdots + \frac{x_{n}}{\sqrt{1-x_{n}}} \ge \sqrt{\frac{n}{n-1}}$$}
+
+\begin{sol}
+Let $f(x)=\frac{x}{\sqrt{1-x}}$. Then, note that $f'(x)=\frac{x(\sqrt{1-x})' - x'(\sqrt{1-x})}{(\sqrt{1-x})^2} = \frac{x\cdot \frac{1}{2}\cdot (1-x)^{-\frac{1}{2}} - \sqrt{1-x}}{1-x} = \frac{1}{2}\cdot x \cdot (1-x)^{-\frac{3}{2}} - (1-x)^{\frac{1}{2}}$. and that $f''(x) = \frac{3x}{4}(1-x)^{-\frac{5}{2}} + \frac{1}{4}(1-x)^{-\frac{3}{2}}$. This is positive when $0< x< 1\iff 0< 1-x <1$. So, $f(x)$ is convex on $(0,1)$. 
+
+Since $0<x_{i} <1$, we can apply Jensen's to get 
+$$\frac{f(x_{1})\cdots + f(x_{n})}{n} \ge f(\frac{x_{1}\cdots + x_{n}}{n}) = f(\frac{1}{n})=\frac{\frac{1}{n}}{\sqrt{1-\frac{1}{n}}}=\frac{\frac{1}{\sqrt{n}}}{\sqrt{n-1}}$$
+$$\implies f(x_{1}) \cdots + f(x_{n}) \ge \frac{\sqrt{n}}{\sqrt{n-1}}$$
+$$\frac{x_{1}}{\sqrt{1-x_{1}}} + \cdots + \frac{x_{n}}{\sqrt{1-x_{n}}} \ge \sqrt{\frac{n}{n-1}}$$
+\end{sol}
+
+\prob{3}{1998 USAMO}{
+Let $a_{0},a_{1}\cdots a_{n}$ be numbers from $(0,\frac{\pi}{2}$ such that 
+$$\tan(a_{0}-\frac{\pi}{4})+\tan(a_{1}-\frac{\pi}{4}) \cdots + \tan(a_{n}-\frac{\pi}{4}) \ge n-1$$
+Prove that $$\tan a_{0} \tan a_{1} \cdots \tan a_{n} \ge n^{n+1}$$}
+
+\begin{sol}
+Let $x_{i}=\tan(a_{i}-\frac{\pi}{4})$. Note that $-1\leq x_{i}\leq 1$. The condition translates to $x_{0}\cdots + x_{n} \ge n-1$. 
+
+Also, note that $\tan(a_{i}) = \frac{1+x_{i}}{1-x_{i}}$ using Tangent Addition Formula. Then, 
+$$\tan(a_{0}-\frac{\pi}{4})+\tan(a_{1}-\frac{\pi}{4}) \cdots + \tan(a_{n}-\frac{\pi}{4}) \ge n-1$$
+$$\iff \frac{x_{0}+1}{1-x_{0}}... \cdot (\frac{x_{n}+1}{1-x_{n}} \ge n^{n+1}$$
+$$\iff \ln (\frac{x_{0}+1}{1-x_{0}}\cdots + \frac{x_{n}+1}{1-x_{n}} \ge (n+1) \ln n$$
+$$\iff \frac{1}{n+1}(\ln (\frac{x_{0}+1}{1-x_{0}}\cdots + \ln \frac{x_{n}+1}{1-x_{n}}) \ge \ln n$$
+We will prove this last inequalty.
+
+Let $f(x) = \ln(\frac{x+1}{1-x})$. Note that $f'(x) = \frac{-2(1-x)}{(1+x)}$ and 
+$$f''(x)=\frac{(1-x)(x+1)'-(1-x)'(x+1)}{(x+1)^2} = \frac{1-x -(x+1)}{(x+1)^2} = \frac{-2x}{(x+1)^2}$$. 
+
+So, $f(x)$ is convex on $(0,1]$. So, if all $x_{i}$ are positive, it follows by Jensen's that 
+$$\frac{1}{n+1} (f(x_{0}) \cdots + f(x_{n}) \ge f(\frac{x_{0}\cdots +x_{n}}{n+1})$$
+$$\frac{1}{n+1}(\ln (\frac{x_{0}+1}{1-x_{0}}\cdots + \ln \frac{x_{n}+1}{1-x_{n}}) \ge \ln(\frac{\frac{x_{0}\cdots +x_{n}}{n+1}+1}{1-\frac{x_{0}+\cdots + x_{n}}{n+1}}) \ge \ln(\frac{\frac{n-1}{n+1}+1}{1-\frac{n-1}{n+1}})= \ln n$$
+
+Without loss of generality, $x_{0}\leq x_{1} \ldots \leq x_{n}$. Note that at most one of $x_{i}$'s are negative. Otherwise, it is strictly less than $0+1(n-1)=n-1$. If $x_{0}$ is negative, we can replace $x_{0},x_{1}$ by $\frac{x_{0}+x_{1}}{2}$ which is positive. Otherwise, since sum is preserved and is greater than $n-1$, it is impossible for there to be $2$ or more negatives. Then, we can find that $\frac{1}{n+1}(\ln (\frac{x_{0}+1}{1-x_{0}}\cdots + \ln \frac{x_{n}+1}{1-x_{n}})$ decreases which implies that the minimium of the LHS is when all $x_{i}$'s are negative. We can apply the same reasoning as before.
+\end{sol}
+
+\subsection{Misc}
+
+\prob{3}{M\&IQ 1992}{Prove that there are no positive integers $n,m$ such that 
+$$(3+5\sqrt{2})^n=(5+3\sqrt{2})^m$$}
+
+\setcounter{problem}{0}
+\section{Geometry}
+
+\prob{5}{IMO SL 2005}{
+Let $ABC$ be a triangle such that $M$ is the midpoint of $BC$ and $\gamma$ is the incircle of $ABC$. $AM$ intersects $\gamma$ at points $K$ and $L$. Let lines passing through $K$ and $L$ parallel to $BC$ intersect $\gamma$ again at the points $X$ and $Y$. Let lines $AX$ and $AY$ intersect $BC$ again at points $P$ and $Q$. Prove $BP=CQ$.}
+
+\begin{sol} Note that $BQ=CP \iff QM = PM \iff YL = LZ$ We will show this.
+
+First, note that $\triangle AKX \sim \triangle ALZ\implies \frac{KX}{LZ} = \frac{AK}{AL} (1)$. Also, $AGKL$ is a harmonic bundle by a well-known property as $AF, AE$ are tangents to $\gamma$ and $G,L$ pass through $A$ and $K$ is $GL \cap \gamma$. Then, $\frac{KA}{KG} = \frac{LA}{LG}(2)$. Using (1)+(2), we get $\frac{\frac{AL\cdot KX}{LZ}}{KG} = \frac{LA}{LG} \implies \frac{KX}{LZ} = \frac{KG}{LG}(3)$. Also, let $H=GX \cap YZ$. Then, $\triangle KXG \sim LHG$ as $LH||KX$ and $\angle HGL = \angle KGX$. Then, $\frac{KG}{LG}=\frac{KX}{HL} \implies \frac{KX}{LZ } = \frac{KX}{HZ}$ by $(3)$. Then, this implies $LZ=HL$. We will show $Y=H$. This is equivalent to showing $X,G,Y$ are collinear.
+
+We now prove a lemma: let $ABC$ be a triangle with incircle $\omega$ and incenter $I$. Then, let the tangency points of $\omega$ with $BC,AC,AB$ be $D,E,F$ respectively. Also, let $M$ be the midpoint of $BC$. Then, $AM, EF, ID$ concur.
+
+\begin{proof}
+Let $X=EF \cap ID$. Then, we want to showing $A,X,M$ are collinear. Let $U,V$ be the intersections of the line through $X$ parallel to $BC$ with $AB$ and $AC$ respectively. \footnote{Note that by the converse of the Simpson Line Theorem, since $E,X,F$ are collinear and $IF \perp AB = AU$, $IE \perp AC = AV $, and $IX\perp BC\implies IX\perp UV$ since $BC||UV$, that $I\in (AUV)$.} Then, $\angle IFX = \angle IUX = IUV$ as $XUFI$ is cyclic since $IX\perp BC\implies IX\perp UV\implies IXU = 90$ and $IF\perp AB\implies \angle IFU =90$ This then implies $\angle IFE = \angle IUV$. Also, $IXEV$ is cyclic as $\angle IXV=90$ and $\angle IEV=90$ so $\angle IXV= \angle IEV$, then $\angle IEX=\angle IVX$. Then, this implies $\angle IEF = \angle IVU$. By AA similarity, $\triangle UIV \sim \triangle FIE$. As $\triangle FIE$ is isosceles, then $\triangle UIV$ is isoscles with $UI=UV$. As $IV \perp UV$, then $UX=XV$. So $X$ is midpoint of $UV$ and $X$ is on the median $AM$. We are done.
+\end{proof}
+
+By the lemma, $ID$ goes through $G$. Now, we want to show $\angle GYL = \angle KXG$ which is equivalent to $X,G,Y$ collinear by the converse of Alternate Interior Angles Theorem.  Note that $ID$ bisects $YL$ as $ID\perp BC\implies ID\perp YL$ and $YL$ is a chord of $\gamma$. So, $YD=DL$ and $\triangle GYD \cong \triangle GLD\implies GY=GL$. Then, $\angle GYL = \angle GLY$. By Alternative Interior Angles Theorem and as $K,G,L$ are collinear, $\angle GLX=\angle GKX$. Similarly, letting $ID$ intersect $KX$ at $P$, we have $KP=PX\implies \triangle KPG \cong XPG\implies GK=GX\implies \angle GKX = \angle KXG$. So, using the chain of equalities, we get $\angle GYL = \angle KXG$ which is what we want.  
+\end{sol}
+
+\section{Associated Solutions}
+\subsection{Combinatorics}
+
+\setcounter{problem}{0}
+\subsection{Number Theory}
+
+
+\setcounter{problem}{0}
+\subsection{Algebra}
+
+\setcounter{problem}{0}
+\subsection{Geometry}
+\end{document}
