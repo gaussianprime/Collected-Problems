@@ -50,6 +50,15 @@ person leaves the meeting, the probability that the third, fourth, and ﬁfth pe
 
 \sol Casework on parity of exponent of $2,5,11$. Note that there can't be any $3$ and $7$ can be included or excluded without consequence.
 
+\subsubsection{PIE}
+\prob{1}{}{How many integers from $1$ to $100$ (inclusive) are multiples of $2$ or $3?$}
+
+\sol There are $50$ multiples of $2$ and $33$ multiples of $3$. If and only if a number is both a multiple of $2$ and $3$, then it is a multiple of $6$. There are $16$ multiples of $6$. Our ansewr is $50+33-16=\boxed{67}$.
+
+\prob{1}{AMC 10B 2017/13}{There are $20$ students participating in an after-school program offering classes in yoga, bridge, and painting. Each student must take at least one of these three classes, but may take two or all three. There are $10$ students taking yoga, $13$ taking bridge, and $9$ taking painting. There are $9$ students taking at least two classes. How many students are taking all three classes?}
+
+\sol 
+
 \prob{7}{SLKK AIME 2020}{
 Andy the Banana Thief is trying to hide from Sheriff Buffkin in a row of
 6 distinct houses labeled 1 through 6. Andy and Sheriff Buffkin each pick a permutation
@@ -62,22 +71,67 @@ number of days it takes to catch Andy can be expressed as $\frac{a}{b}$
 for relatively prime positive
 integers $a$ and $b$, find the remainder when $a + b$ is divided by $1000$.}
 
-\sol Casework on day caught and then use complementary PIE.
+\sol Notice that we can fix Sheriff Buffkin's permutation to just be $1,2,3,4,5,6$ because for each of Buffkin's permutation, the probability of being caught on the $n$th day clearly doesn't change. The number of Andy's permutations such that he does get caught is $6!-D_{6}=455$. Then, we do casework on day caught and then use complementary PIE. If he is caught on the $n$th day, the $n$th number inf Andy's permutation is clearly $n$. Then, we do PIE on the number of permutations  such that at least one of the previous numbers are the same. This turns out to be $\binom{n-1}{1}\cdot 4! - \binom{n-1}{2}\cdot 3! + \binom{n-1}{3}\cdot 2! \cdots$. Then, the probability that he is caught on the $n$th day is $\frac{5!-\binom{n-1}{1}\cdot 4! + \binom{n-1}{2}\cdot 3! - \binom{n-1}{3}\cdot 2! \cdots}{6!}$.
+
+Doing the computation for all days, we get $\frac{1331}{455}\implies \boxed{786}$.
 
 \subsection{Perspectives}
+\prob{1}{AIME I 2002/1}{Many states use a sequence of three letters followed by a sequence of three digits as their standard license-plate pattern. Given that each three-letter three-digit arrangement is equally likely, the probability that such a license plate will contain at least one palindrome (a three-letter arrangement or a three-digit arrangement that reads the same left-to-right as it does right-to-left) is $\dfrac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m+n.$}
+
+\sol Calculate the complementary probability. The probability that the three numbers aren't a palindrome is $1\cdot 1\cdot \frac{9}{10}=\frac{9}{10}$. The probability the three lettters aren't a palindrome is $1\cdot 1\cdot \frac{25}{26}=\frac{25}{26}$. Multiplying together, the probability both aren't a palindrome is $\frac{9\cdot 25}{10\cdot 26}=\frac{9\cdot 5}{2\cdot 26}=\frac{45}{52}$. So, our wanted probability is $1-\frac{45}{52}=\frac{7}{52}\implies \boxed{59}$.
+
 \prob{1}{PuMAC 2019}{How many ways can you arrange 3 Alice’s, 1 Bob, 3 Chad’s, and 1 David in a line if the Alice’s
 are all indistinguishable, the Chad’s are all indistinguishable, and Bob and David want to be
 adjacent to each other? (In other words, how many ways can you arrange 3 A’s, 1 B, 3 C’s,
 and 1 D in a row where the B and D are adjacent?)}
+
+\sol Consider BD as one block of E and then multiply by $2!=2$ at the end to permute the B and D's. We want to arrange 3 A's, 1 E, and 3 C's. There are $\frac{7!}{3!3!}=\frac{5040}{6\cdot 6}=140$ such permutations. So, the total number of ways is $\boxed{280}$
 
 \prob{2}{MA$\theta$ 2016}{The product of any two of the elements of the set $\{30, 54, N\}$ is divisible by the third. Find
 the number of possible values of N.}
 
 \sol Consider the primes $2,3,5$ separately and get independent inequalities.
 
+\prob{2}{2017 AMC 10B/17}{Call a positive integer $monotonous$ if it is a one-digit number or its digits, when read from left to right, form either a strictly increasing or a strictly decreasing sequence. For example, $3$, $23578$, and $987620$ are monotonous, but $88$, $7434$, and $23557$ are not. How many monotonous positive integers are there?}
+
+
+\prob{2}{AIME II 2002/9}{Let $\mathcal{S}$ be the set $\lbrace1,2,3,\ldots,10\rbrace$ Let $n$ be the number of sets of two non-empty disjoint subsets of $\mathcal{S}$. (Disjoint sets are defined as sets that have no common elements.) Find the remainder obtained when $n$ is divided by $1000$.}
+
+\sol We count the number of ordered pairs for now and divide by two at the end. For each element, we have $3$ choices: in either of the sets or in neither. But, we also need to subtract off when at least one of the subsets is empty. If at least one is empty, there's $2$ choices for each element. If both are empty, there is $1$ choice for each element. We also have to divide by two in the end to make it unordered (and note that it's impossible for the two sets to be the same). 
+
+$$\frac{3^{10}-2\cdot 2^{10}+1}{2} = \frac{59049-2048+1}{2}=\frac{57002}{2}=28\boxed{501}$$
+
+\prob{2}{AMC 10B 2018/22}{Real numbers $x$ and $y$ are chosen independently and uniformly at random from the interval $[0,1]$. What is the probability that $x,y,$ and $1$ are the side lengths of an obtuse triangle?}
+
+\sol Note that $1>x,y$ so $1$ is opposite the obtuse angle. This gives the inequalty $1>x^2+y^2$. Also, by the Triangle Inequalty, $1 < x+y$. Graphing this, we want the area under the quarter unit circle centered at $(0,0)$ but above the line from $(0,1)$ to $(1,0)$. This has area $\boxed{\frac{\pi-2}{4}}$
+
+\prob{2}{AMC 10B 2020/23}{Square $ABCD$ in the coordinate plane has vertices at the points $A(1,1), B(-1,1), C(-1,-1),$ and $D(1,-1).$ Consider the following four transformations:
+    
+\begin{itemize}
+    \Item $L,$ a rotation of $90^{\circ}$ counterclockwise around the origin;
+
+    \Item $R,$ a rotation of $90^{\circ}$ clockwise around the origin;
+    
+    \Item $H,$ a reflection across the $x$-axis; and
+
+    \Item $V,$ a reflection across the $y$-axis.
+\end{itemize}
+
+Each of these transformations maps the squares onto itself, but the positions of the labeled vertices will change. For example, applying $R$ and then $V$ would send the vertex $A$ at $(1,1)$ to $(-1,-1)$ and would send the vertex $B$ at $(-1,1)$ to itself. How many sequences of $20$ transformations chosen from $\{L, R, H, V\}$ will send all of the labeled vertices back to their original positions? (For example, $R, R, V, H$ is one sequence of $4$ transformations that will send the vertices back to their original positions.)}
+
+\sol Notice that after any sequence of $19$ moves, we have a unique move that takes the square back to its original square. So, the total number of sequences is $4^{19}=\boxed{2^{38}}$.
+
 \prob{3}{BmMT 2014}{If you roll three regular six-sided dice, what is the probability that the three numbers showing
 will form an arithmetic sequence? (The order of the dice does matter, but we count both (1,
 3, 2) and (1, 2, 3) as arithmetic sequences.)}
+
+\sol We count the number of ordered triplets $(a,b,c)$ such that two of the numbers average to the third number. WLOG $a\leq b\leq c$. Note that if $a,b,c$ are distinct, then this corresponds to $6$ ordered triplets. Otherwise, $a=b=c$ and this clearly corresponds to only $1$ ordered triplet.
+
+For the first case, notice that this is identical to choosing two numbers $a,c$ (unordered) and seeing if their average is an integer. This happens if $a,c$ are the same parity. Then, this gives $\binom{3}{2} + \binom{3}{2}=6$ $(a,b,c)$ such that $a\leq b\leq c$. We multiply by $6$ to get the full number of ordered triplets which is $36$.
+
+For the second case, this clearly has $6$ ordered $(a,b,c)$.
+
+Then, our probability is $\frac{42}{216}=\boxed{\frac{7}{36}}$.
 
 \prob{4}{PuMAC 2019}{Keith has 10 coins labeled 1 through 10, where the ith coin has weight $2^i$. The coins are all
 fair, so the probability of flipping heads on any of the coins is $\frac{1}{2}$. After flipping all of the
@@ -103,6 +157,20 @@ denotes the greatest integer less than or equal to the real number y.)}
 \sol Any number with $1$ digits separated by one or more $0$'s  is valid. Notice that for $2015$ through $2047$, the first two digits are $11$ so they are not valid. Casework on number of digits now.
 }
 
+\subsubsection{Stars and Bars}
+
+\prob{1}{AMC 8 2019/25}{Alice has $24$ apples. In how many ways can she share them with Becky and Chris so that each person (include Alice) has at least $2$ apples?}
+
+\sol We have $a+b+c=24$ and $a\ge 2$ while $b,c\ge 0$. Let $a'=a-2$. Then, $a'\ge 0$. We have $a'+b+c=22$. By Stars and Bars, there are $\binom{24}{2}=23\cdot 12=\boxed{276}$ ways to distribute.
+
+\prob{1}{AMC 10A 2003/21}{Pat is to select six cookies from a tray containing only chocolate chip, oatmeal, and peanut butter cookies. There are at least six of each of these three kinds of cookies on the tray. How many different assortments of six cookies can be selected?}
+
+\sol  Let $a,b,c$ be the number of choclate chip, oatmetal, and peanut butter cookies repsecitvely. Then, $a+b+c=6$ has $\binom{8}{2}=\boxed{28}$ distributions.
+
+\prob{1}{AMC 10A 2018/11}{When 7 fair standard 6-sided dice are thrown, the probability that the sum of the numbers on the top faces is 10 can be written as \[\frac{n}{6^7},\]where $n$ is a positive integer. What is $n$?}
+
+\sol Let the $i$th dice roll $x_{i}$. Notice that $x_{i}\ge 1$. Let $x_{i}'=x_{1}-1$. Then, $x_{1}+x_{2}\cdots + x_{7}=10\implies x_{1}+x_{2}\cdots + x_{7}=3$ has $\binom{9}{6}=\boxed{84}$ distributions. Note that it is impossible for any of the $x_{i}$'s to exceed $6$.
+
 \subsubsection{Expected Value}
 
 \prob{5}{SLKK AIME 2020}{
@@ -119,8 +187,6 @@ relatively prime positive integers a and b, find the remainder when $a+b$ is div
 probability 2/9, 1 unit right with probability 2/9, 1 unit up and 1 unit right with probability
 4/9, and he doesn’t move with probability 1/9. After 2019 seconds, Marko ends up on the
 point (A, B). What is the expected value of A · B?}
-
-\sol 
 
 \prob{6}{PuMAC 2019}{Kelvin and Quinn are collecting trading cards; there are 6 distinct cards that could appear
 in a pack. Each pack contains exactly one card, and each card is equally likely. Kelvin buys
@@ -161,27 +227,27 @@ $$ab+bc=44$$
 $$ac+bc=23$$}
 
 \prob{2}{PHS ARML TST 2017}{Compute the greatest prime factor of 
-$$3^8+2\cdot 2^4\cdot 4^4+2^{16}$$}
+$$3^8+2\cdot 3^4\cdot 4^4+2^{16}$$}
 
-\sol Let $3^4=x$ and $4^4=y$. Then, this is just $x^2+2xy+y^2=(x+y)^2$.
+\sol Let $3^4=x$ and $4^4=y$. Then, this is just $x^2+2xy+y^2=(x+y)^2$. So, it is $(81+256)^2=(337)^2$. Note that $337$ is prime as it is not divisible by $2,3,5,7,11,13,17$. So, the greatest prime factor is $\boxed{337}$.
 
 \prob{2}{HMMT November 2014}{Compute the greatest common divisor of $4^8 - 1$ and $8^{12} - 1$}
 
 \prob{3}{MA$\theta$ 2018}{The number $1 \cdot 1! + 2 \cdot 2! + 3 \cdot 3! +\cdots + 100 \cdot 100!$ ends with a string of 9s. How many
 consecutive 9s are at the end of the number?}
 
-\sol $n\cdot n! = (n+1)!-n!$, then telescope to get $101!-1!$. How many $0$'s does $101!$ have?
+\sol $n\cdot n! = (n+1)!-n!$, then telescope to get $101!-1!$. Then, we are finding how many $0$'s does $101!$ have at the end which is equivalent to the number of factors of $10$. The number of factors of $10$ is equivalent to the number of factors of $5$. By Legendre's, there are $20+4=\boxed{24}$ 5's.
 
 \prob{5}{BMT 2015}{There exists a unique pair of positive integers k, n such that k is divisible by 6, and $\sum_{i=1}^{k} i^2 = n^2$.
 Find $(k, n)$.}
 
-\sol You get $k\cdot (6k+1)\cdot (12k+1)=n^2$. All of these are pairwise coprime so each are squares. Trying out the first couple of squares for $k$, we get $k=4$ is a solution. Having both $b^2=6a^2+1$ and $c^2=12a^2+1$ be squares is not possible for larger $a$.
+\sol You get $k\cdot (6k+1)\cdot (12k+1)=n^2$. All of these are pairwise coprime so each are squares. Trying out the first couple of squares for $k$, we get $k=4$ is a solution. $k=4$ gives $2^2\cdot 5^2\cdot 7^2=n^2\implies n = 70$. Having both $b^2=6a^2+1$ and $c^2=12a^2+1$ be squares is not possible for larger $a$. So, our only solution is $\boxed{(4,70)}$.
  
 \subsection{Modulo}
 
 \prob{1}{MA$\theta$ 2018}{The number $4^{14}-1$ is divisible by $29$ but $2^{14}-1$ is not. What is the remainder when $2^{14}-1$ is divided by $29$?}
 
-\sol $4^{14}-1=(2^{14}-1)(2^{14}+1)=0\pmod{29}$. Since $2^{14}-1\neq 0 \pmod{29}$, $2^{14}+1=0\pmod{29}\implies 2^{14}-1=27\pmod{29}$
+\sol $4^{14}-1=(2^{14}-1)(2^{14}+1)=0\pmod{29}$. Since $2^{14}-1\neq 0 \pmod{29}$, $2^{14}+1=0\pmod{29}\implies 2^{14}-1=\boxed{27}\pmod{29}$
 
 \prob{3}{CNCM PoTD}{Find the number of positive integer $x$ less than $100$ such that 
 $$3^x+5^x+7^x+11^x+13^x+17^x+19^x$$ is prime.}
@@ -325,23 +391,37 @@ the smallest integer $k$ such that r is a root of $x^k = 1$}
 
 \prob{2}{PHS HMMT TST 2020}{What is the value of $\frac{\frac{1}{1^2}+\frac{1}{2^2}+\frac{1}{3^2} \cdots}{\frac{1}{1^2}+\frac{1}{3^2}+\frac{1}{5^2}\cdots}$? Remember that $\frac{1}{1^2}+\frac{1}{2^2}\cdots = \frac{\pi^2}{6}$}
 
+\sol Notice that every positive integer can be uniquely represented as $2^{k}\cdot o$ for some non-negative $k$ and odd integer $o$. Then, $\frac{1}{1^2}+\frac{1}{2^2}\cdots = (\frac{1}{1^2}+\frac{1}{2^2}+\frac{1}{4^2}\cdots)(\frac{1}{1^2}+\frac{1}{3^2}\cdots) = \frac{4}{3}(\frac{1}{1^2} + \frac{1}{3^2}\cdots)$. So, our answer is $\boxed{\frac{4}{3}}$.
+
 \prob{2}{HMMT November 2013}{Evaluate 
 $$\frac{1}{2-\frac{1}{2-\frac{1}{2- \cdots\frac{1}{2-\frac{1}{2}}}}}$$
 where the digit $2$ appears $2013$ times}
 
+\sol We can do some pattern finding when $2$ appears $n$ times. When $n=1$, this is $\frac{1}{2}$. When $n=2$, this is $\frac{2}{3}$. We conjecture that when $2$ appears $n$ times, the expresion is $\frac{n}{n+1}$. We can prove this by induction. With $2$ appearing $n+1$ times, we have $\frac{1}{2-\frac{1}{2-\frac{1}{2\cdots}}} = \frac{1}{2-\frac{n}{n+1}}=\frac{n+1}{n+2}$.
+
 \prob{2}{Mandelbrot}{If $\frac{x^2}{y^2}=\frac{8y}{x}=z$, find the sum of all possible $z$.
 }
 
-\prob{3}{MA$\theta$ 2018}{The solutions to $3\sqrt{2x^2-5x-3}+2x^2-5x=7$ can be written in the form $x=\frac{a \pm \sqrt{b}}{c}$ where $a,b,c$ are positive integers and $x$ is in simplest form. Find $a+b+c$.}
+\sol Let $\frac{x}{y}=k$. Then, $k^2=\frac{8}{k}\implies k^3 = 8\implies k =2$. Then, $k^2=4$ is only possible $z$. The sum is $\boxed{4}$ 
 
 \prob{3}{BMT 2016}{Simplify $\frac{1}{\sqrt[3]{81}+\sqrt[3]{72}+\sqrt[3]{64}}$.}
+
+\sol Let $\sqrt[3]{8}=a$ and $\sqrt[3]{9}=b$. Then, it is equivalent to $\frac{1}{a^2+ab+b^2}=\frac{a-b}{a^3-b^3}=\boxed{\sqrt[3]{9}-\sqrt[3]{8}}$.
+
+\prob{3}{MA$\theta$ 2018}{The solutions to $3\sqrt{2x^2-5x-3}+2x^2-5x=7$ can be written in the form $x=\frac{a \pm \sqrt{b}}{c}$ where $a,b,c$ are positive integers and $x$ is in simplest form. Find $a+b+c$.}
+
+\sol Subsitute $\sqrt{2x^2-5x-3}=y$. We get $3y+y^2+3=7\implies y^2+3y-4=\implies (y+4)(y-1)$. Since $y$ is positive, $y=1$. Then, $2x^2-5x-3=1\implies 2x^2-5x-4=0$. By the Quadratic Formula, we get $x=\frac{5 \pm \sqrt{57}}{4}$. We get $5+57+4=\boxed{66}$ as our answer.
 
 \prob{3}{Mandelbrot Nationals 2008}{
 Find the positive real number $x$ for which $5\sqrt{1-x}+5\sqrt{1+x}=7\sqrt{2}$.}
 
+\sol Let $\sqrt{1-x}=a$ and $\sqrt{1+x}=b$. We get $5a+5b=7\sqrt{2}\implies a+b=\frac{7\sqrt{2}}{5}\implies a^2+2ab+b^2 = \frac{98}{25}$. We also have $a^2+b^2=2$. So, $ab=\frac{24}{25}\implies \sqrt{1-x^2}=\frac{24}{25}\implies 1-x^2=\frac{576}{625}$. This gives $x=\boxed{\frac{7}{25}}$.
+
 \prob{4}{2014 November HMMT}{ Let $a, b, c, x$ be reals with $(a + b)(b + c)(c + a) \neq 0$ that satisfy
 $$\frac{a^2}{a+b}=\frac{a^2}{a+c}+20, \frac{b^2}{b+c}=\frac{b^2}{b+a} + 14 \text{, and } \frac{c^2}{c+a}=\frac{c^2}{c+b}+x$$
 Compute $x$.}
+
+\sol Notice that $\frac{a^2}{a+b}=\frac{a^2}{a+c}+20\implies \frac{a^2(a+c)-a^2(a+b)}{(a+b)(a+c)}=20\implies \frac{a^2(c-b)}{(a+b)(a+c)}=20$. Similarily, $\frac{b^2(a-c)}{(b+c)(b+a)}=14$ and $\frac{c^2(b-a)}{(c+a)(c+b)}=x$. Summing, we get $\frac{a^{2}(c^2-b^2)+b^{2}(a^2-c^2)+c^2(b^2-a^2)}{(a+b)(b+c)(c+a)}=0=34+x\implies x = \boxed{-34}$.
 
 \prob{5}{Math Prizes For Girls 2015}{
 Let $S$ be the sum of all distinct real solutions of the equation 
@@ -556,6 +636,8 @@ Suppose you have a $20 \times 16$ bar of chocolate squares. You want to break th
 chunks, so that after some sequence of breaks, no piece has an area of more than 5. What is the
 minimum possible number of times that you must break the bar?}
 
+\sol By the Pigeon Hole Principle, at the end, there should be at least $\frac{320}{5}=64$ pieces. It takes at least $63$ moves to break it into $64$ pieces as each move creates one more piece. We can also construct a sequence of moves by noticing that this is equalty case of the Pigeon Hole Principle so each piece must have exactly $5$ squares. Break it into $16$ of $20\times 1$ pieces. This uses $15$ moves. Then, break each of those pieces into $4$ of $5\times 1$ pieces. This uses $3\cdot 16=48$ moves. So, our answer is $\boxed{63}$
+
 \prob{3}{BMT 2015}{Two players play a game with a pile with N coins is on a table. On a player’s turn, if there
 are n coins, the player can take at most $\frac{n}{2} + 1$ coins, and must take at least one coin. The
 player who grabs the last coin wins. For how many values of N between 1 and 100 (inclusive)
@@ -574,13 +656,15 @@ Carl: Exactly one of us is telling the truth.
 Dave: The person who has the coin is male.
 \end{center}}
 
-\sol Analyzing, Carl must be lying since if he was telling the truth, everyone else are lying which means Alice can't have the coin but the person who has the coin isn't male which is a contradiction. Also note that all of them can't be lying by similar reasoning. So, either two, three, or four are telling the truth. Four telling the truth is impossible as Carl's statement is false. Three telling the truth means everyone but Carl is telling the truth which is impossible as Alice and Dave's statements conflict. So, two must be telling the truth. Dave's and Alice's statements are true if and only if the other is false. If Dave is false and Alice is true, then Bob must also be false which is a contradiction to the fact two are telling the truth. If Dave is true and Alice is false, then Bob must be telling the truth and Carl has the coin. This is the only possible case.
+\sol Analyzing, Carl must be lying since if he was telling the truth, everyone else are lying which means Alice can't have the coin but the person who has the coin isn't male which is a contradiction. Also note that all of them can't be lying by similar reasoning. So, either two, three, or four are telling the truth. Four telling the truth is impossible as Carl's statement is false. Three telling the truth means everyone but Carl is telling the truth which is impossible as Alice and Dave's statements conflict. So, two must be telling the truth. Dave's and Alice's statements are true if and only if the other is false. If Dave is false and Alice is true, then Bob must also be false which is a contradiction to the fact two are telling the truth. If Dave is true and Alice is false, then Bob must be telling the truth and \boxed{Carl} has the coin. This is the only possible case.
 
 \prob{4}{Berkeley Math Circle 2013}{
 Ten people sit side by side at a long table, all facing the same direction. Each of them is either a knight (and always
 tells the truth) or a knave (and always lies). Each of the people announces: “There are more knaves on my left than
 knights on my right.” How many knaves are in the line?
 }
+
+\sol $5$ knaves on the left, $5$ knights on the right gives a valid solution. So, $\boxed{5}$.
 \section{Associated Solutions}
 \subsection{Combinatorics}
 
