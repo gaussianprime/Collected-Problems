@@ -28,11 +28,26 @@ integer?}
 For pairwise distinct nonnegative reals $a,b,c$, prove that
 $$\frac{a^2}{(b-c)^2}+\frac{b^2}{(c-a)^2}+\frac{c^2}{(b-a)^2}>2$$}
 
-\sol WLOG $a<b<c$ and let $b=a+x$ and $c=a+y$. Then
+\begin{sol} WLOG $a<b<c$ and let $b=a+x$ and $c=a+y$. Then
 $$\frac{a^2}{(b-c)^2}+\frac{b^2}{(c-a)^2}+\frac{c^2}{(b-a)^2}$$
 $$=\frac{a^2}{(y-x)^2} + \frac{(a+x)^2}{y^2}+\frac{(b+y)^2}{x^2}$$
 $$\ge \frac{x^2}{y^2}+\frac{y^2}{x^2}\ge 2$$
 by AM-GM
+\end{sol}
+
+\prob{1}{Canada MO 2002}{Let a, b, c be positive reals. Prove
+$$\frac{a^3}{bc}+\frac{b^4}{ac}+\frac{c^4}{bc} \ge a + b + c.$$}
+
+\begin{sol}
+$$\frac{a^3}{bc}+\frac{b^4}{ac}+\frac{c^4}{bc} \ge a + b + c$$
+$$\iff a^4+b^4+c^4 \ge a^2bc+b^2ac+c^2bc$$ after multiplying by $abc$ on both sides.
+We will show this last inequality.
+
+Then, note that by Weighted AM-GM, $2a^4+b^4+c^4\ge 4a^2bc$. Similarily, $2b^4+a^2+c^2\ge 4b^2ac$ and $2c^2+a^2+b^2\ge 4c^2ab$. Then,
+$$4a^4+4b^4+c^4\ge 4a^2bc+4b^2ac+4c^2ab$$
+$$\iff a^4+b^4+c^4\ge a^2bc+b^2ac+c^2ab$$
+so it is true.
+\end{sol}
 
 \prob{2}{How should $n$ balls be put into $k$ boxes to mimize the number of pairs of balls which are in the same box?}
 
@@ -100,6 +115,7 @@ $$\frac{1}{n+1}(\ln (\frac{x_{0}+1}{1-x_{0}}\cdots + \ln \frac{x_{n}+1}{1-x_{n}}
 
 Without loss of generality, $x_{0}\leq x_{1} \ldots \leq x_{n}$. Note that at most one of $x_{i}$'s are negative. Otherwise, it is strictly less than $0+1(n-1)=n-1$. If $x_{0}$ is negative, we can replace $x_{0},x_{1}$ by $\frac{x_{0}+x_{1}}{2}$ which is positive. Otherwise, since sum is preserved and is greater than $n-1$, it is impossible for there to be $2$ or more negatives. Then, we can find that $\frac{1}{n+1}(\ln (\frac{x_{0}+1}{1-x_{0}}\cdots + \ln \frac{x_{n}+1}{1-x_{n}})$ decreases which implies that the minimium of the LHS is when all $x_{i}$'s are negative. We can apply the same reasoning as before.
 \end{sol}
+
 
 \subsection{Misc}
 
