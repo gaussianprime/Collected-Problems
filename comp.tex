@@ -307,9 +307,16 @@ Let $3^4=x$ and $4^4=y$. Then, this is just $x^2+2xy+y^2=(x+y)^2$. So, it is $(8
 
 \prob{2}{HMMT November 2014}{Compute the greatest common divisor of $4^8 - 1$ and $8^{12} - 1$}
 
+\prob{2}{BMT 2018}{. Suppose for some positive integers, that $\frac{p+\frac{1}{q}}{q+\frac{1}{p}}=17$. What is the greatest integer $n$ such that $\frac{p+q}{n}$
+is always an integer?}
+
+\begin{sol}
+$\frac{p+\frac{1}{q}}{q+\frac{1}{p}}=\frac{p}{q}\implies p=17q$. Then $\frac{p+q}{n}=\frac{18p}{n}$. So, $n=\boxed{18}$.
+\end{sol}
+
+\prob{2}{BMT 2018}{How many multiples of 20 are also divisors of 17!?}
 
 \prob{3}{HMMT Feburary 2018}{Distinct prime numbers $p,q,r$ satisfy the equation $$2pqr + 50pq = 7pqr + 55pr = 8pqr + 12qr  =A$$ for some positive integer $A$. What is $A$?}
-
 
 \prob{3}{MA$\theta$ 2018}{The number $1 \cdot 1! + 2 \cdot 2! + 3 \cdot 3! +\cdots + 100 \cdot 100!$ ends with a string of 9s. How many
 consecutive 9s are at the end of the number?}
@@ -339,10 +346,23 @@ $4^{14}-1=(2^{14}-1)(2^{14}+1)=0\pmod{29}$. Since $2^{14}-1\neq 0 \pmod{29}$, $2
 We have $n=100q+r\implies n\pmod{11}=q+r$. So, $q+r=0\pmod{11}\iff n=0\pmod{11}$. The smallest 5-digit multiple of $11$ is $10010$ and the largest is $99990$. So, there are $\frac{99990-10010}{11}+1=9090-910+1=\boxed{8181}$.
 \end{sol}
 
+\prob{1}{BMT 2018}{Find the minimal $N$ such that any $N$-element subset of \{1, 2, 3, 4, . . . 7\} has a subset $S$ such that
+the sum of elements of $S$ is divisible by $7$.}
+
+\begin{sol}
+First, note that $N\leq 4$. Any $4$-element subset has all of at least one of the following: $\{1,6\},\{2,5\},\{3,4\},\{7\}$ by the Pigeonhole Principle. So, any $4$-element subset has a subset that has a sum divisible by $7$. Also, note $N>3$ because of the counterexample: $6,5,4$. So, $N=\boxed{4}$. 
+\end{sol}
+
 \prob{2}{AMC 10B 2019/14}{The base-ten representation for $19!$ is \[121,6T5,100,40M,832,H00,\] where $T$, $M$, and $H$ denote digits that are not given. What is $T+M+H$?}
 
 \begin{sol}
 Also, $19!=0\pmod{125}$ by Legendre's so $H=0$. Note that $19!=0\pmod{9}$ so $T+M+H+33=0\pmod{9}\implies T+M+H=3\pmod{9}\implies T+M=3\pmod{9}\implies T+M=3,12$.  We also have $19!=0\pmod{11}\implies H-2+3-8+M-0+4-0+0-1+5-T+6-1+2-1=0\pmod{11}\implies H+M-T+7=0\pmod{11}\implies H+M-T=4\pmod{11}\implies M-T=4\pmod{11}\implies M-T=4$ since $0\leq M,T\leq 9$. Notice that $T+M=3$ is impossible then. So, $T+M=12\implies H+T+M=\boxed{12}$
+\end{sol}
+
+\prob{2}{BMT 2018}{What is the remainder when $201820182018\ldots$ [2018 times] is divided by $15$?}
+
+\begin{sol}
+Let $N=201820182018\ldots$ [2018 times]. We will find $N\pmod{3}$ and $N\pmod{5}$ and then use CRT. Clearly, $N\pmod{5}=3$. Also, $N\pmod{3}=2018\cdot 2018=(-1)^2=1$. Then, $N\pmod{15}=\boxed{13}$.
 \end{sol}
 
 \prob{2}{CNCM PoTD}{Find the number of positive integer $x$ less than $100$ such that 
@@ -364,21 +384,57 @@ Notice that $n^3=n\pmod{2}$ and that $n^3=n\pmod{3}$ by Euler's Totient Theorem.
 We have two cases: $ad$ is even and $bc$ is odd or $ad$ is odd and $bc$ is even. If $ad$ is even, then we can do complementary counting and get $4^{2}-2^{2}=12$ ways for $(a,d)$. This is because if $ad$ was odd, this is equivalent to both $a,d$ being odd. If $bc$ is odd, we get $2^{2}=4$ ways for $(b,c)$.  The other case follows similarily. Altogether, are $2\cdot 12\cdot 4=\boxed{96}$ such $(a,b,c,d)$.
 \end{sol}
 
-\prob{3}{HMMT 2018 Feburary}{ There are two prime numbers $p$ so that $5p$ can be expressed in the form $\lfloor \frac{n^2}{5} \rfloor$ for some positive integer $n$. What is the sum of these two prime numbers?
+\prob{3}{HMMT Feburary 2018}{ There are two prime numbers $p$ so that $5p$ can be expressed in the form $\lfloor \frac{n^2}{5} \rfloor$ for some positive integer $n$. What is the sum of these two prime numbers?
 }
 
 \begin{sol}
 The two prime numbers are $5$ and $29$, consider $\pmod{25}$. $\boxed{34}$
 \end{sol}
 
+
+\prob{3}{BMT 2019}{Compute the remainder when the product of all positive integers less than and relatively prime
+to 2019 is divided by 2019.}
+
+\prob{4}{BMT 2018}{If $r_{i}$ are integers such that $0 \leq r_{i} < 31$ and $r_{i}$ satisfies the polynomial $x^4 + x^3 + x^2 + x\equiv 30 \pmod{31}$, find 
+$$\sum_{i=1}^{4}(r_{i}^2 + 1)^{-1} \pmod{31}.$$ 
+where $x^{-1}$ is the modulo inverse of $x$, that is, it is the unique integer y such that $0 < y < 31$
+and $xy - 1$ is divisible by $31$.}
+
+\begin{sol}
+Note that $x^4+x^3+x^2+x\equiv 30 \pmod{31}\iff x^4+x^3+x^2+x+1 \equiv 0\pmod{31}\iff \frac{x^5-1}{x-1}\equiv 0\pmod{31}$. So, $r_{i}$ are the roots of $x^{5}-1\equiv 0\pmod{31}$ except for $1$. Note that $31=2^{5}-1\implies 2^{5}\equiv 1\pmod{31}$. So, $2$ is a root. Then, $2^{2}=4,2^{3}=8,2^{4}=16$ are also roots. 
+
+Now, we want to compute
+$$\frac{1}{5}+\frac{1}{17}+\frac{1}{65}+\frac{1}{257}$$
+$$=\frac{1}{5}+\frac{1}{17}+\frac{1}{3}+\frac{1}{9}$$
+$$=\frac{1}{5}+\frac{1}{9}+\frac{1}{17}+\frac{1}{3}$$
+$$=\frac{14}{45}+\frac{20}{51}$$
+$$=\frac{14}{14}+\frac{20}{20}$$
+$$=1+1$$
+$$=\boxed{2}$$
+
+\end{sol}
 \prob{4}{SLLKK AIME 2020}{Smush is a huge Kobe Bryant fan. Smush randomly draws n jerseys
 from his infinite collection of Kobe jerseys, each being either the recent \#24 jersey or the
 throwback \#8 jersey with equal probability. Let $p(n)$ be the probability that Smush can
 divide the $n$ jerseys into two piles such that the sum of all jersey numbers in each pile is
 the same. If}
 
-\prob{5}{BMT 2019}{Compute the remainder when the product of all positive integers less than and relatively prime
-to 2019 is divided by 2019.}
+\prob{5}{BMT 2018}{Ankit wants to create a pseudo-random number generator using modular arithmetic. To do so
+he starts with a seed $x_{0}$ and a function $f(x) = 2x + 25 \pmod{31}$. To compute the kth pseudo
+random number, he calls $g(k)$ defined as follows:
+
+$$g(k) = \begin{cases}
+x_{0} & \text{if } k = 0 \\
+f(g(k - 1)) & \text{if } k > 0 
+\end{cases}$$
+
+If $x_{0}$ is $2017$, compute $\sum_{
+j=0}^{2017} g(j) \pmod{31}$.
+}
+
+\begin{sol}
+$\boxed{21}$
+\end{sol}
 
 \prob{5}{PHS HMMT TST 2020}{Find the largest integer $0 < n < 100$ such that $n^2 + 2n$ divides $4(n-1)! + n + 4$.}
 
@@ -389,6 +445,18 @@ The largest twin primes in the range are $\boxed{71},73$.
 \end{sol}
 
 \prob{7}{HMMT November 2014}{Suppose that $m$ and $n$ are integers with $1 \leq m \leq 49$ and $n \ge 0$ such that $m$ divides $n^{n+1} + 1$. What is the number of possible values of $m$?}
+
+
+\prob{7}{BMT 2018}{How many $1 < n \leq 2018$ such that the set $\{0, 1, 1+2, \ldots, 1+2+3+\cdots+i, \ldots , 1+2+\cdots+n-1\}$
+is a permutation of $\{0, 1, 2, 3, 4, \cdots , n - 1\}$ when reduced modulo $n$?}
+
+\begin{sol}
+Only $2^{k}$ works so $\boxed{10}$.
+\end{sol}
+
+\prob{8}{BMT 2018}{ Compute the following:
+$$\sum_{i=0}^{99} (x^2+1)^{-1} \pmod{199}$$
+where $x^{-1}$ is the value $0 \leq y \leq 199$ such that $xy - 1$ is divisible by 199}
 
 \prob{9}{SLKK AIME 2020}{: Let p = 991 be a prime. Let S be the set of all lattice points $(x, y)$,
 with $1 \leq x, y \leq p - 1$. On each point $(x, y)$ in S, Olivia writes the number $x^2 + y^2$. Let
@@ -413,7 +481,6 @@ numbers from the sequence $3^{0},3^{1},3^{2}\cdots$?}
 \prob{6}{HMMT November 2014}{For any positive integers $a$ and $b$, define $a \oplus b$ to be the result when adding a to b in binary (base 2), neglecting any carry-overs. For example, $20 \oplus 14 = 101002 \oplus 11102 = 110102 = 26$. (The operation $\oplus$ is called the exclusive or.) Compute the sum
 $$\sum_{k=0}^{2^{2014}-1} (k\oplus \lfloor \frac{k}{2} \rfloor)$$}
 
-\subsection{Sum of Digits}
 \prob{3}{CNCM Online Round 1}{Akshar is reading a 500 page book, with odd numbered pages on the left, and even
 numbered pages on the right. Multiple times in the book, the sum of the digits of the two opened pages
 are 18. Find the sum of the page numbers of the last time this occurs.}
@@ -908,17 +975,4 @@ knights on my right.” How many knaves are in the line?
 \begin{sol}
 $5$ knaves on the left, $5$ knights on the right gives a valid solution. So, $\boxed{5}$.
 \end{sol}
-
-\section{Associated Solutions}
-\subsection{Combinatorics}
-
-\setcounter{problem}{0}
-\subsection{Number Theory}
-
-
-\setcounter{problem}{0}
-\subsection{Algebra}
-
-\setcounter{problem}{0}
-\subsection{Geometry}
 \end{document}
