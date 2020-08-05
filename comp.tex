@@ -454,11 +454,15 @@ is a permutation of $\{0, 1, 2, 3, 4, \cdots , n - 1\}$ when reduced modulo $n$?
 Only $2^{k}$ works so $\boxed{10}$.
 \end{sol}
 
+\prob{8}{BMT 2018}{Determine the number of ordered triples $(a, b, c)$, with $0 \leq a, b, c \leq 10$ for which there exists
+$(x, y)$ such that $ax^2 + by^2 \equiv c (mod 11)$
+}
+
 \prob{8}{BMT 2018}{ Compute the following:
 $$\sum_{i=0}^{99} (x^2+1)^{-1} \pmod{199}$$
 where $x^{-1}$ is the value $0 \leq y \leq 199$ such that $xy - 1$ is divisible by 199}
 
-\prob{9}{SLKK AIME 2020}{: Let p = 991 be a prime. Let S be the set of all lattice points $(x, y)$,
+\prob{10}{SLKK AIME 2020}{: Let p = 991 be a prime. Let S be the set of all lattice points $(x, y)$,
 with $1 \leq x, y \leq p - 1$. On each point $(x, y)$ in S, Olivia writes the number $x^2 + y^2$. Let
 $f(x, y)$ denote the product of the numbers written on all points in S that share at least
 one coordinate with (x, y). Find the remainder when
@@ -800,6 +804,7 @@ compute $(ab + bc + ca)^2$}
 \section{Geometry}
 
 \subsection{Coordinate Geometry}
+
 \prob{1}{BmMT 2014}{Find the area of the convex quadrilateral with vertices at the points $(-1, 5),(3, 8),(3, -1)$,
 and $(-1, -2)$.}
 
@@ -835,9 +840,28 @@ by the square of a prime, find $m + n + p$
 }
 
 \subsection{3D Geometry}
+\prob{1}{AMC 12A 2009/5}{One dimension of a cube is increased by $1$, another is decreased by $1$, and the third is left unchanged. The volume of the new rectangular solid is $5$ less than that of the cube. What was the volume of the cube?}
+
+\prob{1}{AMC 12A 2008/8}{What is the volume of a cube whose surface area is twice that of a cube with volume 1?}
+
+\prob{1}{BMT 2018}{A cube has side length $5$. Let $S$ be its surface area and $V$ its volume. Find $\frac{S^3}{V^2}$.}
+
+\prob{2}{AMC 12B 2008/18}{On a sphere with a radius of $2$ units, the points $A$ and $B$ are $2$ units away from each other. Compute the distance from the center of the sphere to the line segment $AB.$}
+
+\prob{2}{AMC 12B 2005/16}{Eight spheres of radius 1, one per octant, are each tangent to the coordinate planes. What is the radius of the smallest sphere, centered at the origin, that contains these eight spheres?}
+
+\prob{3}{AIME 1984/9}{In tetrahedron $ABCD$, edge $AB$ has length 3 cm. The area of face $ABC$ is $15\mbox{cm}^2$ and the area of face $ABD$ is $12 \mbox { cm}^2$. These two faces meet each other at a $30^\circ$ angle. Find the volume of the tetrahedron in $\mbox{cm}^3$.}
+
 \prob{4}{HMMT February 2014}{Let $C$ be a circle in the $xy$ plane with radius 1 and center $(0, 0, 0)$, and let P be a point in space
 with coordinates $(3, 4, 8)$. Find the largest possible radius of a sphere that is contained entirely in the
 slanted cone with base C and vertex P.}
+
+\subsection{Inequalties}
+\prob{3}{BMT 2018}{If $A$ is the area of a triangle with perimeter $1$, what is the largest possible value of $A^2$?}
+
+\begin{sol}
+Using Heron's Formula and a smooth argument gives that an equilaterial triangle gives the largest area. 
+\end{sol}
 
 \subsection{General}
 \prob{1}{MA$\theta$ 2018}{A parallelograms has diagonals of length $10$ and $20$. Find the area inclosed by the circle inscribed in the parallelogram.
@@ -850,6 +874,17 @@ $\angle BAC$.}
 \prob{1}{PHS PuMAC TST 2017}{In triangle $ABC$, let $D$ and $E$ be the midpoints of $BC$ and $AC$. Suppose $AD$ and $BE$ meet at $F$. If
 the area of $\triangle DEF$ is $50$, then what is the area of $\triangle CDE$?}
 
+\prob{1}{AMC 10A 2019/13}{Let $\triangle ABC$ be an isosceles triangle with $BC = AC$ and $\angle ACB = 40^{\circ}$. Construct the circle with diameter $\overline{BC}$, and let $D$ and $E$ be the other intersection points of the circle with the sides $\overline{AC}$ and $\overline{AB}$, respectively. Let $F$ be the intersection of the diagonals of the quadrilateral $BCDE$. What is the degree measure of $\angle BFC?$}
+
+\prob{2}{AMC 10B 2011/17}{In the given circle, the diameter $\overline{EB}$ is parallel to $\overline{DC}$, and $\overline{AB}$ is parallel to $\overline{ED}$. The angles $AEB$ and $ABE$ are in the ratio $4 : 5$. What is the degree measure of angle $BCD?$}
+
+\prob{2}{Brazil 2007}{Let $ABC$ be a triangle with circumcenter $O$. Let $P$ be the intersection of straight lines $BO$ and $AC$ and $\omega$ be the circumcircle of triangle $AOP$. Suppose that $BO = AP$ and that the measure of the arc $OP$ in $\omega$, that does not contain $A$, is $40^{\circ}$. Determine the measure of the angle $\angle OBC$.}
+
+\prob{2}{BMT 2018}{A $1$ by $1$ square ABCD is inscribed in the circle $m$. Circle $n$ has radius $1$ and is centered around
+$A$. Let $S$ be the set of points inside of $m$ but outside of $n$. What is the area of $S$?}
+
+\prob{2}{AMC 10B 2011/18}{Rectangle $ABCD$ has $AB = 6$ and $BC = 3$. Point $M$ is chosen on side $AB$ so that $\angle AMD = \angle CMD$. What is the degree measure of $\angle AMD?$}
+
 \prob{2}{TAMU 2019}{Let $AA_{1}$ be an altitude of triangle $\triangle ABC$, and let $A_{2}$ be the midpoint of the side $BC$.
 Suppose that $AA_{1}$ and $AA_{2}$ divide angle $\angle BAC$ into three equal angles. Find the product of the angles of 
 $\triangle ABC$ when the angles are expressed in degrees.}
@@ -861,6 +896,7 @@ Let $\angle BAA_{1}=\angle A_{1}AA_{2}=\angle A_{2}AC = \alpha$. We have that $\
 \prob{2}{PHS PuMAC TST 2017}{A trapezoid has area 32, and the sum of the lengths of its two bases and altitude is 16. If one of the
 diagonals is perpendicular to both bases, then what is the length of the other diagonal?}
 
+\prob{2}{Autumn Mock AMC 10}{Equilateral triangle ABC has side length $6$. Points $D, E, F$ lie within the lines $AB, BC$ and $AC$ such that $BD=2AD$, $BE=2CE$, and $AF=2CF$. Let $N$ be the numerical value of the area of triangle $DEF$. Find $N^2$.}
 
 \prob{3}{AHSME 1984/28}{Triangle ABC has area 10. Points D, E, and F, all distinct from A, B, and C, are on sides AB, BC, and CA, respectively, and AD = 2, DB = 3. Triangle ABE and quadrilateral
 DBEF have equal areas s. Find s.}
@@ -871,6 +907,8 @@ In quadrilateral ABCD, $\angle DAC = 98, \angle DBC = 82, \angle BCD = 70$, and 
 \begin{sol}
 Reflect.
 \end{sol}
+
+\prob{3}{FARML 2012/6}{In triangle $ABC,$ $AB=7,$ $AC=8,$ and $BC=10.$ $D$ is on $AC$ and $E$ is on $BC$ such that $\angle AEC=\angle BED=\angle B+\angle C.$ Compute the length $AD.$}
 
 \prob{3}{HMMT November 2013}{Let ABC be an isosceles triangle with $AB = AC$. Let D and E be the midpoints of segments $AB$ and $AC$, respectively. Suppose that there exists a point F on ray $\overrightarrow{DE}$ outside of $ABC$ such that triangle $BFA$ is similar to triangle $ABC$. Compute $\frac{AB}{BC}$ .}
 
@@ -895,8 +933,8 @@ Law of Cosines and Pythagorean Theorem gives $CP=33$.
 Let $BG=2x, GB_{1}=x$ and $CG=2y, GC_{1}=y$. Set systems of equations and solve.
 \end{sol}
 
-\prob{4}{PHS ARML TST 2017}{An algorithm starts with an equilateral triangle A0B0C0 of side length 1. At step k, points $A_k, B_k,
-$and $C_k$ are cosehn on line segments $B_{k-1}C_{k-1}, C_{k-1}A_{k-1}$ and $A_{k-1}B_{k-1}$ respectively, such that
+\prob{4}{PHS ARML TST 2017}{An algorithm starts with an equilateral triangle $A_{0}B_{0}C_{0}$ of side length 1. At step k, points $A_k, B_k,
+$and $C_k$ are chosen on line segments $B_{k-1}C_{k-1}, C_{k-1}A_{k-1}$ and $A_{k-1}B_{k-1}$ respectively, such that
 
 $$B_{k-1}A_{k}:A_{k}C_{k-1}=1:1$$
 $$C_{k-1}B_{k}:B_{k}A_{k-1}=1:2$$ 
@@ -913,8 +951,16 @@ Extend $AD$ and $BC$ to make an equilateral triangle and then Law of Cosines.
 
 \prob{4}{HMMT November 2013}{ Let ABC be a triangle and D a point on BC such that $AB=\sqrt{2}, BC=\sqrt{3}, \angle BAD = 30^{\circ}$, and$\angle CAD = 45^{\circ}$. Find AD.}
 
-\prob{4}{PHS HMMT TST 2020}{$\triangle$ ABC has side lengths $AB = 11, BC = 13, CA = 20$. A circle is drawn with diameter $AC$. Line $AB$
+\prob{4}{CMIMC 2020}{
+Let $ABC$ be a triangle with centroid $G$ and $BC = 3$. If $ABC$ is similar to $GAB$, compute the area of $ABC$.
+}
+
+\prob{5}{PHS HMMT TST 2020}{$\triangle$ ABC has side lengths $AB = 11, BC = 13, CA = 20$. A circle is drawn with diameter $AC$. Line $AB$
 intersects the circle at $D \neq A$, and line BC intersects the circle at $E \neq B$. Find the length of $DE$.}
+
+\prob{5}{CMIMC 2020}{
+Let $ABC$ be a triangle with centroid $G$ and $BC = 3$. If $ABC$ is similar to $GAB$, compute the area of $ABC$.
+}
 
 \prob{6}{SLKK AIME 2020}{Cyclic quadrilateral $AXBY$ is inscribed in circle $\omega$ such that $AB$ is a
 diameter of $\omega$. $M$ is the midpoint of $XY$ and $AM = 13, BM = 5$, and $AB = 16$. If the
