@@ -73,12 +73,12 @@
 
 \titleformat{\section}{\normalfont\Large\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}\rule{\linewidth}{0.6mm}]
 \titleformat{\subsection}{\normalfont\Large\bfseries\sffamily}{\color{\sectioncolor}{Lesson \thelesson:}}{0.6em}{\refstepcounter{lesson}\color{\sectioncolor}}[\color{\sectioncolor}]
-\patchcmd{\@maketitle}{\@date}{\href{http://geometryexplorer.xyz}{\sffamily\@date}}{}{}
+\patchcmd{\@maketitle}{\@date}{\href{https://gaussianprime.github.io/}{\sffamily\@date}}{}{}
 \else
 \titleformat{\section}{\normalfont\Large\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}\rule{\linewidth}{0.6mm}]
 \titleformat{\subsection}{\normalfont\large\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesubsection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}]
 \titleformat{\subsubsection}{\normalfont\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesubsubsection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}]
-\patchcmd{\@maketitle}{\@date}{\href{http://geometryexplorer.xyz/pdfs/amc/syllabus.pdf}{\sffamily\@date}}{}{}
+\patchcmd{\@maketitle}{\@date}{\href{https://gaussianprime.github.io/}{\sffamily\@date}}{}{}
 \fi
 
 %\newcounter{lesson}
@@ -186,7 +186,26 @@ innerrightmargin=5pt,
 topline=false,
 bottomline=false,
 rightline=false,
+leftline=false]{property}{Property}
+
+\newmdtheoremenv[% settings
+backgroundcolor=thmblue,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=false]{lemma}{Lemma}
+
+\newmdtheoremenv[% settings
+backgroundcolor=thmblue,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+topline=false,
+bottomline=false,
+rightline=false,
 leftline=false]{corollary}{Corollary}
+
 %%end of what I added
 
 \theoremstyle{def}
