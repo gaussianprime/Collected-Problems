@@ -1,6 +1,7 @@
 \documentclass[11pt]{article}
 \usepackage{william}
 \usepackage{comment}
+\usepackage[inline]{asymptote} 
 \title{Collected Problems: Computational}
 \author{William Dai}
 \date{Started June 30, 2020}
@@ -10,7 +11,7 @@
 \maketitle
 
 \section{Introduction}
-I use the following scheme: 1 point is roughly AMC 10 8-14 level. 2 points is roughly AMC 10 \# 15-17 level, 3 points are AMC 10 \# 18-21 level, 4 points are AMC 10 \# 22-23 level and 5 points are \# 24-25 level. Furthermore, 6 points are \#6-8 AIME level, 7 points are \# 9-11 AIME level,   8 points are \#12-13 AIME level, 9 points are \#14-15 AIME level, and 10 points are a hypothetical \#16-18 AIME level. These are usually olympiad-style problems that require several major lemmas and have very long solutions.
+I use the following scheme: 1 point is roughly AMC 10 8-14 level. 2 points is roughly AMC 10 \# 15-17 level, 3 points are AMC 10 \# 18-21 level, 4 points are AMC 10 \# 22-23 level and 5 points are \# 24-25 level. Furthermore, 6 points are \#6-8 AIME level, 7 points are \# 9-11 AIME level,   8 points are \#12-13 AIME level, 9 points are \#14-15 AIME level, and 10 points are a hypothetical \#16-18 AIME level. 10 pointers are usually olympiad-style problems that require several major lemmas and have very long solutions.
 
 Most of these problems are from more obscure contests that will serve as good AIME and AMC practice. 
 \section{Combinatorics}
@@ -55,6 +56,8 @@ person leaves the meeting, the probability that the third, fourth, and fifth peo
 
 \prob{5}{HMMT November 2014}{Consider the set of 5-tuples of positive integers at most $5$. We say the tuple $(a_1, a_2, a_3, a_4, a_5)$ is perfect if for any distinct indices $i, j, k$, the three numbers $a_i
 , a_j , a_k$ do not form an arithmetic progression (in any order). Find the number of perfect 5-tuples.}
+
+\prob{5}{AMC 12B 2017/22}{Abby, Bernardo, Carl, and Debra play a game in which each of them starts with four coins. The game consists of four rounds. In each round, four balls are placed in an urn---one green, one red, and two white. The players each draw a ball at random without replacement. Whoever gets the green ball gives one coin to whoever gets the red ball. What is the probability that, at the end of the fourth round, each of the players has four coins?}
 
 \prob{5}{HMMT November 2013}{Find the number of positive integer divisors of $12!$ that leave a remainder of $1$ when divided by $3$.}
 
@@ -193,6 +196,14 @@ Consider each element separately and see where it can go in the Venn Diagram. It
 many ways are there for the mayor of Tropolis to build five roads between five different pairs
 of towns such that it is possible to get from any town to any other town using the roads?}
 
+\begin{sol}
+We do complementary counting and find the number of ways so there are two components in the graph. Note that it is impossible for the largest component to be a $3$-component (or smaller) because there is at most 3 roads in the $3$-component and at most 1 road between the two other cities. This means there is at most $4$ roads which is a contradiction as there are $5$ roads.
+
+So, the largest component must be a $4$-component (since we cannot have a $5$-component). This means the graph looks like a connected $4$-component and an isolated city. Note that no matter how we place roads in the $4$-component, it is connected (by similar reasoning by before as there cannot be a 3-component). There are $\binom{4}{2}=6$ possible roads. Then, there are $\binom{6}{5}=6$ ways to create the roads. 
+
+Now, the total number of ways to addin roads without the condition the whole graph is connected is $\binom{\binom{5}{2}}{2}=45$. So, the number of ways to have a connected graph after adding in the roads is $45-6=\boxed{39}$.
+\end{sol}
+
 \prob{5} {HMMT Feburary 2014}{We have a calculator with two buttons that displays an integer x. Pressing the first button replaces
 $x$ by $\lfloor \frac{x}{2} \rfloor$ , and pressing the second button replaces $x$ by $4x + 1$. Initially, the calculator displays 0.
 How many integers less than or equal to 2014 can be achieved through a sequence of arbitrary button
@@ -271,6 +282,18 @@ is missing is expressible as $m/n$ for coprime positive integers $m, n$. Determi
 Complementary counting, find probability that Kelvin has exactly one copy of the card Quinn is missing. 
 \end{sol}
 
+\prob{7}{2017 AMC 12B/25}{A set of $n$ people participate in an online video basketball tournament. Each person may be a member of any number of $5$-player teams, but no two teams may have exactly the same $5$ members. The site statistics show a curious fact: The average, over all subsets of size $9$ of the set of $n$ participants, of the number of complete teams whose members are among those $9$ people is equal to the reciprocal of the average, over all subsets of size $8$ of the set of $n$ participants, of the number of complete teams whose members are among those $8$ people. How many values $n$, $9\leq n\leq 2017$, can be the number of participants?}
+
+\begin{sol}
+Let $t$ be the number of teams. We get that 
+$$\frac{t\binom{n-5}{4}}{\binom{n}{9}} = \frac{1}{\frac{t\binom{n-5}{3}}{\binom{n}{8}}}$$
+by counting how many times each individual team gets counted. For the LHS, we can choose $4$ other people out of the $n-5$ non team members. The RHS follows similarily.
+
+Then, after some bashing, we get 
+$$t=\frac{\frac{n!}{(n-5)!}}{2^5\cdot 3^2\cdot 5\cdot 7}$$
+
+We find that $\frac{n!}{(n-5)!}$ is a multiple of $9,5$ always. Also, $\frac{n}{(n-5)!}$ is a multiple of $7$ for $5$ resdiues and (by some inelegant bashing) is a multiple of $32$ for $16$ residues. So, in each period $[224n, 224n+223]$, we have $80$ successful $n$. So, in $[2,2017]$ there are $80\cdot 7=560$ successful $n$ (we subtract out $1$ which works and add in $2017$ which works). We also have to subtract out $[2,8]$ out of which $3$ work. We get $\boxed{557}$.
+\end{sol}
 \subsubsection{Recursion}
 \prob{4}{Math Prizes For Girls 2019}{A 1×5 rectangle is split into five unit squares (cells) numbered
 1 through 5 from left to right. A frog starts at cell 1. Every second it jumps
@@ -291,13 +314,17 @@ Blind King?}
 \prob{1}{Mandelbrot Nationals Sample Test}{Michael Jordan's probability of hitting any basketball shot is three times greater than mine, which never exceeds a third. To beat him in a game, I need to hit a shot myself and have Jordan miss the same shot. If I pick my shot optimally, what is the maximum probability of winning which I can attain?}
 
 \begin{sol} 
-What's the max of $p(1-3p)$? 
+The probability is $p(1-3p)=p-3p^2=3(-p^2+\frac{p}{3})=3(-(p-\frac{1}{6})^2+\frac{1}{36})$. So, the maximium probability is $\frac{1}{36}\cdot 3 = \boxed{\frac{1}{12}}$. 
 \end{sol}
 
 \prob{2}{CNCM Online Round 2}{Adi the Baller is shooting hoops, and makes a shot with probability $p$. He keeps shooting
 hoops until he misses. The value of $p$ that maximizes the chance that he makes between $35$ and $69$
 (inclusive) buckets can be expressed as $\frac{1}{\sqrt[a]{b}}$
 for a prime a and positive integer $b$. Find $a + b$.}
+
+\begin{sol}
+
+\end{sol}
 
 \prob{2}{PHS ARML TST 2017}{Consider a group of eleven high school students. To create a middle school math contest, they must
 pick a four-person committee to write problems and a four-person committee to proofread. Every
@@ -310,6 +337,7 @@ Complementary counting, find how many committees have that student on both and h
 
 \prob{2}{Mandelbrot Regionals 2009}{Mr. Strump has formed three person groups in his math class for working on projects. Every student is in exactly two groups, and any two groups have at most one person in common. In fact, if two groups are chosen at random then the probability that they have exactly one person in common is one-third. How many students are there in Mr. Strump’s class?}
 
+\prob{3}{AMC 12B 2017/17}{A coin is biased in such a way that on each toss the probability of heads is $\frac{2}{3}$ and the probability of tails is $\frac{1}{3}$. The outcomes of the tosses are independent. A player has the choice of playing Game A or Game B. In Game A she tosses the coin three times and wins if all three outcomes are the same. In Game B she tosses the coin four times and wins if both the outcomes of the first and second tosses are the same and the outcomes of the third and fourth tosses are the same. Find the probability of winning game A minus the probability of winning game B.}
 \prob{6}{CRMT Team 2019}{A deck of the first 100 positive integers is randomly shuffled. Find the expected number of
 draws it takes to get a prime number if there is no replacement.}
 
@@ -351,12 +379,18 @@ $\frac{p+\frac{1}{q}}{q+\frac{1}{p}}=\frac{p}{q}\implies p=17q$. Then $\frac{p+q
 \prob{3}{Math Prizes For Girls 2019}{How many positive integers less than 4000 are not divisible by 2, not
 divisible by 3, not divisible by 5, and not divisible by 7?}
 
+\begin{sol}
+The amount of numbers in $[210n+1, 210n+210]$ that are not divisible by any of $2,3,5,7$ is $\phi(210)=\frac{1}{2}\cdot \frac{2}{3}\cdot \frac{4}{5}\cdot \frac{6}{7}\cdot 210= 48$. Then, the amount of such numbers in $[1,3990]$ is $19\cdot 48= 912$.  In, $[3991, 4000]$, only $3991$ is relatively prime to both $2,3,5,7$. So, our answer is $\boxed{913}$.
+\end{sol}
+
 \prob{3}{MA$\theta$ 2018}{The number $1 \cdot 1! + 2 \cdot 2! + 3 \cdot 3! +\cdots + 100 \cdot 100!$ ends with a string of 9s. How many
 consecutive 9s are at the end of the number?}
 
 \begin{sol}
 $n\cdot n! = (n+1)!-n!$, then telescope to get $101!-1!$. Then, we are finding how many $0$'s does $101!$ have at the end which is equivalent to the number of factors of $10$. The number of factors of $10$ is equivalent to the number of factors of $5$. By Legendre's, there are $20+4=\boxed{24}$ 5's.
 \end{sol}
+
+\prob{3}{AMC 12B 2017/16}{The number $21!=51,090,942,171,709,440,000$ has over $60,000$ positive integer divisors. One of them is chosen at random. What is the probability that it is odd?}
 
 \prob{3}{BMT 2015}{There exists a unique pair of positive integers k, n such that k is divisible by 6, and $\sum_{i=1}^{k} i^2 = n^2$.
 Find $(k, n)$.}
@@ -367,8 +401,16 @@ You get $k\cdot (6k+1)\cdot (12k+1)=n^2$. All of these are pairwise coprime so e
  
 \prob{4}{Magic Math AMC 10 2020}{Find the number of ordered pairs of positive integers $(a, b)$ with $a < b < 2017$ such that $10a$ is divisible by $b$ and $10b$ is divisible by $a$.}
 
-\prob{4}{HMMT Feburary 2016}{For which integers $n \in \{1, 2, \ldots , 15\}$ is $n^n + 1$ a prime number?}
+\begin{sol}
+Let $\gcd(a,b=k$. Then, let $x=\frac{a}{k}$ and $y=\frac{b}{k}$. It is clear that $\gcd(x,y)=1$. Now, $b|10a\iff yk|10xk\iff y|10x$. Similarily, $b|10a\iff x|10y$. Also, note that $n|m$ if and only if $\nu_{p}(n)\leq \nu_{p}(m)$ for all primes $p$. Now, consider $p=2$. We get $\nu_{2}(x)\leq \nu_{2}(y)+1$ and $\nu_{2}(y)\leq \nu_{2}(x)+1$. Combining, we get $\nu_{2}(x)-1\leq \nu_{2}(y)\leq \nu_{2}(x)+1$. Also, note that as $\gcd(x,y)=1$, both $\nu_{2}(x)$ and $\nu_{2}(y)$ cannot be positive. So, at least one is zero. WLOG $\nu_{2}(x)=0$, then $\nu_{2}(y)=0,1$. This gives the solutions $(\nu_{2}(x),\nu_{2}(y))=(0,0),(0,1),(1,0)$. Similarily, we get the solutions $(\nu_{5}(x),\nu_{5}(y))=(0,0),(0,1),(1,0)$. Note that $\nu_{5}$ and $\nu_{2}$ are essentially independent. Then, we get $(x,y)$ can possibly be $(1,1),(1,2),(1,5),(1,10),(2,1),(2,5),(5,1),(5,2),(10,1)$. But, also note $a<b$ so $x<y$ so only $(1,2),(1,5),(1,10),(2,5)$ are valid. We have $b<2017\implies yk<2017\implies y < \frac{2017}{k}$. This gives $1008+403+201+403=\boxed{2015}$ solutions.
+\end{sol}
 
+\prob{4}{HMMT Feburary 2016}{For which integers $n \in \{1, 2, \ldots , 15\}$ is $n^n + 1$ a prime number?}
+\begin{sol}
+Clearly, $n$ must be even otherwise $n^{n}+1$ is even. Furthermore, $n$ cannot have any odd factors. Otherwise, expressing $n=mk$ for odd $k$ gives $n^{n}+1=n^{mk}+1=(m^{m})^{k}+1^{k}=(m^{m}+1)(m^{mk-m}\ldots)$ which means it cannot be prime. Then, $n$ must be $2^{x}$ for some $x$. Then, $n=1,2,4,8$ are only possible choices now. Now, note $1^{1}+1, 2^{2}+1, 4^{4}+1$ are clearly prime, Now, $8^{8}+1=2^{24}+1=(2^{8})^3+1^3$ so it is divisible by $2^{8}+1$ and clearly not prime.
+
+Our answers are $\boxed{1,2,4}$.
+\end{sol}
 \prob{5}{CNCM Online Round 1}{Consider all possible pairs of positive integers $(a, b)$ such that $a\ge b$ and both $\frac{a^2+b}{a-1}$ and $\frac{b^2+a}{b-1}$
 are integers. Find the sum of all possible values of the product $ab$.}
 
@@ -444,6 +486,8 @@ The two prime numbers are $5$ and $29$, consider $\pmod{25}$. $\boxed{34}$
 \prob{3}{BMT 2019}{Compute the remainder when the product of all positive integers less than and relatively prime
 to 2019 is divided by 2019.}
 
+\prob{4}{AMC 12B 2017/21}{Last year Isabella took $7$ math tests and received $7$ different scores, each an integer between $91$ and $100$, inclusive. After each test she noticed that the average of her test scores was an integer. Her score on the seventh test was $95$. What was her score on the sixth test?}
+
 \prob{4}{BMT 2018}{If $r_{i}$ are integers such that $0 \leq r_{i} < 31$ and $r_{i}$ satisfies the polynomial $x^4 + x^3 + x^2 + x\equiv 30 \pmod{31}$, find 
 $$\sum_{i=1}^{4}(r_{i}^2 + 1)^{-1} \pmod{31}.$$ 
 where $x^{-1}$ is the modulo inverse of $x$, that is, it is the unique integer y such that $0 < y < 31$
@@ -504,7 +548,7 @@ Only $2^{k}$ works so $\boxed{10}$.
 \end{sol}
 
 \prob{8}{BMT 2018}{Determine the number of ordered triples $(a, b, c)$, with $0 \leq a, b, c \leq 10$ for which there exists
-$(x, y)$ such that $ax^2 + by^2 \equiv c (mod 11)$
+$(x, y)$ such that $ax^2 + by^2 \equiv c\pmod{11}$
 }
 
 \prob{8}{BMT 2018}{ Compute the following:
@@ -607,12 +651,15 @@ Note that this is $\sqrt[4]{(2x-1)^4}=|2x-1|$ using the Binomial Theorem. Then, 
 
 \prob{2}{TAMU 2019}{In the expansion of $(1+ax-x^2)^8$ where a is a positive constant, the coefficient of $x^2$ is $244$. Find the value of $a$}
 
+\begin{sol}
+By the Multinomial Theorem, the coefficient of $x^2$ is $\binom{8}{2}\cdot a^2-\binom{8}{1}=28a^2-8$. So, $28a^2-8=244\implies a^2=9\implies a = \boxed{3}$.
+\end{sol}
 \prob{3}{HMMT November 2014}{Let $f(x) = x^2 + 6x + 7$. Determine the smallest possible value of $f(f(f(f(x))))$ over all real numbers $x$.}
 
 \prob{3}{HMMT February 2014}{Find the sum of all real numbers x such that $5x^4+10x^3 + 10x^2+5x+11 = 0$}
 
 \begin{sol} 
-Symmetric about $1$. Monotonic after $1$ so only two real roots that sum to $1$.
+Note that $f(x)=5x^4+10x^3+10x^2+5x+11$ is symmetric about $-\frac{1}{2}$. This is clearer after you rewrite as $5(x^4+2x^3+2x^2+x)+11=5x(x+1)(x^2+x+1)$ and you can see $f(-1-x)=f(x)$. But after a rough sketch and since it is monotonically increasing after $0$, there are only two real roots that sum to $\boxed{1}$.
 \end{sol}
 
 \prob{3}{BmMT 2014}{Consider the graph of $f(x) = x^3 + x + 2014$. A line intersects this cubic at three points, two
@@ -690,6 +737,8 @@ Find $$(a^3+b^3)(a^3+c^3)(b^3+c^3).$$
 }
 
 \subsubsection{Roots of Unity}
+\prob{2}{AMC 12B 2017/12}{What is the sum of the roots of $z^{12}=64$ that have a positive real part?} 
+
 \prob{5}{BMT 2019}{ Let $a_n$ be the product of the complex roots of $x^{2n} = 1$ that are in the first quadrant of the
 complex plane. That is, roots of the form $a + bi$ where $a, b > 0$. Let $r = a_1 \cdot a_2 \cdot ...\cdot a_{10}$. Find
 the smallest integer $k$ such that r is a root of $x^k = 1$}
@@ -699,6 +748,11 @@ the smallest integer $k$ such that r is a root of $x^k = 1$}
 \begin{sol}
 Roots of Unity Filter
 \end{sol}
+
+\subsubsection{Polynomial Interpolation}
+
+\prob{6}{AMC 12B 2017/23}{The graph of $y=f(x)$, where $f(x)$ is a polynomial of degree $3$, contains points $A(2,4)$, $B(3,9)$, and $C(4,16)$. Lines $AB$, $AC$, and $BC$ intersect the graph again at points $D$, $E$, and $F$, respectively, and the sum of the $x$-coordinates of $D$, $E$, and $F$ is $24$. What is $f(0)$?}
+
 \subsection{Complex Numbers}
 
 \prob{4}{HMMT Feburary 2016}{Let $z$ be a complex number such that $|z| = 1$ and $|z - 1.45| = 1.05$. Compute the real part of $z$.}
@@ -711,6 +765,8 @@ triangle?}
 $$\prod_{k=1}^{45}  \csc^2(2k - 1)^{\circ}=m^n,$$
 where $m$ and $n$ are integers greater than $1$. Find $m + n$.}
 \subsection{Manipulation}
+\prob{1}{LMT 2019}{If the numerator of a certain simplfied fraction is added to the numerator and the denominator of the fraction, the result is $\frac{20}{19}$. What is the fraction?}
+
 \prob{1}{AMC 10A 2020/7}{The $25$ integers from $-10$ to $14,$ inclusive, can be arranged to form a $5$-by-$5$ square in which the sum of the numbers in each row, the sum of the numbers in each column, and the sum of the numbers along each of the main diagonals are all the same. What is the value of this common sum?}
 
 \begin{sol}
@@ -734,7 +790,7 @@ $$\frac{1}{2-\frac{1}{2-\frac{1}{2- \cdots\frac{1}{2-\frac{1}{2}}}}}$$
 where the digit $2$ appears $2013$ times}
 
 \begin{sol}
-We can do some pattern finding when $2$ appears $n$ times. When $n=1$, this is $\frac{1}{2}$. When $n=2$, this is $\frac{2}{3}$. We conjecture that when $2$ appears $n$ times, the expresion is $\frac{n}{n+1}$. We can prove this by induction. With $2$ appearing $n+1$ times, we have $\frac{1}{2-\frac{1}{2-\frac{1}{2\cdots}}} = \frac{1}{2-\frac{n}{n+1}}=\frac{n+1}{n+2}$.
+We can do some pattern finding when $2$ appears $n$ times. When $n=1$, this is $\frac{1}{2}$. When $n=2$, this is $\frac{2}{3}$. We conjecture that when $2$ appears $n$ times, the expresion is $\frac{n}{n+1}$. We can prove this by induction. With $2$ appearing $n+1$ times, we have $\frac{1}{2-\frac{1}{2-\frac{1}{2\cdots}}} = \frac{1}{2-\frac{n}{n+1}}=\frac{n+1}{n+2}$. Our answer is then $\boxed{\frac{2013}{2014}}$.
 \end{sol}
 
 \prob{2}{Mandelbrot}{If $\frac{x^2}{y^2}=\frac{8y}{x}=z$, find the sum of all possible $z$.
@@ -858,12 +914,24 @@ Let $x$ be a real number between 0 and $\tfrac{\pi}{2}$ for which the function  
 \subsection{Logarithms}
 \prob{2}{MA$\theta$ 1991}{Given that $\log_{10}2 \approx 0.3010$, how many digits are in $5^{44}$?}
 
+\begin{sol}
+Note $\log_{10}(10)-\log_{10}(2)=\log_{10}(5)\implies \log_{10}(5) \approx 0.699\approx \frac{7}{10}$. Then, $5^{44}\approx 10^{44\cdot \frac{7}{10}}=10^{30.8}$. So, it has $\boxed{31}$ digits.
+\end{sol}
 \prob{3}{PuMAC 2019}{ If $x$ is a real number so $3^x = 27x$, compute $\log_{3}(\frac{3^{3^x}}{x^{3^{3}}})$.}
+\begin{sol}
+Note that $3^{x}=27x\implies x=3+\log_{3}(x)$. Also, $\log_{3}(\frac{3^{3^x}}{x^{3^{3}}}) = 3^{x}-27\log_{3}(x)=27x-27(x-3)=\boxed{81}$.
+\end{sol}
+
+\prob{3}{AMC 12B 2017/20}{Real numbers $x$ and $y$ are chosen independently and uniformly at random from the interval $(0,1)$. What is the probability that $\lfloor\log_2x\rfloor=\lfloor\log_2y\rfloor$?}
 
 \prob{4}{MA$\theta$ 1991}{Suppose $a$ and $b$ are positive numbers for which $\log_{4n} 40\sqrt{3} = \log_{3n} 45$, find $n^3$}
 
+\begin{sol}
+Note $\log_{4n} 40\sqrt{3} = \log_{3n} 45\implies \frac{\log 40\sqrt{3}}{\log 4n} = \frac{\log 45}{\log 3n}$ for an arbitary base. Then, we also get $\frac{\log 40\sqrt{3}}{\log 4 + \log n} = \frac{\log 45}{\log 3 + \log n}\implies \log 120\sqrt{3} + \log 40n\sqrt{3} = \log 180 + \log 45n \implies \log \frac{8n\sqrt{3}}{9} = \log \frac{3}{2\sqrt{3}}= \log \frac{\sqrt{3}}{2}\implies n = \frac{9}{16}$. So, $n^3=\boxed{\frac{729}{4096}}$.
+\end{sol}
+
 \prob{4}{MA$\theta$ 1992}{Suppose $a$ and $b$ are positive numbers for which
- $$\log_{9} a  =\ log_{15} b =\log_{25}(a+2b)$$
+ $$\log_{9} a  =\log_{15} b =\log_{25}(a+2b)$$
 What is the value of $\frac{b}{a}$?}
 
 \prob{4}{PHS ARML TST 2017}{Positive real numbers $x, y$, and $z$ satisfy the following system of equations:
@@ -872,6 +940,9 @@ $$y^{\log(xz)} = 10$$
 $$z^{\log(xy)} = 10\sqrt{10}$$
 Compute the value of the expression $(\log(xyz))^2$}
 
+\begin{sol}
+Let $x=10^{a}, y=10^{b}, z = 10^{c}$. Let $\log(xyz)=a+b+c=k$. Then, we have $a(b+c)=2$ and $b(a+c)=1$ and $c(a+b)=\frac{3}{2}$. Summing, we get $2\sum_{cyc} ab = \frac{9}{2}\implies \sum_{cyc} ab =\frac{9}{4}$. Then, subtraction from each of the equations gives $ab=\frac{3}{4}, ac=\frac{5}{4},bc=\frac{1}{4}$. Then, multiplying all together, we get $abc=\frac{\sqrt{15}}{8}$. Solving, we get $a=\frac{\sqrt{15}}{2}, b= \frac{\frac{\sqrt{15}}{5}}{2}, c=\frac{\frac{\sqrt{15}}{3}}{2}$. Then, $a+b+c=\frac{23\sqrt{15}}{30}$. So, $(a+b+c)^2=\frac{529\cdot 15}{30^2}=\boxed{\frac{529}{60}}$.
+\end{sol}
 \prob{4}{If $60^{a}=3$ and $60^{b} = 5$, then find $12^{\frac{1-a-b}{2-2b}}$.}
 
 \prob{5}{SLKK AIME 2020}{Let $x$ be a real number in the interval $(0,\frac{\pi}{2})$ such that
@@ -887,7 +958,7 @@ $a_{n+1} - a_{n} - a_{n+2} = 0$.
 Find $a_{1} + a_{2} + a_{3} + . . . + a_{2015}$.}
 
 \begin{sol} 
-Note that the condition is $a_{n+2}=a_{n+1}-a_{n}$ and that $a_{3}=3,a_{4}=1,a_{5}=-2,a_{6}=-3,a_{7}=-1,a_{8}=2$. So, it repeats with period $6$. 
+Note that the condition is $a_{n+2}=a_{n+1}-a_{n}$ and that $a_{3}=3,a_{4}=1,a_{5}=-2,a_{6}=-3,a_{7}=-1,a_{8}=2$. So, it repeats with period $6$. The sum $a_{1}+a_{2}\cdots + a_{6}=0$. So, $a_{1}+a_{2}\cdots + a_{2015}=0-a_{2016}=0-a_{6}=\boxed{3}$.
 \end{sol}
 
 \subsection{Functions}
@@ -900,18 +971,30 @@ Note that the condition is $a_{n+2}=a_{n+1}-a_{n}$ and that $a_{3}=3,a_{4}=1,a_{
 be the difference between the maximum and minimum possible values of $\frac{1}{a}+\frac{1}{b}$, where $p$ and $q$ are relatively prime positive integers.
 Compute $p + q$.}
 
+\begin{sol}
+Note that $\frac{1}{a}+\frac{1}{b}=\frac{a+b}{ab}=\frac{10}{ab}$. To minimize this, we have to maximize $ab$ which happens when $a,b$ are equal or very close together (you can rigorously show this using a discrete smoothing arugment, i.e if they are not as close together as possible, then you can make the expression bigger by moving them together). That means $a=b=5\implies ab=25$ so we have a minimium of $\frac{2}{5}$. The maximium of the expression occurs when $a,b$ are very far apart (again by a discrete smoothing argument) when $a=1, b=9$, giving a maximium of $\frac{10}{9}$. Then, the difference is $\frac{10}{9}-\frac{2}{5}=\frac{50-18}{45}=\frac{32}{45}$, giving $\boxed{77}$.
+\end{sol}
+
 \prob{2}{Math Prizes For Girls 2019}{The degree measures of the six interior angles of a convex hexagon form
 an arithmetic sequence (not necessarily in cyclic order). The common
 difference of this arithmetic sequence can be any real number in the
 open interval $(-D, D)$. Compute the greatest possible value of $D$.}
 
+\begin{sol}
+Let the angles be $a,a+d\cdots a+5d$.  Notice that any negative common difference can be turned into a positive common difference by simply starting at the maximium instead of the minimium. This same applies vice versa. So, let $d\ge 0$. Then, they sum to $180(4)=720$ giving $a+(a+d)\cdots + (a+5d)=720\implies (2a+5d)(3)=720\implies 2a+5d=240\implies a =\frac{240-5d}{2}$. So, any $d<\frac{240}{5}=48$ would corresond to a valid $a$. Notice that since the hexagon is convex, $a+5d<180\implies \frac{240+5d}{2} < 180 \implies \frac{48+d}{2} < 36\implies d < 24$. Now, it is clear that any $D\leq 24$ would work. So, the greatest possible value of $D$ is $\boxed{24}$.
+\end{sol}
+
 \prob{3}{Math Prizes For Girls 2019}{Find the least real number $K$ such that for all real numbers x
 and y, we have $(1+20x^2)(1+19y^2)\ge Kxy$. Express your answer in simplified
 radical form.}
 
-\prob{4}{HMMT February 2014}{Suppose that $x$ and $y$ are positive real numbers such that $x^2-xy+2y^2=8$.  Find the maximum possible value of $x^2+xy+2y^2$.}
+\begin{sol}
+By AM-GM, $(1+20x^2)\ge 2\sqrt{5}\cdot |x|$ and $(1+19y^2)\ge \sqrt{19}\cdot |y|$. Then, we get $(1+20x^2)(1+19y^2)\ge 2\sqrt{95} \cdot |x|\cdot |y|$ as $|x|,|y|$ are positive. Now, if both $x,y$ have the same sign, then $|x||y|=xy$ so $K=2\sqrt{95}$ for that case. But, if $x,y$ have opposite signs, $|x||y|=-xy$ so $(1+20x^2)(1+19y^2)\ge -19\sqrt{95}xy$. If $K$ was any larger in this case, it would not work. So, the least $K$ is $\boxed{-19\sqrt{95}}$.
+\end{sol}
 
 \prob{4}{HMMT November 2013}{ Find the largest real number $\lambda$ such that $a^2 + b^2 + c^2 + d^2 \geq ab + \lambda bc + cd$ for all real numbers $a, b, c, d$.}
+
+\prob{5}{HMMT February 2014}{Suppose that $x$ and $y$ are positive real numbers such that $x^2-xy+2y^2=8$.  Find the maximum possible value of $x^2+xy+2y^2$.}
 
 \prob{5}{BMT 2019}{Find the number of ordered integer triplets $x, y, z$ with absolute value less than or equal to $100$
 such that $2x^2 + 3y^2 + 3z^2 + 2xy + 2xz - 4yz < 5$}
@@ -923,10 +1006,17 @@ such that $2x^2 + 3y^2 + 3z^2 + 2xy + 2xz - 4yz < 5$}
 \subsection{Fake Algebra}
 \prob{3}{BMT 2019}{Find the maximum value of $\frac{x}{y}$ if x and y are real numbers such that $x^2 +y^2-8x-6y + 20 = 0$.}
 
+\begin{sol}
+Let $\frac{x}{y}=k$. Then, $y=kx$. Plugging this in, we get $(k^2+1)x^2-(8+6k)x+20=0$. Clearly, the maximium $k$ occurs when the determinant is $0$. This implies $(8+6k)^2-4(20)(k^2+1)=(36k^2+96k+64)-(80k^2+80)=-44k^2+96k-16=0\implies 11k^2-24k+4=0\implies (11k-2)(k-2)=0$. Then, we get $k=2$ and $k=\frac{2}{11}$. Our answer is $\boxed{2}$.
+\end{sol}
 \prob{3}{BMT 2015}{Let x and y be real numbers satisfying the equation $x^2 - 4x + y^2 + 3 = 0$. If the maximum
 and minimum values of $x^2 + y^2$
 are $M$ and $m$ respectively, compute the numerical value of
 $M - m$.}
+
+\begin{sol}
+We rewrite to get $(x-2)^2+y^2=1$ which is the equation of a circle. Let $P=(x,y)$ and $O=(0,0)$. Then, $x^2+y^2=PO^2$. So, we want to find the minimium of $PO$ and maximium of $PO$. Let $C=(2,0)$ which is the center of the circle. Clearly, the maximium and minimium occur where $PC$ intersects the circle. So, the minimium is $2-1=1$ and the maximium is $2+1=3$. So, $M-m=9-1=\boxed{8}$.
+\end{sol}
 
 \prob{3}{Magic Math AMC 10 2020}{Find the number of ordered pairs of real numbers $(x, y)$ satisfying $x =\frac{2y}{y^2-1}$ and $y =\frac{2x}{x^2-1}$.
 }
@@ -936,7 +1026,7 @@ Compute the maximum possible value of $(\log xy)^2$.
 }
 
 \begin{sol} 
-Subsitute $\log x =a$, $\log y = b$. You get the equation of a circle $(a-1)^2+(b-1)^2=2$. You want to find the y-intersect of tangent line with slope $-1$ on "top" of the circle. Draw a perpendicular to the line from the center to find the tangency point. This has slope $1$ and it is $\sqrt{2}$ long. So, the coordinates of this tangency is $(2,2)$ and $a+b=4$.
+Subsitute $\log x =a$, $\log y = b$. You get the equation of a circle $(a-1)^2+(b-1)^2=2$. You want to find the y-intersect of tangent line with slope $-1$ on "top" of the circle. Draw a perpendicular to the line from the center to find the tangency point. This has slope $1$ and it is $\sqrt{2}$ long. So, the coordinates of this tangency is $(2,2)$ and $a+b=4$. We get $(a+b)^2=\boxed{16}$.
 \end{sol}
 
 \prob{7}{HMMT February 2014}{Given that $a, b,$ and $c$ are complex numbers satisfying
@@ -964,13 +1054,15 @@ the maximum number of times $L$ can cross $S$.
 }
 
 \begin{sol}
-Replace $(32,33)$ and $(63,63)$ by $A$ and $B$. Then, we do casework on $AC=BC$ or $CB=AB$ or $CA=BA$. We get a line and two semicircles. A line can intersect a semicircle two times and a line one time.
+Replace $(32,33)$ and $(63,63)$ by $A$ and $B$. Then, we do casework on $AC=BC$ or $CB=AB$ or $CA=BA$. We get a line and two semicircles. A line can intersect a semicircle two times and a line one time.  So, our answer is $4+1=\boxed{5}$.
 \end{sol}
 
 \prob{2}{HMMT November 2013}{Plot points A, B, C at coordinates (0, 0), (0, 1), and (1, 1) in the plane, respectively. Let S denote
 the union of the two line segments AB and BC. Let X1 be the area swept out when Bobby rotates
 S counterclockwise 45 degrees about point A. Let X2 be the area swept out when Calvin rotates S
 clockwise 45 degrees about point A. Find $\frac{X_{1}+X_{2}}{2}$}
+
+\prob{2}{AMC 12B 2017/9}{A circle has center $(-10,-4)$ and radius $13$. Another circle has center $(3,9)$ and radius $\sqrt{65}$. The line passing through the two points of intersection of the two circles has equation $x + y = c$. What is $c$?}
 
 \prob{3}{Math Prizes For Girls 2019}{Two ants sit at the vertex of the parabola $y = x^2$. One starts walking
 northeast (i.e., upward along the line $y = x$) and the other starts
@@ -995,19 +1087,44 @@ by the square of a prime, find $m + n + p$
 \subsection{3D Geometry}
 \prob{1}{AMC 12A 2009/5}{One dimension of a cube is increased by $1$, another is decreased by $1$, and the third is left unchanged. The volume of the new rectangular solid is $5$ less than that of the cube. What was the volume of the cube?}
 
+\begin{sol}
+Let $x$ be the original side length of the cube. Then, we have $(x+1)(x-1)(x)+5=x^3\implies x^3-x+5=x^3\implies x=5$. So, the original volume is $x^3=\boxed{125}$.
+\end{sol}
+
 \prob{1}{AMC 12A 2008/8}{What is the volume of a cube whose surface area is twice that of a cube with volume 1?}
+
+\begin{sol}
+The surface area of a cube with volume $1$ is $6\cdot 1^2=6$. Then, the surface area of the larger cube is $12$ and so each face has area $2$. This implies the side length is $\sqrt{2}$. The volume is $2\sqrt{2}$.
+\end{sol}
 
 \prob{1}{BMT 2018}{A cube has side length $5$. Let $S$ be its surface area and $V$ its volume. Find $\frac{S^3}{V^2}$.}
 
+\begin{sol}
+Note $S=6\cdot 5^2=150$ and $V=5^3$. Then, $\frac{S^3}{V^2}=\frac{6^3\cdot 5^6}{5^6}=\boxed{216}$.
+\end{sol}
+
 \prob{2}{AMC 12B 2008/18}{On a sphere with a radius of $2$ units, the points $A$ and $B$ are $2$ units away from each other. Compute the distance from the center of the sphere to the line segment $AB.$}
+
+\begin{sol}
+Consider the great circle that goes through both $A$ and $B$. Also, let the center of the sphere be $O$. Then, drop the perpendicular from $O$ to $AB$ with foot $C$. Then, $C$ bisects $AB$ with $AC=CB=1$. Also, $OB=2$. Using the Pythagorean Theorem, $OC=\boxed{\sqrt{3}}$.
+\end{sol}
 
 \prob{2}{AMC 12B 2005/16}{Eight spheres of radius 1, one per octant, are each tangent to the coordinate planes. What is the radius of the smallest sphere, centered at the origin, that contains these eight spheres?}
 
+\begin{sol}
+We are basically finding the distance from the origin to the furtherest point on these spheres and that will be our radius. It is clear that a sphere with this radius will work and that if this distance is any smaller, the sphere will not completely contain all the other spheres. It is also clear that the spheres are symmetric so we only need to consider one of the spheres to find this furthest distance.  
+
+We consider the sphere in the positive x,y,z direction. Then the center $C$ of this sphere is $(1,1,1)$. So, $OC=\sqrt{3}$. Now, it is clear that the furthest point $P$ is the other intersection of $OC$ with the sphere. 
+
+So, the furthest distance is $\boxed{1+\sqrt{3}}$.
+\end{sol}
 \prob{3}{AIME 1984/9}{In tetrahedron $ABCD$, edge $AB$ has length 3 cm. The area of face $ABC$ is $15\mbox{cm}^2$ and the area of face $ABD$ is $12 \mbox { cm}^2$. These two faces meet each other at a $30^\circ$ angle. Find the volume of the tetrahedron in $\mbox{cm}^3$.}
 
 \prob{3}{HMMT February 2014}{Let $C$ be a circle in the $xy$ plane with radius 1 and center $(0, 0, 0)$, and let P be a point in space
 with coordinates $(3, 4, 8)$. Find the largest possible radius of a sphere that is contained entirely in the
 slanted cone with base C and vertex P.}
+
+\prob{3}{AMC 12B 2017/14}{An ice-cream novelty item consists of a cup in the shape of a 4-inch-tall frustum of a right circular cone, with a 2-inch-diameter base at the bottom and a 4-inch-diameter base at the top, packed solid with ice cream, together with a solid cone of ice cream of height 4 inches, whose base, at the bottom, is the top base of the frustum. What is the total volume of the ice cream, in cubic inches?}
 
 \subsection{Inequalties}
 \prob{2}{Math Prizes For Girls}{A paper equilateral triangle with area 2019 is folded over a line parallel
@@ -1017,13 +1134,16 @@ folded and unfolded parts of the triangle?}
 \prob{3}{BMT 2018}{If $A$ is the area of a triangle with perimeter $1$, what is the largest possible value of $A^2$?}
 
 \begin{sol}
-Using Heron's Formula and a smooth argument gives that an equilaterial triangle gives the largest area. 
+Using Heron's Formula and a smoothing argument gives that an equilaterial triangle gives the largest area.  So, we have $s=\frac{1}{3}$ and $A=\frac{s^2\sqrt{3}}{4}=\frac{\sqrt{3}}{36}$. So, $A^2=\frac{3}{36^2}=\frac{1}{12\cdot 36}=\boxed{\frac{1}{432}}$.
 \end{sol}
 
 \subsection{General}
 \prob{1}{MA$\theta$ 2018}{A parallelograms has diagonals of length $10$ and $20$. Find the area inclosed by the circle inscribed in the parallelogram.
 }
 
+\begin{sol}
+
+\end{sol}
 \prob{1}{TAMU 2019}{An acute isosceles triangle ABC is inscribed in a circle. Through B and C, tangents to
 the circle are drawn, meeting at D. If $\angle ABC = 2\angle CDB$, then find the radian measure of
 $\angle BAC$.}
@@ -1071,10 +1191,16 @@ Reflect.
 
 \prob{3}{Magic Math AMC 10 2020}{Two concentric circles have radii $\sqrt{2}$ and $2$. Three points $A, B, C$ are chosen on the larger circle such that $\triangle ABC$ is equilateral. Find the area of the region in the smaller circle that is also inside the triangle.}
 
+\prob{3}{AMC 12B 2017/15}{Let $ABC$ be an equilateral triangle. Extend side $\overline{AB}$ beyond $B$ to a point $B'$ so that $BB'=3 \cdot AB$. Similarly, extend side $\overline{BC}$ beyond $C$ to a point $C'$ so that $CC'=3 \cdot BC$, and extend side $\overline{CA}$ beyond $A$ to a point $A'$ so that $AA'=3 \cdot CA$. What is the ratio of the area of $\triangle A'B'C'$ to the area of $\triangle ABC$?}
+
 \prob{3}{CNCM Online Round 2}{There is a rectangle $ABCD$ such that $AB = 12$ and $BC = 7$. $E$ and $F$ lie on sides $AB$
 and CD respectively such that $\frac{AE}{EB} = 1$ and $\frac{CF}{FD} =\frac{1}{2}$. Call $X$ the intersection of $AF$ and $DE$. What is
 the area of pentagon $BCFXE$?
 }
+
+\prob{3}{AMC 12B 2017/18}{The diameter $AB$ of a circle of radius $2$ is extended to a point $D$ outside the circle so that $BD=3$. Point $E$ is chosen so that $ED=5$ and line $ED$ is perpendicular to line $AD$. Segment $AE$ intersects the circle at a point $C$ between $A$ and $E$. What is the area of $\triangle 
+ABC$?}
+
 \prob{4}{Mandelbrot Nationals 2009}{Triangle ABC has sides of length $AB =\sqrt{41}, AC = 5$,and $BC = 8$. Let O be the center of the circumcircle of $\triangle ABC$, and let $A'$ be the point diametrically opposite $A$, as shown. Determine the area of $\triangle A'BC$.
 }
 
@@ -1131,6 +1257,12 @@ Let $ABC$ be a triangle with centroid $G$ and $BC = 3$. If $ABC$ is similar to $
 \prob{5}{Magic Math AMC 10 2020}{Six points $A, B, C, D, E, F$ are selected on a circle with center $O$ such that $ABCDEF$ is an equiangular hexagon with $AB = CD = EF < BC = DE = F A$. Diagonals $AD, BE, F C$ are
 drawn, intersecting at points $X, Y, Z$. The three circles passing through $O$ and two of $X, Y, Z$
 are each internally tangent to $O$. Find $BC/AB$.}
+
+\prob{6}{AMC 12B 2017/24}{Quadrilateral $ABCD$ has right angles at $B$ and $C$, $\triangle ABC \sim \triangle BCD$, and $AB > BC$. There is a point $E$ in the interior of $ABCD$ such that $\triangle ABC \sim \triangle CEB$ and the area of $\triangle AED$ is $17$ times the area of $\triangle CEB$. What is $\frac{AB}{BC}$?}
+
+\begin{sol}
+Coordinate bashable by setting $BC=1$ and letting $B=(0,0), A=(0,x), C=(1,\frac{1}{x})$. Then, $E=(\frac{1}{x^2+1}, \frac{x}{x^2+1})$. We apply Shoelace and find $x^2=9+2\sqrt{10}\implies x=2+\sqrt{5}$.
+\end{sol}
 
 \prob{6}{SLKK AIME 2020}{Cyclic quadrilateral $AXBY$ is inscribed in circle $\omega$ such that $AB$ is a
 diameter of $\omega$. $M$ is the midpoint of $XY$ and $AM = 13, BM = 5$, and $AB = 16$. If the

@@ -19,6 +19,155 @@ integer?}
 
 \setcounter{problem}{0}
 \section{Number Theory}
+\prob{1}{IMO 2005/4}{Determine all positive integers relatively prime to all terms of the infinite sequence $a_{n}= 2^n+ 3^n+ 6^n-1$ for $n\ge 1$.}
+
+\begin{sol}
+Notice that for $p>3$, $a_{p-2}=2^{p-2}+3^{p-2}+6^{p-2}-1=\frac{1}{2}+\frac{1}{3}+\frac{1}{6}-1=0\pmod{p}$ using Fermat Little Theorem. Then, note that $a_{2}=4+9+36-1=48$ which has prime factors of $2,3$. So, if a number contains any prime factors, it is not relatively prime to all the terms of $a_{n}$. So, the only possible positive integer that can be relatively prime to all terms is $\boxed{1}$. Clearly, $\gcd(1,a_{n})=1$ and so it works.
+\end{sol}
+
+\prob{1}{1978 IMO}{
+Let $ m$ and $ n$ be positive integers such that $ 1 \le m < n$. In their decimal representations, the last three digits of $ 1978^m$ are equal, respectively, to the last three digits of $ 1978^n$. Find $ m$ and $ n$ such that $ m + n$ has its least value.}
+
+\begin{sol}
+Notice that $1978^{m}\equiv 1978^{n}\pmod{1000}\iff (-22)^m \equiv (-22)^n \pmod{1000} \iff (-22)^m \equiv (-22)^n \pmod{125,8}$ by Chinese Remainder Theorem.
+If $m<3$, then $(-22)^m\equiv (-22)^n\pmod{8}\implies m=n$ which is a contradiction. Similarily, $n<3$ is impossible. So, $m,n\ge3$. Then, both are $0\pmod{8}$.
+Now, consider $(-22)^{m}\equiv (-22)^{n}\pmod{125}\iff (-22)^{n-m}\equiv 1\pmod{125}$. We seek to minimize $n-m$ to minimize $m+n=(n-m)+2m$. Now, this is equivalent to finding $\text{ord}_{125} -22$. Note that $\text{ord}_{25} -22 = \text{ord}_{25} 3 = \text{ord}_{25} 20$. So, $20=\text{ord}_{25}(-22) |\text{ord}_{125} (-22)$ clearly. By Euler's, $\text{ord}_{125} (-22)|100$. We can compute $(-22)^{20} \pmod{125}$ and find that it doesn't works. So, the order is $100$ and $n-m=0\pmod{100}\implies n-m\ge 100$.
+
+Our minimium $m+n$ is $3+103=\boxed{106}$.
+\end{sol}
+
+\prob{2}{Folklore}{
+Find all positive integers $n$ such that $n$ divides $2^{n}-1$.}
+
+\begin{sol}
+Assume $n\ge 2$. Note that $n$ can't be even because $2^{n}-1$ is odd and it is impossible for an even number to be a divisor of an odd number. Then, consider the minimal odd prime $p$ such that $p|n$. Also, let $\text{ord}_{p} 2 =d$. Then, $2^{n}-1=0\pmod{n} \implies 2^{n}=1\pmod{n}\implies d|n$. Also, by Fermat's Little Theorem, $2^{p-1}=1\pmod{p}$ so $d|p-1$. Then, $d|\gcd(n,p-1)$. If $\gcd(n,p-1)=k>1$, then $n$ has a prime divisor less than $p-1$ which contradicts the minimality of $p$. So, $\gcd(n,p-1)=1$. Then, $n=(p-1)q+1$ for some $q$. So, $2^{n}-1\pmod{p}=(2^{p-1})^{q}\cdot 2-1=2-1=1$. Since $n=0\pmod{p}$, we have $1=0\pmod{p}$ which is clearly impossible.
+
+So, $n=1$ is the only possible solution. Checking, $n=1$ does work. So, our solutions are $\boxed{1}$.
+\end{sol}
+
+\prob{2}{Folklore}{
+Let $p$ be a prime that is relative prime to $10$, and $n$ be an integer, $0<n<p$. Let $d$ be the order of $10$ modulo $p$.
+\begin{enumerate}
+\item Show that if the length of the period of the decimal expansion of $\frac{n}{p}$ is $d$
+\item Prove that if $d$ is even, then the period of the decimal expansion of $\frac{n}{p}$ can be divided into two halves whose sum is $10^{\frac{d}{2}}-1$.
+\end{enumerate}}
+
+\begin{sol}[1]
+Let $m$ be the period. Note that $\frac{n}{p}=0.\overline{a_{1}a_{2}\cdots a_{m}}=\frac{a_{1}a_{2}\cdots a_{m}}{\overline{99\cdots 9}}=\frac{M}{10^{m}-1}\implies n\cdot (10^{m}-1)=p\cdot M\implies p|10^{m}-1$ as $\gcd(n,p)=1$. So, $10^{m}=1\pmod{p}\implies d|m\implies m\ge d$.
+
+We now want to show $m\leq d$. Let $M'$ such that $\frac{n}{p}=\frac{M'}{10^{d}-1}=M'(\frac{1}{10^d}+\frac{10^{2d}}\cdots)$. Since $M'< 10^{d}-1$, it clearly has a period of less than equal to $d$. So, $m\leq d$.
+
+Then, $m=d$.
+\end{sol}
+
+\begin{sol}[2]
+Let $d=2k$. Then, let $\frac{n}{p}=0.\overline{a_{1}a_{2}\cdots a_{k}a_{k+1}\cdots a_{2k}}$. We want to show $\overline{a_{1}a_{2}\cdots a_{k}} + \overline{a_{k+1}a_{k+2}\cdots a_{2K}} = 10^{\frac{d}{2}}-1$ Call $\overline{a_{1}\cdots a_{k}}=M_{1}$ and $\overline{a_{k+1}\cdots a_{2k}}=M_{2}$. We have $\frac{(10^{2k}-1)n}{p}=M_{1}\cdot 10^{k}+M_{2}$.
+
+So, $\frac{(10^{k}+1)n}{p}=10^{k}\cdot \frac{n}{p}+\frac{n}{p}=a_{1}\cdots_{k}.a_{k+1}\cdots a_{2k}\overline{a_{1}\cdots a_{k}} + 0.\overline{a_{1}\cdots a_{2k}}$. In order for it to come out as a integer, $.\overline{a_{k+1}\cdots a_{2k}a_{1}\cdots a_{k}}+0.\overline{a_{1}\cdots a_{2k}}=0.\overline{9}=1$.  Then, $\frac{(10^{k}+1)n}{p}=M_{1}+1$.  Then, $M_{1}+M_{2}=10^{k}-1$ which is what we wanted.
+\end{sol}
+
+\prob{3}{China TST 2006}{
+Find all positive integers a and n such that $\frac{(a+1)^n-a^n}{n}$ is an integer.}
+
+\begin{sol}
+Assume $n\ge 2$. Then, let $p$ be the smallest prime factor of $n$. Then, $p|b|(a+1)^{n}-a^{n}$. So, $(a+1)^{n}-a^{n}=0\pmod{p}$. if $a=0\pmod{p}$, then $(a+1)^{n}-a^{n}=1\pmod{p}\neq 0$. If $a=-1\pmod{p}$, $(a+1)^{n}-a^{n}=(-1)^{n+1}\pmod{p}\neq 0$.
+
+ If $a\neq 0,1\pmod{p}$, then $(a+1)^{n}-a^{n}=0\pmod{p}\implies (a+1)^{n}=a^{n}\pmod{p}\implies (a+1)^{n}\cdot (a^{-1})^{n}=-1\pmod{p}$ where $a^{-1}$ denotes the inverse of $a$. Note $a^{-1}$ exists since $a$ is relatively prime to $p$. Then, we get $((a+1)\cdot a^{-1})^{n}=1\pmod{p}$. Let $m$ be the order of $(a+1)\cdot a^{-1}$ modulo $n$. Then, we have $m|n$. But, we also have $m|p-1$ as $((a+1)\cdot a^{-1})^{p-1}=1\pmod{p}$ by Fermat\rq{s} Little Theorem and both $a+1$ and $a^{-1}$ are not equal to $0\pmod{p}$.  This means $m\leq p-1$ and $m|n$ which is a contradiction of our assumption that $p$ is the smallest prime factor. So, $n\ge 2$ is impossible.
+ 
+ This means our only solutions are when $n=1$. Clearly, for all positive integer $a$, $\frac{(a+1)-a}{1}$ is a positive integer.
+ 
+ $\boxed{(1,a) \text{ for all positive integers a}}$
+\end{sol}
+\prob{3}{IMO 1990/3}{
+Determine all integers $n>1$ such that 
+$$\frac{2^{n}+1}{n^2}$$
+is an integer.}
+
+\begin{sol}
+Note that $n$ has to be odd as an even can't divide an odd. Let $p$ be the smallest odd prime divisor of $n$. Then, $p|n^2|2^{n}+1$. So, $p|(2^{n}+1)(2^{n}-1)|2^{2n}-1$. By Fermat's Little Theorem, $p|2^{p-1}-1$. So, by GCD Lemma, $p|2^{\gcd(2n,p-1)}-1$. Note $\gcd(n,p-1)=1$ as $p$ is the minimal prime divisor so there can't be any prime divisors of $n$ less than or equal to $p-1$. Also, $p-1$ is even and $n$ is even so $\gcd(2n,p-1)=2$. Then, $p|2^{2}-1|3\implies p=3$. Let $\nu_{3}(n)=k$.
+
+Then, $2^{n}+1=2^{3\cdot \frac{n}{3}}+1=8^{\frac{n}{3}}-(-1)^{\frac{n}{3}}$ and $8+1=9$ and by LTE, $\nu_{3}(2^{n}+1)=\nu_{3}(9)+\nu_{3}(\frac{n}{3})=2+k-1=k+1$. However, $\nu_{3}(n^2)=2k$. So, we have $2k\leq k+1\implies k\leq 1$. So, $k=1$.
+
+Let $n=3m$ where $m\neq 0\pmod{3}$ and $m>2$. Let $q|m$ such that $q$ is the smallest odd prime. So, $q>3$. By Fermat's Little Theorem, $q|2^{q-1}-1$. Also, $q|n|n^2|2^{n}+1=2^{3m}+1|2^{6m}-1$. By GCD Lemma, $q|\gcd(2^{q-1}-1, 2^{6m}-1)=2^{\gcd(q-1,6m)}-1$. Then, we have $\gcd(q-1,m)=1$ as $p$ is the minimal prime divisor. Also,  $2|q-1$ as $q$ is odd. Then $\gcd(6m,q-1)=2,6$. The first case gives $q|3$ which is impossible. The second case gives $q|63\implies q=7$.'
+
+Now, if $q=7$, $n^2=0\pmod{49}$ and $2^{n}+1=2^{3m}+1=8^{m}+1=2\pmod{7}$. So, it is impossible. So, we $m=1$ is the only possible $m$ and $n=3$.
+\end{sol}
+
+
+\prob{3}{IMO 1999}{
+Find all the pairs of positive integers $(x,p)$ such that $p$ is a prime, $x\leq 2p$ and $x^{p-1}$ is a divisor of $(p-1)^{x}+1$.}
+
+\begin{sol}
+Assume $p\ge 3$. This then implies $x$ is odd.
+
+$x^{p-1}|(p-1)^{x}+1$. Then, let $q$ be the smallest prime divisor of $x$. Then, $q|x|x^{p-1}|(p-1)^{x}+1|(p-1)^{2x}-1$. Assume $\gcd(p-1,q)=1$. By Fermat's Little Theorem, $((p-1)^2)^{q-1}\equiv 1\pmod{q}\implies q|(p-1)^{2q-2}$. By the GCD Lemma, $q|((p-1)^2)^{\gcd(x,q-1)}$. Note that $\gcd(x,q-1)=1$ because $q$ is the minimal prime. So, $q|(p-1)^2-1=(p)(p-2)$. Since $\gcd(p,p-2)=\gcd(p,2)=1$, $q|p$ or $q|p-2$.  If $q|p$, then $p=q$. Then, $x=0\pmod{p}$ and $x=p,2p$. Then, $x\neq 2p$ because $x$ can't have a prime factor less than $p$. Then, $x=p$ gives $p^{p-1}$ is a divisor of $(p-1)^{p}+1$ which implies $p^{p-1}\leq (p-1)^{p}+1$. Clearly, this fails for large enough $p$. The only possible solutions are $p=3$.  This then gives $x^2|2^{x}+1$ where $x\leq 6$. We can easily check and see $x=1,3$ are the only solutios.
+
+If $p=2\pmod{q}$. Then, $q|(p-1)^{x}+1=2\pmod{q}$ which is a contradiction.
+
+If $\gcd((p-1)^2,q)=q$, then$(p-1)^2=0\pmod{q}\implies p-1=0\pmod{q}\implies p=1\pmod{q}$. Then, $(p-1)^{x}+1=1\pmod{q}$. However, it is a multiple of $x^{p-1}=0\pmod{q}$ which is a contradiction.
+By LTE, for odd $x$, $\nu_{p}((p-1)^{x}+1)=\nu_{p}(p)+\nu_{p}(x)=1+\nu_{p}(x)$.
+
+
+Now, the only remaining case is $p=2$. This gives $x|2$ which gives $x=1,2$.
+
+Our solutions are $\boxed{(1,2),(2,2),(1,3),(3,3)}$. 
+\end{sol}
+
+\prob{4}{MOP 2011}{
+Let $p$ be a prime and $n$ a positive integer.  Suppose that $p^1$ fully divides $2^{n}-1$ (meaning it is divisible by $p$ but not $p^2$).  Prove that $p^1$ fully divides $2^{p-1}-1$.}
+
+\begin{sol}
+Let $d=\text{ord}_{p}(n)$. Then, since $2^{n}=1\pmod{p}$, we know $d|n$. Let $n=dk$. Then, by Lifting The Exponent, $1=\nu_{p}(2^{n}-1)=\nu_{p}((2^{d})^{k}-1^{k})=\nu_{p}(2^{d}-1)+\nu_{k}$ as $2^{d}-1=0\pmod{p}$ by the definition of order. This then implies $\nu_{p}(2^{d}-1)\leq 1$. Since $2^{d}-1=0\pmod{p}$, we also have $\nu_{p}(2^{d}-1)\ge 1$. Altogether, $\nu_{p} (2^{d}-1)=1 (1)$.
+
+Now, note that since $2^{p-1}=1\pmod{p}$, we have $d|p-1$. Let $p-1=dt$. Then by Lifting The Exponent, $\nu_{p}(2^{p-1}-1)=\nu_{p}((2^{d})^{t}-1^{t})=\nu_{p}(2^{d}-1) +\nu_{p}(t)$ as $2^{d}-1=0\pmod{p}$. Then, this is equal to $1+\nu_{p}(t)$ by (1). Note that since $t|p-1\implies t<p$, $\nu_{p}(t)=0$. So, it is exactly equal to $1$. This what we wanted so we're done.
+\end{sol}
+
+\prob{4}{IMO SL 2006}{
+Find all integer solutions of the equation
+$$\frac{x^{7}-1}{x-1}=y^{5}-1$$}
+
+\begin{sol}
+\begin{lemma}[Lemma 1]
+Let $p$ be a prime, $n$ a positive intger and $a$ any integer. Suppose $\Phi_{n}(a)\equiv 0\pmod{p}$. Then, either:
+\begin{enumerate}
+\item $n|p-1$
+\item $p|n$
+\end{enumerate}
+\end{lemma}
+
+Consider $\Phi_{7}(x)=1+x\cdots +x^{6}=\frac{x^7-1}{x-1}$. By the Main Theorem/Lemma, $p|\Phi_{n}(x)$ implies $p|n$ or $n|p-1$. As a corollary, $p|\Phi_{q}(x)$ we have $p|q$ (which implies $p=q$) or $p=1\pmod{q}$. So, if $p|\Phi_{7}(x)$, $p=7$ or $p=1\pmod{7}$. Then, the LHS is $0\pmod{7}$ or $1\pmod{7}$.
+
+This then implies $y-1=0\pmod{7}$ or $y-1=1\pmod{7}$ as $y-1$ is a divisor of the RHS. These give $y=1,2\pmod{7}$. For the first case, $1+y\cdots+y^4=5\pmod{7}$ which is a contradiction as it's not equal to $1$ or $0$. If we plug in $y=2\pmod{7}$, we get $1+2+2^2+2^3+2^4=31=3\pmod{7}$. 
+
+Therefore, there are no solutions.
+\end{sol}
+
+
+\prob{4}{IMO 2000}{
+Does there exist a positive integer $n$ such that $n$ has exactly $2000$ prime divisors and $n$ divides $2^{n}+1$?}
+
+\begin{sol}
+Clearly, $2000$ is arbitary and we can replace by $m$. We do induction on $m$. For $m=1$, $p|2^{p}+1$ and $p=3$ works.  Now, we do the induction step. By the inductive hypothesis, we have a $n=p_{1}^{a_{1}}\cdots p_{m}^{a_{m}}$ and $n|2^{n}+1$ where $p_{1},\cdots p_{m}$ are distinct primes and $a_{1}\cdots a_{m}\ge 1$. Let $p_{i}^{a_{i}}|2^{n}+1$, suppose $p_{i}^{b_{i}}||2^{n}+1$ where $||$ means it perfectly divides. Then, $p_{1}^{b_{1}}\cdots p_{m}^{b_{m}}||2^{n}+1$. By LTE, $p_{1}^{b_{1}+\ell}p_{2}^{b_{2}}\cdots p_{m}^{b_{m}}||2^{np_{1}^{\ell}}+1$. Consider the sequence of $2^{np_{1}^{\ell}}+1$ for $\ell = 1,2\cdots$. By Kobayashi's, there is some $\ell$ such that $2^{np_{1}^{\ell}}+1$ has a prime factor $p_{m+1}$ distinct from $p_{1},p_{2}\cdots p_{m}$ because the sequence's terms contain an infinite number of prime factors. So, $p_{1}^{b_{1}+\ell}p_{2}^{b_{2}}\cdots p_{m}^{b_{m}}p_{m+1}|2^{np_{1}^{\ell}}+1$.
+\end{sol}
+
+\prob{5}{IMO 2003}{
+Let $p$ be a prime number. Prove that there exists a prime number $q$ such that for every intger $n$, the number $n^{p}-p$ is not divisible by $q$.}
+
+\begin{sol}
+\begin{lemma}[Lemma 1]
+Let $p$ be a prime, $n$ a positive intger and $a$ any integer. Suppose $\Phi_{n}(a)\equiv 0\pmod{p}$. Then, either:
+\begin{enumerate}
+\item $n|p-1$
+\item $p|n$
+\end{enumerate}
+\end{lemma}
+
+Consider $q|\Phi_{p}(p)$ with $p^2\not | q-1$.  It is clear such a prime $q$ exists because $\Phi_{p}(p)$ is positive integer greater than $1$ and that not all prime factors can be $\pm 1\pmod{p^2}$. This is because $\Phi_{p}(p)=1+p\pmod{p^2}\neq \pm 1$. By the Main Lemma, $p|q-1$ or $q|p$. Clearly, $q|p$ is impossible as both are distinct primes. Otherwise, $p=q$ which implies $p|p^{p}-1$. By way of contradiction, $n^{p}=p\pmod{q}\implies n = p^{\frac{1}{p}} \pmod{q}$. By Fermat's Little Theorem, $n^{q-1}=1\pmod{q}\implies p^{\frac{q-1}{p}}=1\pmod{q}$.
+
+So, $q|\Phi_{p}(p)|p^{p}-1$ and $q|p^{\frac{q-1}{p}}-1$. By GCD Lemma, $q|\gcd(p^p-1, p^{\frac{q-1}{p}}) = p^{\gcd(p, \frac{q-1}{p})}-1$.  Note $\nu_{p}(q-1)=1$ because we established before, $\nu_{p}(q-1)\ge 1$ and by our assumption, $\nu_{p}(q-1)<2$. So, $\nu_{p}(q-1)=1$. Then, $q|p^{\gcd(p,\frac{q-1}{p})}-1\implies q|p-1$.
+
+Then, as $q|p-1$ and $p|q-1$ which give $q\leq p-1$ and $p\leq q-1$ which are clearly impossible.
+\end{sol}
 
 \setcounter{problem}{0}
 \section{Algebra}
@@ -135,22 +284,9 @@ First, note that $\triangle AKX \sim \triangle ALZ\implies \frac{KX}{LZ} = \frac
 We now prove a lemma: let $ABC$ be a triangle with incircle $\omega$ and incenter $I$. Then, let the tangency points of $\omega$ with $BC,AC,AB$ be $D,E,F$ respectively. Also, let $M$ be the midpoint of $BC$. Then, $AM, EF, ID$ concur.
 
 \begin{proof}
-Let $X=EF \cap ID$. Then, we want to showing $A,X,M$ are collinear. Let $U,V$ be the intersections of the line through $X$ parallel to $BC$ with $AB$ and $AC$ respectively. \footnote{Note that by the converse of the Simpson Line Theorem, since $E,X,F$ are collinear and $IF \perp AB = AU$, $IE \perp AC = AV $, and $IX\perp BC\implies IX\perp UV$ since $BC||UV$, that $I\in (AUV)$.} Then, $\angle IFX = \angle IUX = IUV$ as $XUFI$ is cyclic since $IX\perp BC\implies IX\perp UV\implies IXU = 90$ and $IF\perp AB\implies \angle IFU =90$ This then implies $\angle IFE = \angle IUV$. Also, $IXEV$ is cyclic as $\angle IXV=90$ and $\angle IEV=90$ so $\angle IXV= \angle IEV$, then $\angle IEX=\angle IVX$. Then, this implies $\angle IEF = \angle IVU$. By AA similarity, $\triangle UIV \sim \triangle FIE$. As $\triangle FIE$ is isosceles, then $\triangle UIV$ is isoscles with $UI=UV$. As $IV \perp UV$, then $UX=XV$. So $X$ is midpoint of $UV$ and $X$ is on the median $AM$. We are done.
+Let $X=EF \cap ID$. Then, we want to show $A,X,M$ are collinear. Let $U,V$ be the intersections of the line through $X$ parallel to $BC$ with $AB$ and $AC$ respectively. \footnote{Note that by the converse of the Simpson Line Theorem, since $E,X,F$ are collinear and $IF \perp AB = AU$, $IE \perp AC = AV $, and $IX\perp BC\implies IX\perp UV$ since $BC||UV$, that $I\in (AUV)$.} Then, $\angle IFX = \angle IUX = IUV$ as $XUFI$ is cyclic since $IX\perp BC\implies IX\perp UV\implies IXU = 90$ and $IF\perp AB\implies \angle IFU =90$ This then implies $\angle IFE = \angle IUV$. Also, $IXEV$ is cyclic as $\angle IXV=90$ and $\angle IEV=90$ so $\angle IXV= \angle IEV$, then $\angle IEX=\angle IVX$. Then, this implies $\angle IEF = \angle IVU$. By AA similarity, $\triangle UIV \sim \triangle FIE$. As $\triangle FIE$ is isosceles, then $\triangle UIV$ is isoscles with $UI=UV$. As $IV \perp UV$, then $UX=XV$. So $X$ is midpoint of $UV$ and $X$ is on the median $AM$. We are done.
 \end{proof}
 
 By the lemma, $ID$ goes through $G$. Now, we want to show $\angle GYL = \angle KXG$ which is equivalent to $X,G,Y$ collinear by the converse of Alternate Interior Angles Theorem.  Note that $ID$ bisects $YL$ as $ID\perp BC\implies ID\perp YL$ and $YL$ is a chord of $\gamma$. So, $YD=DL$ and $\triangle GYD \cong \triangle GLD\implies GY=GL$. Then, $\angle GYL = \angle GLY$. By Alternative Interior Angles Theorem and as $K,G,L$ are collinear, $\angle GLX=\angle GKX$. Similarly, letting $ID$ intersect $KX$ at $P$, we have $KP=PX\implies \triangle KPG \cong XPG\implies GK=GX\implies \angle GKX = \angle KXG$. So, using the chain of equalities, we get $\angle GYL = \angle KXG$ which is what we want.  
 \end{sol}
-
-\section{Associated Solutions}
-\subsection{Combinatorics}
-
-\setcounter{problem}{0}
-\subsection{Number Theory}
-
-
-\setcounter{problem}{0}
-\subsection{Algebra}
-
-\setcounter{problem}{0}
-\subsection{Geometry}
 \end{document}
