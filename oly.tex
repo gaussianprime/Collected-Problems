@@ -36,6 +36,22 @@ Now, consider $(-22)^{m}\equiv (-22)^{n}\pmod{125}\iff (-22)^{n-m}\equiv 1\pmod{
 Our minimium $m+n$ is $3+103=\boxed{106}$.
 \end{sol}
 
+\prob{1}{Euler}{Prove that all factors of $2^{2^{n+ 1}}$ are of the form $k \cdot 2^{n+1} + 1$.}
+
+\begin{sol}
+This is equivalent to showing every factor is $1\pmod{2^{n+1}}$.
+
+Let $p$ be a prime factor of $2^{2^{n+1}}$. Then, $2^{2^{n}}+1=0\pmod{p}\implies 2^{2^{n+1}}=1\pmod{p}$. Then, let $d$ be the order of $2$ modulo $p$. We have $d|2^{n+1}$ but $d\not | 2^{n}$. This implies $d=2^{n+1}$. Then, we have $d|p-1\implies p=1\pmod{2^{n+1}}$. Note that if $b=a=1\pmod{2^{n+1}}\implies ab = 1\pmod{2^{n+1}}$. Then, as every factor of $2^{2^{n+1}}$ is composed of those factors, every factor is $1\pmod{2^{n+1}}$.
+\end{sol}
+
+\prob{2}{Folklore}{Let $p > 5$ be a prime. In terms of $p$, compute the remainder when
+$$\prod_{i=1}^{p-1} (i^2+1)$$
+is divided by $p$}
+
+\begin{sol}
+Consider $P(x)=(x+1)(x+2)\cdots (x+p-1)$ in $\mathbf{F}_{p}$. Then, $P(x)=x^{p-1}-1=0\pmod{p}$ as the two polynomials have exactly the same roots and are the same degree. By a well-known property of $\mathbf{F}_{p}$, this means the two polynomials are equivalent. Now, our wanted expression is $P(i)\cdot P(-i)=\boxed{(i^{p-1}-1)((-i)^{p-1}-1)}$.
+\end{sol}
+
 \prob{2}{Folklore}{
 Find all positive integers $n$ such that $n$ divides $2^{n}-1$.}
 
