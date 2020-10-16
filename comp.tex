@@ -16,7 +16,7 @@ I use the following scheme: 1 point is roughly AMC 10 8-14 level. 2 points is ro
 Most of these problems are from more obscure contests that will serve as good AIME and AMC practice. 
 \section{Combinatorics}
 \subsection{Casework}
-\prob{1}{ARML Local 2014}{Let $A, B$, and $C$ be randomly chosen (not necessarily distinct) integers between 0 and 4
+\prob{1}{ARML 2014}{Let $A, B$, and $C$ be randomly chosen (not necessarily distinct) integers between 0 and 4
 inclusive. Pat and Chris compute the value of $A+B \cdot C$ by two different methods. Pat follows
 the proper order of operations, computing $A+(B \cdot C)$. Chris ignores order of operations,
 choosing instead to compute $(A + B) \cdot C$. Compute the probability that Pat and Chris get
@@ -225,6 +225,16 @@ denotes the greatest integer less than or equal to the real number y.)}
 Any number with $1$ digits separated by one or more $0$'s  is valid. Notice that for $2015$ through $2047$, the first two digits are $11$ so they are not valid. Casework on number of digits now.
 \end{sol}
 
+\prob{7}{MMATHS 2019}{Alice wishes to walk from the point (0, 0) to the point (6, 4) in increments of (1, 0) and (0, 1), and Bob wishes to walk from the point
+(0, 1) to the point (6, 5) in increments of (1, 0) and (0, 1). How many ways are there for Alice and Bob to get to their destinations if their
+paths never pass through the same point (even at different times)?}
+
+\begin{sol}
+Key observation is that the number of pairs of intersecting paths from $(0,0)$ to $(m,n)$ and $(0,1)$ to $(m,n+1)$ is equal to the number of pairs of paths from $(0,0) to $(m,n+1)$ and $(0,1)$ and $(m,n)$ by a bijection.
+
+$\boxed{5292}$
+\end{sol}
+
 \subsubsection{Stars and Bars}
 
 \prob{1}{AMC 8 2019/25}{Alice has $24$ apples. In how many ways can she share them with Becky and Chris so that each person (include Alice) has at least $2$ apples?}
@@ -259,6 +269,7 @@ Notice that $d_{2},d_{3}\cdots d_{k}\ge 2$ to satisfy that no two consecutive in
 \end{sol}
 
 \subsubsection{Expected Value}
+
 \prob{3}{Math Prizes For Girls 2018}{Maryam has a fair tetrahedral die, with the four faces of the die labeled
 1 through 4. At each step, she rolls the die and records which number
 is on the bottom face. She stops when the current number is greater
@@ -266,6 +277,15 @@ than or equal to the previous number. (In particular, she takes at least
 two steps.) What is the expected number (average number) of steps
 that she takes? Express your answer as a fraction in simplest form.}
 
+
+\prob{4}{BMT 2020}{Three lights are placed horizontally on a line on the ceiling. All the lights are initially on. Every second, Neil picks one of the three lights uniformly at random to switch: if it is off, he switches it on; if it is on, he switches it off. When a light is switched, any lights directly to the left or
+right of that light also get turned on (if they were off) or off (if they were on). The expected
+number of lights that are on after Neil has flipped switches three times can be expressed in the
+form $\frac{m}{n}$ , where $m$ and $n$ are relatively prime positive integers. Compute $m + n$}
+
+\begin{sol}
+$\frac{55}{27}\implies \boxed{82}$
+\end{sol}
 \prob{5}{SLKK AIME 2020}{
 Woulard forms a 8 letter word by picking each letter from the set $\{w, o, u\}$
 with equal probability. The score of a word is the nonnegative difference between the
@@ -276,6 +296,7 @@ relatively prime positive integers a and b, find the remainder when $a+b$ is div
 
 \begin{sol} 
 Let the $value$ of the string be the total number of uwu and owo's. Note that the value only differs from the score when there are both uwu and owo's. We can easily compute the value using Linearity of Expectation and do casework on when it differs.
+$\boxed{269}$
 \end{sol}
 
 \prob{6}{PuMAC 2019}{. Marko lives on the origin of the Cartesian plane. Every second, Marko moves 1 unit up with
@@ -293,6 +314,14 @@ is missing is expressible as $m/n$ for coprime positive integers $m, n$. Determi
 Complementary counting, find probability that Kelvin has exactly one copy of the card Quinn is missing. 
 \end{sol}
 
+\prob{7}{OMO Spring 2019}{The sum
+$$\sum_{i=0}^{1000} \frac{\binom{1000}{i}}{\binom{2019}{i}}$$
+can be expressed in the form $\frac{p}{q}$, where $p$ and $q$ are relatively prime positive integers. Compute $p + q$}
+
+\begin{sol}
+$\boxed{152}$
+\end{sol}
+
 \prob{7}{2017 AMC 12B/25}{A set of $n$ people participate in an online video basketball tournament. Each person may be a member of any number of $5$-player teams, but no two teams may have exactly the same $5$ members. The site statistics show a curious fact: The average, over all subsets of size $9$ of the set of $n$ participants, of the number of complete teams whose members are among those $9$ people is equal to the reciprocal of the average, over all subsets of size $8$ of the set of $n$ participants, of the number of complete teams whose members are among those $8$ people. How many values $n$, $9\leq n\leq 2017$, can be the number of participants?}
 
 \begin{sol}
@@ -306,10 +335,33 @@ $$t=\frac{\frac{n!}{(n-5)!}}{2^5\cdot 3^2\cdot 5\cdot 7}$$
 We find that $\frac{n!}{(n-5)!}$ is a multiple of $9,5$ always. Also, $\frac{n}{(n-5)!}$ is a multiple of $7$ for $5$ resdiues and (by some inelegant bashing) is a multiple of $32$ for $16$ residues. So, in each period $[224n, 224n+223]$, we have $80$ successful $n$. So, in $[2,2017]$ there are $80\cdot 7=560$ successful $n$ (we subtract out $1$ which works and add in $2017$ which works). We also have to subtract out $[2,8]$ out of which $3$ work. We get $\boxed{557}$.
 \end{sol}
 \subsubsection{Recursion}
+\prob{3}{MMATHS 2019}{
+Noah has an old-style M\&M machine. Each time he puts a coin into the machine, he is equally likely to get 1 M\&M or 2 M\&M’s. He
+continues putting coins into the machine and collecting M\&M’s until he has at least 6 M\&M’s. What is the probability that he actually ends up with 7 M\&M’s?}
+
+\begin{sol}
+$\boxed{\frac{21}{64}}$
+\end{sol}
+\prob{3}{OMO Spring 2019}{Susan is presented with six boxes $B_{1}, \cdots , B_{6}$, each of which is initially empty, and two identical coins of denomination $2^{k}$
+for each $k = 0, \cdots , 5$. Compute the number of ways for Susan to place the coins in
+the boxes such that each box Bk contains coins of total value $2^k$.}
+
+\begin{sol}
+$\boxed{32}$
+\end{sol}
+
 \prob{4}{Math Prizes For Girls 2019}{A 1×5 rectangle is split into five unit squares (cells) numbered
 1 through 5 from left to right. A frog starts at cell 1. Every second it jumps
 from its current cell to one of the adjacent cells. The frog makes exactly 14
 jumps. How many paths can the frog take to finish at cell 5?}
+
+\prob{4}{OMO Spring 2019}{When two distinct digits are randomly chosen in $N = 123456789$ and their places are swapped, one gets a new number $N_{0}$ (for example, if 2 and 4 are swapped, then $N_{0} = 143256789$). The expected value of
+$N_{0}$ is equal to $\frac{m}{n}$ , where m and n are relatively prime positive integers. Compute the remainder when
+$m + n$ is divided by $10^6$.}
+
+\begin{sol}
+$\boxed{962963}$
+\end{sol}
 
 \prob{7}{CNCM Online Round 2}{On a chessboard with 6 rows and 9 columns, the Slow Rook is placed in the bottom-left
 corner and the Blind King is placed on the top-left corner. Then, 8 Sleeping Pawns are placed such that
@@ -320,8 +372,29 @@ and the Slow Rook takes the shortest path to reach the Blind King. How many ways
 the Sleeping Pawns such that the Slow Rook moves exactly 15 tiles to get to the space containing the
 Blind King?}
 
+\subsubsection{Burnside\rq{}s}
+\prob{2}{AlcumusGuy Mock AMC 10 2016-2017}{George wants to construct a bracelet with 2 identical red beads, 2
+identical white beads, and 2 identical blue beads, spaced equally around a circle. How many different bracelets can George make if rotations and reflections of a bracelet are not distinct from each other?}
+
+\begin{sol}
+$\boxed{11}$
+\end{sol}
+
+\subsection{Sequences}
+\prob{4}{ARML 2009}{For $k \ge 3$, we define an ordered k-tuple of real numbers $(x_{1}, x_{2}, . . . , x_{k})$ to be special if, for every i such that $1 \leq i \leq k$, the product $x_{1} \cdot x_{2} \cdot \ldots \cdot x_{k} = x_{i}^2$. Compute the smallest value of $k$ such that there are at least $2009$ distinct special $k$-tuples.}
+
+\begin{sol}
+$\boxed{12}$
+\end{sol}
+
 \subsection{Miscellaneous}
 
+\prob{1}{MMATHS 2019}{An ant starts at the top vertex of a triangular pyramid (tetrahedron). Each day, the ant randomly chooses an adjacent vertex to move
+to. What is the probability that it is back at the top vertex after three days?}
+
+\begin{sol}
+$\boxed{\frac{2}{9}}$
+\end{sol}
 \prob{1}{Mandelbrot Nationals Sample Test}{Michael Jordan's probability of hitting any basketball shot is three times greater than mine, which never exceeds a third. To beat him in a game, I need to hit a shot myself and have Jordan miss the same shot. If I pick my shot optimally, what is the maximum probability of winning which I can attain?}
 
 \begin{sol} 
@@ -334,7 +407,7 @@ hoops until he misses. The value of $p$ that maximizes the chance that he makes 
 for a prime a and positive integer $b$. Find $a + b$.}
 
 \begin{sol}
-
+$p=\frac{1}{\sqrt[35]{2}}\implies \boxed{37}$
 \end{sol}
 
 \prob{2}{PHS ARML TST 2017}{Consider a group of eleven high school students. To create a middle school math contest, they must
@@ -348,7 +421,7 @@ Complementary counting, find how many committees have that student on both and h
 
 \prob{2}{Mandelbrot Regionals 2009}{Mr. Strump has formed three person groups in his math class for working on projects. Every student is in exactly two groups, and any two groups have at most one person in common. In fact, if two groups are chosen at random then the probability that they have exactly one person in common is one-third. How many students are there in Mr. Strump’s class?}
 
-\prob{3}{ARML Local 2014}{Bobby, Peter, Greg, Cindy, Jan, and Marcia line up for ice cream. In an acceptable lineup,
+\prob{3}{ARML 2014}{Bobby, Peter, Greg, Cindy, Jan, and Marcia line up for ice cream. In an acceptable lineup,
 Greg is ahead of Peter, Peter is ahead of Bobby, Marcia is ahead of Jan, and Jan is ahead
 of Cindy. For example, the lineup with Greg in front, followed by Peter, Marcia, Jan, Cindy,
 and Bobby, in that order, is an acceptable lineup. Compute the number of acceptable lineups.}
@@ -359,7 +432,7 @@ The probability Greg, Peter, and Bobby line up in their specific order is $\frac
 
 \prob{3}{AMC 12B 2017/17}{A coin is biased in such a way that on each toss the probability of heads is $\frac{2}{3}$ and the probability of tails is $\frac{1}{3}$. The outcomes of the tosses are independent. A player has the choice of playing Game A or Game B. In Game A she tosses the coin three times and wins if all three outcomes are the same. In Game B she tosses the coin four times and wins if both the outcomes of the first and second tosses are the same and the outcomes of the third and fourth tosses are the same. Find the probability of winning game A minus the probability of winning game B.}
 
-\prob{3}{ARML Local 2009}{Some students in a gym class are wearing blue jerseys, and the rest are wearing red jerseys.
+\prob{3}{ARML 2009}{Some students in a gym class are wearing blue jerseys, and the rest are wearing red jerseys.
 There are exactly 25 ways to pick a team of three players that includes at least one player
 wearing each color. Compute the number of students in the class.}
 
@@ -367,16 +440,43 @@ wearing each color. Compute the number of students in the class.}
 $\boxed{7}$
 \end{sol}
 
-\prob{6}{CRMT Team 2019}{A deck of the first 100 positive integers is randomly shuffled. Find the expected number of
+\prob{3}{MMATHS 2019}{Erik wants to divide the integers 1 through 6 into nonempty sets A and B such that no (nonempty) sum of elements in A is a multiple
+of 7 and no (nonempty) sum of elements in B is a multiple of 7. How many ways can he do this? (Interchanging A and B counts as a
+different solution.)}
 
-draws it takes to get a prime number if there is no replacement.}
+\begin{sol}
+$\boxed{6}$
+\end{sol}
+
+\prob{4}{MMATHS 2019}{ How many ways are there to tile a 4 × 6 grid with L-shaped triominoes? (A triomino consists of three connected $1 \times 1$ squares not all in a line.}
+\begin{sol}
+$16+2=\boxed{18}$
+\end{sol}
+\prob{4}{MMATHS 2019}{A subset of \{1, 2, 3, 4, 5, 6, 7, 8\} of size 3 is called special if whenever a and b are in the set, the remainder when $a + b$ is divided by $8$
+is not in the set. (a and b can be the same.) How many special subsets exist?} 
+
+\begin{sol}
+$\boxed{6}$
+\end{sol}
+
+\prob{5}{BMT 2018}{Suppose there are 2017 spies, each with $\frac{1}{2017}$ th of a secret code. They communicate by telephone;
+when two of them talk, they share all information they know with each other. What is the
+minimum number of telephone calls that are needed for all 2017 people to know all parts of the
+code}
+
+\begin{sol}
+Use induction, then claim the minimium is $2n-4$.
+$\boxed{4030}$
+\end{sol}
+
+\prob{6}{CRMT Team 2019}{A deck of the first 100 positive integers is randomly shuffled. Find the expected number of draws it takes to get a prime number if there is no replacement.}
 
 \prob{6}{CNCM PoTD}{Find the remainder when $\sum_{n=0}^{333}\sum_{k=3n}^{999} \binom{k}{3n}$ is divided by $70$.}
 
 \setcounter{problem}{0}
 \section{Number Theory}
 \subsection{Divisors}
-\prob{1}{ARML Local 2013}{Compute the smallest positive integer n such that $n^{2}+n^{0}+n^{1}+n^{3}$ is a multiple of $13$.}
+\prob{1}{ARML 2013}{Compute the smallest positive integer n such that $n^{2}+n^{0}+n^{1}+n^{3}$ is a multiple of $13$.}
 
 \begin{sol}
 $\boxed{5}$
@@ -415,8 +515,17 @@ $\frac{p+\frac{1}{q}}{q+\frac{1}{p}}=\frac{p}{q}\implies p=17q$. Then $\frac{p+q
 
 \prob{2}{LMT Spring 2020}{Let LMT represent a 3-digit positive integer where L and M are nonzero digits. Suppose that the 2-digit number MT divides LMT. Compute the difference between the maximum and minimum possible values of LMT .}
 
+\begin{sol}
+$100L + MT = 0\pmod{MT}\implies 100L =0\pmod{MT}$. Max $LMT$ occurs when $L=9$ and $MT=45$. Min $LMT$ occurs when $L=1$ and $MT=25$. So, $945-125=\boxed{820}$.
+\end{sol}
+
 \prob{2}{BMT 2018}{How many multiples of 20 are also divisors of 17!?}
 
+\prob{2}{NanoMath Fall Meet 2020}{ If $\phi(n)$ is the number of integers $1\leq p \leq n$ such that $p$ is relatively prime to $n$, then find the number of even values $n$ between $1$ and $100$ inclusive for which $\phi(n)=\phi(\frac{n}{2})$}
+
+\begin{sol}
+$n=0\pmod{4}\implies \boxed{25}$
+\end{sol}
 \prob{2}{LMT Spring 2020}{Suppose there are $n$ ordered pairs of positive integers ($a_{i},b_{i}$) such that $a_{i} +b_{i} = 2020$ and $a_{i}, b_{i}$ is a multiple of $2020$,
 where $1 \leq i \leq n$. Compute the sum
 $$\sum_{i=1}^{n} a_{i} +b_{i}.$$}
@@ -439,6 +548,11 @@ $n\cdot n! = (n+1)!-n!$, then telescope to get $101!-1!$. Then, we are finding h
 
 \prob{3}{AMC 12B 2017/16}{The number $21!=51,090,942,171,709,440,000$ has over $60,000$ positive integer divisors. One of them is chosen at random. What is the probability that it is odd?}
 
+\prob{3}{MMATHS 2019}{If n is an integer between $4$ and $1000$, what is the largest possible power of $2$ that $n^4 - 13n^2 + 36$ could be divisible by?}
+
+\begin{sol}
+$\boxed{2048}$
+\end{sol}
 \prob{3}{BMT 2015}{There exists a unique pair of positive integers k, n such that k is divisible by 6, and $\sum_{i=1}^{k} i^2 = n^2$.
 Find $(k, n)$.}
 
@@ -507,6 +621,11 @@ Also, $19!=0\pmod{125}$ by Legendre's so $H=0$. Note that $19!=0\pmod{9}$ so $T+
 Let $N=201820182018\ldots$ [2018 times]. We will find $N\pmod{3}$ and $N\pmod{5}$ and then use CRT. Clearly, $N\pmod{5}=3$. Also, $N\pmod{3}=2018\cdot 2018=(-1)^2=1$. Then, $N\pmod{15}=\boxed{13}$.
 \end{sol}
 
+\prob{2}{BMT 2020}{Compute the remainder when $98!$ is divided by $101$}
+
+\begin{sol}
+Wilson's. $\boxed{50}$
+\end{sol}
 \prob{2}{CNCM PoTD}{Find the number of positive integer $x$ less than $100$ such that 
 $$3^x+5^x+7^x+11^x+13^x+17^x+19^x$$ is prime.}
 
@@ -529,6 +648,13 @@ We have two cases: $ad$ is even and $bc$ is odd or $ad$ is odd and $bc$ is even.
 \end{sol}
 
 \prob{3}{CNCM Online Round 2}{An ordered pair $(n, p)$ is juicy if $n^2 \equiv 1 \pmod{p^2}$ and $n \equiv -1 \pmod{p}$ for positive integer $n$ and odd prime $p$. How many juicy pairs exist such that $n, p \leq 200$?}
+
+\prob{3}{MMATHS 2018}{ For any prime number $p$, let $S_p$ be the sum of all the positive divisors of $37^{p}p^{37}$ (including $1$ and $37^p p^37$). Find the sum of all primes
+$p$ such that $S_p$ is divisible by $p$}
+
+\begin{sol}
+$\boxed{19}$
+\end{sol}
 
 \prob{3}{HMMT Feburary 2018}{ There are two prime numbers $p$ so that $5p$ can be expressed in the form $\lfloor \frac{n^2}{5} \rfloor$ for some positive integer $n$. What is the sum of these two prime numbers?
 }
@@ -621,6 +747,10 @@ one coordinate with (x, y). Find the remainder when
 $$\sum_{i=1}^{p-2} \sum_{j=1}^{p-2} f(i,j)$$
 is divided by p.}
 
+\begin{sol}
+$\boxed{24}$
+\end{sol}
+
 \subsection{Bases}
 \prob{4}{HMMT November 2014}{Mark and William are playing a game with a stored value. On his turn, a player may either multiply
 the stored value by 2 and add 1 or he may multiply the stored value by 4 and add 3. The first player
@@ -660,14 +790,14 @@ $S^{K}(N)=S^{K+1}(N)\implies S^{K}(N)=S(S^{K}(N))$. Note that for $n\ge 10$, $S(
 \prob{7}{AIME I 2020/12}{Let $n$ be the least positive integer for which $149^n-2^n$ is divisible by $3^3\cdot5^5\cdot7^7.$ Find the number of positive integer divisors of $n.$}
 
 \subsection{Series and Sequences}
-\prob{1}{ARML Local 2009}{Let $p$ be a prime number. If $p$ years ago, the ages of three children formed a geometric
+\prob{1}{ARML 2009}{Let $p$ be a prime number. If $p$ years ago, the ages of three children formed a geometric
 sequence with a sum of $p$ and a common ratio of $2$, compute the sum of the children’s current
 ages.}
 
-\prob{3}{ARML Local 2014}{For each positive integer $k$, let $S_{k}$ denote the infinite arithmetic sequence of integers with first term $k$ and common difference $k^2$. For example, $S_{3}$ is the sequence $3, 12, 21,\ldots$ Compute
+\prob{3}{ARML 2014}{For each positive integer $k$, let $S_{k}$ denote the infinite arithmetic sequence of integers with first term $k$ and common difference $k^2$. For example, $S_{3}$ is the sequence $3, 12, 21,\ldots$ Compute
 the sum of all $k$ such that $306$ is an element of $S_{k}$}
 
-\prob{4}{ARML Local 2014}{The arithmetic sequences $a_{1}, a_{2}, a_{3}, . . . , a_{20}$ and $b_{1}, b_{2}, b_{3}, . . . , b_{20}$ consist of $40$ distinct positive integers, and $a_{20} + b_{14} = 1000$. Compute the least possible value for $b_{20} + a_{14}$.}
+\prob{4}{ARML 2014}{The arithmetic sequences $a_{1}, a_{2}, a_{3}, . . . , a_{20}$ and $b_{1}, b_{2}, b_{3}, . . . , b_{20}$ consist of $40$ distinct positive integers, and $a_{20} + b_{14} = 1000$. Compute the least possible value for $b_{20} + a_{14}$.}
 
 \begin{sol}
 $\boxed{10}$
@@ -679,6 +809,18 @@ $\boxed{10}$
 Note that $0=(-1010+1010)+(-1009+1009)\cdots + (-1+1)$. So, our answer is $\boxed{0}$.
 \end{sol}
 
+\prob{2}{OMO Spring 2019}{Daniel chooses some distinct subsets of $\{1, . . . , 2019\}$ such that any two distinct subsets chosen are disjoint. Compute the maximum possible number of subsets he can choose}
+
+\begin{sol}
+Each element can only be used once and you can also choose the empty subset. So, $2019+1=\boxed{2020}$
+\end{sol}
+
+\prob{2}{BMT 2018}{How many integers can be expressed in the form:
+$\pm 1 \pm 2 \pm 3\cdots \pm 2018$?}
+
+\begin{sol}
+All odd integers in between $-1-2\cdots - 2018$ and $1+2\cdots + 2018$ work. So, $\boxed{2018\cdot 1009+1}$
+\end{sol}
 \prob{3}{BMT 2015}{Find all integer solutions to
 $$x^2+2y^2+3z^2=36$$
 $$3x^2+2y^2+z^2=84$$
@@ -699,6 +841,16 @@ We get $\boxed{(5,2,-1),(-5,-2,1)}$.
 \begin{sol}
 We do casework on $k=\overline{abc}$, $k=\overline{ab0}$ or $k=\overline{a00}$ for non-zero $a,b,c$. We find that $k=\overline{a00}$ works for $a=5$, $k=\overline{ab0}$ never works as it implies $2(a+b)=19$ and $k=\overline{abc}$ works when $a+b+c=14$. Then, $a=1,2\cdots 4$ gives $6+7+8+9= 30$. Our answer is $\boxed{31}$.
 \end{sol}
+
+\prob{3}{OMO Spring 2019}{Jay is given $99$ stacks of blocks, such that the ith stack has $i^2$ blocks. Jay must choose a positive integer $N$ such that from each stack, he may take either $0$ blocks or exactly $N$ blocks. Compute the
+value Jay should choose for $N$ in order to maximize the number of blocks he may take from the 99
+stacks.}
+
+\begin{sol}
+The number of blocks taken is $N(100-\lceil \sqrt{N} \rceil)$. Note that the maximium occurs when $N=k^2$ for some integer $k$. Otherwise, $N+1$ would give a larger expression. So, we want to maximize $k^2(100-k)=(k)(k)(100-k)=4(\frac{k}{2})(\frac{k}{2})(100-k)$. By AM-GM, this is maximized when $\frac{k}{2}=100-k\implies k=\frac{200}{3}$. But, $k$ is an integer, so we have to take either $66$ or $67$. We can check $k=67$ gives a larger expression than $k=66$.
+$\boxed{67^2}$
+\end{sol}
+
 \prob{4}{BMT 2019}{For a positive integer $n$, define $\phi(n)$ as the number of positive integers less than or equal to $n$
 that are relatively prime to $n$. Find the sum of all positive integers $n$ such that $\phi(n)=20$}
 
@@ -718,6 +870,11 @@ where $a, b$, and $c$ are positive integers, with $b$ and $c$ coprime and $b < c
 
 \prob{6}{CNCM PoTD}{How many positive integers $k$ are there such that $101\leq k\leq 10000$ and $\lfloor \sqrt{k-100}\rfloor$ is a divisor of $k$?}
 
+\prob{6}{Compute the number of ordered triples of positive integers $(a, b, c)$ such that $a + b + c + ab + bc + ac = abc + 1$}
+
+\begin{sol}
+$\boxed{15}$
+\end{sol}
 \setcounter{problem}{0}
 \section{Algebra}
 
@@ -736,6 +893,12 @@ Note that this is $\sqrt[4]{(2x-1)^4}=|2x-1|$ using the Binomial Theorem. Then, 
 
 \begin{sol}
 By the Multinomial Theorem, the coefficient of $x^2$ is $\binom{8}{2}\cdot a^2-\binom{8}{1}=28a^2-8$. So, $28a^2-8=244\implies a^2=9\implies a = \boxed{3}$.
+\end{sol}
+
+\prob{2}{BMT 2020}{Let $a$ and $b$ be the roots of the polynomial $x^2 + 2020x+c$. Given that $\frac{a}{b}+\frac{b}{a}= 98$, compute $\sqrt{c}$.}
+
+\begin{sol}
+$\boxed{202}$
 \end{sol}
 \prob{3}{HMMT November 2014}{Let $f(x) = x^2 + 6x + 7$. Determine the smallest possible value of $f(f(f(f(x))))$ over all real numbers $x$.}
 
@@ -811,6 +974,15 @@ There are positive integers $a, b,$ and $c$ such that $m = a + \sqrt{b + \sqrt{c
 \prob{3}{BMT 2015}{Let $r, s$, and $t$ be the three roots of the equation $8x^3 + 1001x + 2008 = 0$. Find
 $(r + s)^3 + (s + t)^3 + (t + r)^3$}
 
+\begin{sol}
+Equal to $-(r^3+s^3+t^3)=-P_{3}$. We have $8P_{3}+1001P_{1}+2008\cdot 3 = 8P_{3}+2008=0\implies P_{3}=-251$. So, the answer is $\boxed{251}$.
+\end{sol}
+\prob{3}{NanoMath Fall Meet 2020}{If $x + y = 6$ and $x^3 + y^3 = 108$, find $x^5 + y^5$.}
+
+\begin{sol}
+$\boxed{2376}$
+\end{sol}
+
 \prob{4}{BMT 2019}{
 Let $r_1, r_2, r_3$ be the (possibly complex) roots of the polynomial $x^3 + ax^2 + bx + \frac{4}{3}$. How many
 pairs of integers a, b exist such that $r_{1}^3 + r_{2}^3 + r_{3}^3 = 0$ ?}
@@ -819,6 +991,9 @@ pairs of integers a, b exist such that $r_{1}^3 + r_{2}^3 + r_{3}^3 = 0$ ?}
 Find $$(a^3+b^3)(a^3+c^3)(b^3+c^3).$$
 }
 
+\begin{sol}
+$\boxed{189}$
+\end{sol}
 \subsubsection{Roots of Unity}
 \prob{2}{AMC 12B 2017/12}{What is the sum of the roots of $z^{12}=64$ that have a positive real part?} 
 
@@ -833,6 +1008,14 @@ Roots of Unity Filter
 \end{sol}
 
 \subsubsection{Polynomial Interpolation}
+
+\prob{3}{BMT 2020}{The graph of the degree $2021$ polynomial $P(x)$, which has real coefficients and leading coefficient
+1, meets the x-axis at the points $(1, 0),(2, 0),(3, 0), \ldots,(2020, 0)$ and nowhere else. The mean
+of all possible values of $P(2021)$ can be written in the form $\frac{a!}{b}$, where $a$ and $b $are positive integers and $a$ is as small as possible. Compute $a + b$.}
+
+\begin{sol}
+$\boxed{2023}$
+\end{sol}
 
 \prob{6}{AMC 12B 2017/23}{The graph of $y=f(x)$, where $f(x)$ is a polynomial of degree $3$, contains points $A(2,4)$, $B(3,9)$, and $C(4,16)$. Lines $AB$, $AC$, and $BC$ intersect the graph again at points $D$, $E$, and $F$, respectively, and the sum of the $x$-coordinates of $D$, $E$, and $F$ is $24$. What is $f(0)$?}
 
@@ -954,6 +1137,13 @@ We can see that $\frac{-1 + \sqrt{8057}}{2}>\sqrt{2015}$ and that $\frac{-1-\sqr
 Then, $\frac{1}{S}=\frac{2}{\sqrt{8061}-\sqrt{8057}}=\frac{\sqrt{8061}+\sqrt{8057}}{2}$. So, $89 < \frac{1}{S} < 90$ so our answer is $\boxed{89}$
 \end{sol}
 
+\prob{7}{BMT 2020}{Let $a,b$ and $c$ be real numbers such that $a+b+c=\frac{1}{a}+\frac{1}{b}+\frac{1}{c}$ and $abc=5$. The value of
+$$(a-\frac{1}{b})^3+(b-\frac{1}{c})^3+(c-\frac{1}{a})^3$$
+can be written in the form $\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integeres. Compute $m+n$.}
+
+\begin{sol}
+$\boxed{77}$
+\end{sol}
 \subsection{Series and Sequences}
 \prob{1}{djmathman Mock AMC 2013/9}{ Let $p$ and $q$ be numbers with  $|p| <1$ and $|q| <1$ such that \[p+pq+pq^2+pq^3 + \dots = 2  ~~\text{and} ~~ q + qp + qp^2 + \dots = 3.\] What is $100pq$?}
 
@@ -966,25 +1156,98 @@ Using the formula for an infinite geometric series, we get $\frac{p}{1-q}=2\impl
 \begin{sol}
 Notice that every positive integer can be uniquely represented as $2^{k}\cdot o$ for some non-negative $k$ and odd integer $o$. Then, $\frac{1}{1^2}+\frac{1}{2^2}\cdots = (\frac{1}{1^2}+\frac{1}{2^2}+\frac{1}{4^2}\cdots)(\frac{1}{1^2}+\frac{1}{3^2}\cdots) = \frac{4}{3}(\frac{1}{1^2} + \frac{1}{3^2}\cdots)$. So, our answer is $\boxed{\frac{4}{3}}$.
 \end{sol}
+\prob{1}{OMO Spring 2019}{
+Compute 
+$$\lfloor \sum_{k=2018}^{\infty} \frac{2019!-2018!}{k!}\rfloor.$$
+(The notation $\lfloor x \rfloor$ denotes the least integer $n$ such that $n \ge x$.)}
+
+\begin{sol}
+$\boxed{2019}$
+\end{sol}
+
+\prob{3}{NanoMath Fall Meet 2020}{Let $a_0, a_1, a_2, \ldots$ be an arithmetic sequence of positive integers. If $a_0 + a_1 + \cdots + a_{10} = 209$ and $a_{a_{0}} +
+a_{a_{1}} + \cdots + a_{a_{10}} = 671$, then find $a_0$.}
+
+\begin{sol}
+$\boxed{4}$
+\end{sol}
+\prob{3}{BMT 2015}{Let $\{a_n\}$ be a sequence of real numbers with $a_1 = -1, a_2 = 2$ and for all $n \ge 3$,
+$a_{n+1} - a_{n} - a_{n+2} = 0$.
+Find $a_{1} + a_{2} + a_{3} + . . . + a_{2015}$.}
+
+\begin{sol} 
+Note that the condition is $a_{n+2}=a_{n+1}-a_{n}$ and that $a_{3}=3,a_{4}=1,a_{5}=-2,a_{6}=-3,a_{7}=-1,a_{8}=2$. So, it repeats with period $6$. The sum $a_{1}+a_{2}\cdots + a_{6}=0$. So, $a_{1}+a_{2}\cdots + a_{2015}=0-a_{2016}=0-a_{6}=\boxed{3}$.
+\end{sol}
+
+\prob{3}{MMATHS 2019}{ Let $F_1 = F_2 = 1$, and let $F_n = F_{n-1} + F_{n-2}$ for all $n \ge 3$. For each positive integer $n$, let $g(n)$ be the minimum possible value of
+$|a_1F_1 + a_2F_2 + · · · + a_nF_n|$,
+where each $a_i$
+is either $1$ or $-1$. Find $g(1) + g(2) + \cdots  + g(100)$}
+
+\begin{sol}
+$g(n)=g(n+3)$
+Then, $\boxed{34}$
+\end{sol}
+
+\prob{3}{BMT 2020}{Let $\phi$ be the positive solution to the equation
+$x^2 = x + 1$. For $n \ge 0$, let an be the unique integer such that $\phi^n  - a_{n}\phi$ is also an integer. Compute
+$$\sum_{i=0}^{10} a_{n}$$}
+
+\begin{sol}
+$\boxed{143}$
+\end{sol}
 
 \prob{4}{Math Prizes For Girls 2019}{For each integer from 1 through 2019, Tala calculated the product of
 its digits. Compute the sum of all 2019 of Tala’s products.}
 
+\begin{sol}
+Note that for $2000$ to $2019$, the corresponding product is $0$. Then, by the Distributive Property, what we want is
+$$(1+1+2)(1+1+2+3\cdots +9)(1+1+2+3\cdots + 9)(1+1+2+3\cdots + 9)$$
+\end{sol}
 \prob{4}{HMMT Feburary 2017}{Find the value of
 $$\sum_{1\leq a<b<c} \frac{1}{2^{a}3^{b}5^{c}}$$
 (i.e the sum of $\frac{1}{2^{a}3^{b}5^{c}}$ over all triples of positive integers $(a, b, c)$ satisfying $a < b < c$)}
 
+\prob{5}{MMATHS 2018}{Compute
+$$\sum_{m=1}^{\infty} \sum_{n=1}^{\infty} \frac{m\cos^2(n)+n\sin^2(m)}{3^{m+n}(m+n)}$$}
+
+\begin{sol}
+Let the sum be $x$. Then the sum is the same if you swap $m$ and $n$, then things cancel out.
+$\frac{\boxed{1}{8}}$
+\end{sol}
 \prob{5}{HMMT Feburary 2016}{Let $A$ denote the set of all integers $n$ such that $1 \leq n \leq 10000$, and moreover the sum of the decimal digits of $n$ is $2$. Find the sum of the squares of the elements of $A$.}
 
 \prob{5}{HMMT Feburary 2016}{Determine the remainder when
 $$\sum_{i=0}^{2015} \lfloor \frac{2^{i}}{25} \rfloor $$
 is divided by $100$, where $\lfloor x \rfloor$ denotes the largest integer not greater than $x$.}
+
+\prob{8}{BMT 2018}{Find the value of
+$$\frac{1}{\sqrt{2}}+\frac{2^2}{\sqrt{4}}+\frac{3^2}{\sqrt{8}}\cdots$$}
+
+\begin{sol}
+$\boxed{24+17\sqrt{2}}$
+\end{sol}
 \subsubsection{Telescoping}
 
 \prob{3}{Purple Comet 2015 HS}{
 $$\left(1 + \frac{1}{1+2^1}\right)\left(1+\frac{1}{1+2^2}\right)\left(1 + \frac{1}{1+2^3}\right)\cdots\left(1 + \frac{1}{1+2^{10}}\right)= \frac{m}{n},$$ where $m$ and $n$ are relatively prime positive integers. Find $m + n$.}
 
+\begin{sol}
+Telescope to  get $boxed{\frac{2048}{1025}}$
+\end{sol}
+
+\prob{5}{BMT 2020}{Given that $\binom{n}{k}=\frac{n!}{k!(n-k)!}$ , the value of
+
+$$\sum_{n=3}^{10} \frac{\binom{n}{2}}{\binom{n}{3}\binom{n+1}{3}}$$
+
+can be written in the form $\frac{m}{n}$ , where $m$ and $n$ are relatively prime positive integers. Compute $m + n$}
+
+\begin{sol}
+$\frac{164}{165}\implies \boxed{329}$
+\end{sol}
 \subsection{Trigonometry}
+
+\prob{2}{ARML Local 2020}{A real number $x$ is selected uniformly at random between $0$ aned $\pi$. Compute the probability that $\sin(x)\cos(x) < \frac{1}{4}$}
 
 \prob{4}{MA$\theta$ 1992}{If $A$ and $B$ are both in $[0,2\pi)$ and $A$ and $B$ satisfy the equations
 $$\sin A + \sin B = \frac{1}{3}$$
@@ -996,10 +1259,10 @@ find $\cos(A-B)$}
 \begin{sol}
 Use induction to show this is just $\boxed{\arctan \frac{n}{n+2}}$.
 \end{sol}
+
 \prob{6}{Purple Comet 2015 HS}{
 Let $x$ be a real number between 0 and $\tfrac{\pi}{2}$ for which the function  $3\sin^2 x + 8\sin x \cos x + 9\cos^2 x$ obtains its maximum value, $M$. Find the value of $M + 100\cos^2x$.}
-
-\prob{6}{ARML Local 2009}{If $6 \tan^{-1} x + 4 \tan^{-1}(3x) = \pi$, compute $x^2$}
+\prob{6}{ARML 2009}{If $6 \tan^{-1} x + 4 \tan^{-1}(3x) = \pi$, compute $x^2$}
 
 \begin{sol}
 $\boxed{\frac{15-8\sqrt{3}}{33}}$
@@ -1011,7 +1274,8 @@ $\boxed{\frac{15-8\sqrt{3}}{33}}$
 Note $\log_{10}(10)-\log_{10}(2)=\log_{10}(5)\implies \log_{10}(5) \approx 0.699\approx \frac{7}{10}$. Then, $5^{44}\approx 10^{44\cdot \frac{7}{10}}=10^{30.8}$. So, it has $\boxed{31}$ digits.
 \end{sol}
 
-\prob{3}{ARML Local 2009}{Compute all real values of $x$ such that $\log_{2}(\log_{2} x) = \log_{4}(\log_{4} x)$.}
+\prob{3}{ARML 2009}{Compute all real values of $x$ such that $\log_{2}(\log_{2} x) = \log_{4}(\log_{4} x)$.}
+
 \prob{3}{PuMAC 2019}{ If $x$ is a real number so $3^x = 27x$, compute $\log_{3}(\frac{3^{3^x}}{x^{3^{3}}})$.}
 
 \begin{sol}
@@ -1039,33 +1303,59 @@ Compute the value of the expression $(\log(xyz))^2$}
 \begin{sol}
 Let $x=10^{a}, y=10^{b}, z = 10^{c}$. Let $\log(xyz)=a+b+c=k$. Then, we have $a(b+c)=2$ and $b(a+c)=1$ and $c(a+b)=\frac{3}{2}$. Summing, we get $2\sum_{cyc} ab = \frac{9}{2}\implies \sum_{cyc} ab =\frac{9}{4}$. Then, subtraction from each of the equations gives $ab=\frac{3}{4}, ac=\frac{5}{4},bc=\frac{1}{4}$. Then, multiplying all together, we get $abc=\frac{\sqrt{15}}{8}$. Solving, we get $a=\frac{\sqrt{15}}{2}, b= \frac{\frac{\sqrt{15}}{5}}{2}, c=\frac{\frac{\sqrt{15}}{3}}{2}$. Then, $a+b+c=\frac{23\sqrt{15}}{30}$. So, $(a+b+c)^2=\frac{529\cdot 15}{30^2}=\boxed{\frac{529}{60}}$.
 \end{sol}
-\prob{4}{If $60^{a}=3$ and $60^{b} = 5$, then find $12^{\frac{1-a-b}{2-2b}}$.}
 
+\prob{4}{}{If $60^{a}=3$ and $60^{b} = 5$, then find $12^{\frac{1-a-b}{2-2b}}$.}
+
+\begin{sol}
+$\boxed{2}$
+\end{sol}
+
+\prob{4}{NanoMath Fall Meet 2020}{Let a be a positive integer. If
+$$(\log_{(\log_{2}(a^{\log_{2} a^4}))} a)(\log_{2} a^{\log_{4} a^{\frac{3}{2}}}) = 8$$,
+what is the value of $a$?}
+
+\begin{sol}
+$\boxed{16}$
+\end{sol}
 \prob{5}{SLKK AIME 2020}{Let $x$ be a real number in the interval $(0,\frac{\pi}{2})$ such that
 $\log_{\sin^2(x)} \cos(x) + \log_{\cos^2(x)} \sin(x) = \frac{5}{4}$.
 If $\sin^2(2x)$ can be expressed as $m\sqrt{n} -p$, where $m, n$, and $p$ are positive integers such
 that $n$ is not divisible by the square of a prime, find $m + n + p$
 }
 
-
-\subsection{Sequences}
-\prob{3}{BMT 2015}{Let $\{a_n\}$ be a sequence of real numbers with $a_1 = -1, a_2 = 2$ and for all $n \ge 3$,
-$a_{n+1} - a_{n} - a_{n+2} = 0$.
-Find $a_{1} + a_{2} + a_{3} + . . . + a_{2015}$.}
-
-\begin{sol} 
-Note that the condition is $a_{n+2}=a_{n+1}-a_{n}$ and that $a_{3}=3,a_{4}=1,a_{5}=-2,a_{6}=-3,a_{7}=-1,a_{8}=2$. So, it repeats with period $6$. The sum $a_{1}+a_{2}\cdots + a_{6}=0$. So, $a_{1}+a_{2}\cdots + a_{2015}=0-a_{2016}=0-a_{6}=\boxed{3}$.
+\begin{sol}
+$\boxed{17}$
+\end{sol}
+\subsection{Distance, Rate, Work}
+\prob{2}{AlcumusGuy Mock AMC 10 2016-2017}{Two cars simultaneously leave Lincoln at noon along the same route, with the first traveling at a constant rate of $50$ miles per hour, and the second at a constant rate of $40$ miles per hour. A third car leaves Lincoln half an hour later, traveling along the same route at constant speed $s$ miles per hour. It passes the first car $t$ minutes after noon, which was precisely an hour and a half after passing the second car.
+What is $s + t$?}
+\begin{sol}
+$\boxed{240}$
 \end{sol}
 
 \subsection{Arbitary Functions}
-\prob{3}{Mandelbrot Nationals 2009}{Let $f(x)$ be a function defined for all positive real numbers satisfying the conditions $f(x) > 0$ for all $x > 0$ and $f(x-y) = \sqrt{f(xy) + 1}$ for all $x > y > 0$. Determine $f(2009)$.}
 
 \prob{2}{LMT Spring 2020}{A function $f(x)$ is such that for any integer $x, f (x)+ x f (2- x) = 6$. Compute $-2019f (2020)$.}
 
 \begin{sol}
 Plug in $x=2020$ and $x=-2018$ and solve the system of linear equations.
 \end{sol}
+
+\prob{3}{Mandelbrot Nationals 2009}{Let $f(x)$ be a function defined for all positive real numbers satisfying the conditions $f(x) > 0$ for all $x > 0$ and $f(x-y) = \sqrt{f(xy) + 1}$ for all $x > y > 0$. Determine $f(2009)$.}
+
+\prob{4}{BMT 2020}{Let $f:\mathbb{R^{+}} \to \mathbb{R^{+}}$ be a function such that for all $x,y \in \mathbb{R^{+}}$, $f(x)f(y)=f(xy)+f(\frac{x}{y})$ where $\mathbb{R^{+}}$ represents the positive real numbers. Given that $f(2)=3$, compute the last two digits of $f(2^{2^{2020}})$.}
+
+\begin{sol}
+$\boxed{47}$
+\end{sol}
+
 \prob{5}{HMMT Feburary 2017}{Let $f : \mathbb{R} \to \mathbb{R}$ be a function satisfying $f(x)f(y) = f(x-y)$. Find all possible values of $f(2017)$.}
+
+\prob{7}{MMATHS 2019}{The continuous function $f(x)$ satisfies $9f(x + y) = f(x)f(y)$ for all real numbers $x$ and $y$. If $f(1) = 3$, what is $f(-3)$?}
+
+\begin{sol}
+$f(x) is always nonnegative and can\rq{}t have any real zeros because then $f(0)=0$. So, $f(x)=3^{g(x)}$ for some continuous function $g(x)$. This then gives $2+g(2x)=2g(x)$ which implies $g(x)$ is linear and in the form $ax+b$. Then, $b=2$ and $a=-1$. So, $g(-3)=5$ and $f(-3)=\boxed{243}$
+\end{sol}
 
 \subsection{Inequalities}
 \prob{1}{PuMAC 2019}{ Let a, b be positive integers such that $a+b = 10$. Let $\frac{p}{q}$
@@ -1122,7 +1412,7 @@ We rewrite to get $(x-2)^2+y^2=1$ which is the equation of a circle. Let $P=(x,y
 \prob{3}{Magic Math AMC 10 2020}{Find the number of ordered pairs of real numbers $(x, y)$ satisfying $x =\frac{2y}{y^2-1}$ and $y =\frac{2x}{x^2-1}$.
 }
 
-\prob{4}{ARML Local 2014}{Compute the area of the region defined by $x^2 + y^2 \leq |x| + |y|$.}
+\prob{4}{ARML 2014}{Compute the area of the region defined by $x^2 + y^2 \leq |x| + |y|$.}
 \begin{sol}
 $\boxed{2+\pi}$
 \end{sol}
@@ -1189,6 +1479,9 @@ expressed as $m-n\sqrt{p}$ where $m, n,$ and $p$ are positive integers such that
 by the square of a prime, find $m + n + p$
 }
 
+\begin{sol}
+$\boxed{85}$
+\end{sol}
 \subsection{3D Geometry}
 \prob{1}{AMC 12A 2009/5}{One dimension of a cube is increased by $1$, another is decreased by $1$, and the third is left unchanged. The volume of the new rectangular solid is $5$ less than that of the cube. What was the volume of the cube?}
 
@@ -1231,12 +1524,25 @@ slanted cone with base C and vertex P.}
 
 \prob{3}{AMC 12B 2017/14}{An ice-cream novelty item consists of a cup in the shape of a 4-inch-tall frustum of a right circular cone, with a 2-inch-diameter base at the bottom and a 4-inch-diameter base at the top, packed solid with ice cream, together with a solid cone of ice cream of height 4 inches, whose base, at the bottom, is the top base of the frustum. What is the total volume of the ice cream, in cubic inches?}
 
-\prob{4}{ARML Local 2009}{A cylinder with radius $r$ and height $h$ has volume $1$ and total surface area $12$. Compute $\frac{1}{r}+\frac{1}{h}$}
+\prob{4}{ARML 2009}{A cylinder with radius $r$ and height $h$ has volume $1$ and total surface area $12$. Compute $\frac{1}{r}+\frac{1}{h}$}
 
 \begin{sol}
 $\boxed{6}$
 \end{sol}
+
+\prob{6}{BMT 2018}{A rectangular prism has three distinct faces of area 24, 30, and 32. The diagonals of each distinct
+face of the prism form sides of a triangle. What is the triangle’s area?}
+
+\begin{sol}
+Use 3D cross-product, $\boxed{25}$
+\end{sol}
 \subsection{Inequalties}
+\prob{1}{AlcumusGuy Mock AMC 10 2016-2017}{Triangle AMC has area 2017 with $\angle M = 90^{\circ}$. What is the closest integer to the minimum possible length of AC?}
+
+\begin{sol}
+$\boxed{90}$
+\end{sol}
+
 \prob{2}{Math Prizes For Girls}{A paper equilateral triangle with area 2019 is folded over a line parallel
 to one of its sides. What is the greatest possible area of the overlap of
 folded and unfolded parts of the triangle?}
@@ -1247,6 +1553,12 @@ folded and unfolded parts of the triangle?}
 Using Heron's Formula and a smoothing argument gives that an equilaterial triangle gives the largest area.  So, we have $s=\frac{1}{3}$ and $A=\frac{s^2\sqrt{3}}{4}=\frac{\sqrt{3}}{36}$. So, $A^2=\frac{3}{36^2}=\frac{1}{12\cdot 36}=\boxed{\frac{1}{432}}$.
 \end{sol}
 
+\prob{4}{MMATHS 2018}{
+$A, B, C, D$ all lie on a circle with $AB = BC = CD$. If the distance between any two of these points is a positive integer, what is the smallest possible perimeter of quadrilateral $ABCD$}
+
+\begin{sol}
+$\boxed{17}$
+\end{sol}
 
 \subsection{Transformations}
 \prob{3}{HMMT February 2014}{
@@ -1263,7 +1575,7 @@ vertices $A, B, C, D$ and $D, E, F, G$ labeled counterclockwise. Let P be the in
 lines $AE$ and $CG$. If $DA = 35, DG = 20$, and $BF = 25\sqrt{2}$, find $DP^2$.}
 
 \begin{sol}
-Spiral Similarity from ABCD to DEFG.
+Spiral Similarity from ABCD to DEFG. $\boxed{768}$
 \end{sol}
 
 \subsection{General}
@@ -1301,6 +1613,13 @@ diagonals is perpendicular to both bases, then what is the length of the other d
 
 \prob{2}{Autumn Mock AMC 10}{Equilateral triangle ABC has side length $6$. Points $D, E, F$ lie within the lines $AB, BC$ and $AC$ such that $BD=2AD$, $BE=2CE$, and $AF=2CF$. Let $N$ be the numerical value of the area of triangle $DEF$. Find $N^2$.}
 
+\prob{2}{OMO Spring 2019}{In triangle ABC, side AB has length 10, and the A- and B-medians have length 9 and 12, respectively.
+Compute the area of the triangle.}
+
+\begin{sol}
+$\boxed{72}$
+\end{sol}
+
 \prob{2}{LMT Spring 2020}{
 Three mutually externally tangent circles are internally tangent to a circle with radius $1$. If two of the inner circles have
 radius $\frac{1}{3}$, the largest possible radius of the third inner circle can be expressed in the form $\frac{a+b\sqrt{c}}{d}$ where $c$ is squarefree
@@ -1332,6 +1651,12 @@ Power of a Point, then Sine Triangle Area formula.
 \prob{3}{AMC 12B 2017/18}{The diameter $AB$ of a circle of radius $2$ is extended to a point $D$ outside the circle so that $BD=3$. Point $E$ is chosen so that $ED=5$ and line $ED$ is perpendicular to line $AD$. Segment $AE$ intersects the circle at a point $C$ between $A$ and $E$. What is the area of $\triangle 
 ABC$?}
 
+\prob{3}{MMATHS 2018}{In rectangle $ABCD$, let $E$ lie on $CD$, and let $F$ be the intersection of $AC$ and $BE$. If the area of $\triangle ABF$
+is $45$ and the area of $\triangle CEF$ is $20$, find the area of the quadrilateral $ADEF$.}
+
+\begin{sol}
+$\boxed{\frac{505}{4}}$
+\end{sol}
 \prob{3}{PHS ARML TST 2017}{An algorithm starts with an equilateral triangle $A_{0}B_{0}C_{0}$ of side length 1. At step k, points $A_k, B_k,
 $and $C_k$ are chosen on line segments $B_{k-1}C_{k-1}, C_{k-1}A_{k-1}$ and $A_{k-1}B_{k-1}$ respectively, such that
 
@@ -1342,7 +1667,7 @@ $$A_{k-1}C_{k}:C_{k}B_{k-1}=1:3$$
 What is the value of the infinite series:
 $$\sum_{i=0}^{\infty} \text{Area}[\triangle A_{k}B_{k}C_{k}]$$}
 
-\prob{3}{ARML Local 2014}{In triangle $ABC, a = 12, b = 17,$ and $c = 13$. Compute $b cos C - c cos B$.}
+\prob{3}{ARML 2014}{In triangle $ABC, a = 12, b = 17,$ and $c = 13$. Compute $b cos C - c cos B$.}
 
 \begin{sol}
 Find the expression in terms of segments and use Pythaogrean Theorem and Difference of Squares to easily compute.
@@ -1369,7 +1694,7 @@ Law of Cosines and Pythagorean Theorem gives $CP=33$.
 Let $BG=2x, GB_{1}=x$ and $CG=2y, GC_{1}=y$. Set systems of equations and solve.
 \end{sol}
 
-\prob{4}{ARML Local 2014}{In triangle $\triangle ABC$, $BC = 2$. Point $D$ is on $AC$ such that $AD = 1$ and $CD = 2$. If
+\prob{4}{ARML 2014}{In triangle $\triangle ABC$, $BC = 2$. Point $D$ is on $AC$ such that $AD = 1$ and $CD = 2$. If
 $m\angle BDC = 2m\angle A$, compute $\sin A$.}
 
 \begin{sol}
@@ -1397,6 +1722,12 @@ intersects the circle at $D \neq A$, and line BC intersects the circle at $E \ne
 Let $ABC$ be a triangle with centroid $G$ and $BC = 3$. If $ABC$ is similar to $GAB$, compute the area of $ABC$.
 }
 
+\prob{5}{ARML Local 2020}{Triangle $ABC$ has side lengths $AB=8, BC =5,$ and $AC=7$. Point $P$ lies inside $\triangle ABC$ so that $\angle APB = \angle BPC = \angle CPA = 120^{\circ}$. Compute $AP+BP+CP$.}
+
+\begin{sol}
+$\sqrt{129}$
+\end{sol}
+
 \prob{5}{Magic Math AMC 10 2020}{Six points $A, B, C, D, E, F$ are selected on a circle with center $O$ such that $ABCDEF$ is an equiangular hexagon with $AB = CD = EF < BC = DE = F A$. Diagonals $AD, BE, F C$ are
 drawn, intersecting at points $X, Y, Z$. The three circles passing through $O$ and two of $X, Y, Z$
 are each internally tangent to $O$. Find $BC/AB$.}
@@ -1404,7 +1735,7 @@ are each internally tangent to $O$. Find $BC/AB$.}
 \prob{6}{AMC 12B 2017/24}{Quadrilateral $ABCD$ has right angles at $B$ and $C$, $\triangle ABC \sim \triangle BCD$, and $AB > BC$. There is a point $E$ in the interior of $ABCD$ such that $\triangle ABC \sim \triangle CEB$ and the area of $\triangle AED$ is $17$ times the area of $\triangle CEB$. What is $\frac{AB}{BC}$?}
 
 \begin{sol}
-Coordinate bashable by setting $BC=1$ and letting $B=(0,0), A=(0,x), C=(1,\frac{1}{x})$. Then, $E=(\frac{1}{x^2+1}, \frac{x}{x^2+1})$. We apply Shoelace and find $x^2=9+2\sqrt{10}\implies x=2+\sqrt{5}$.
+Coordinate bashable by setting $BC=1$ and letting $B=(0,0), A=(0,x), C=(1,\frac{1}{x})$. Then, $E=(\frac{1}{x^2+1}, \frac{x}{x^2+1})$. We apply Shoelace and find $x^2=9+2\sqrt{10}\implies x=\boxed{2+\sqrt{5}}$.
 \end{sol}
 
 \prob{6}{SLKK AIME 2020}{Cyclic quadrilateral $AXBY$ is inscribed in circle $\omega$ such that $AB$ is a
@@ -1412,11 +1743,17 @@ diameter of $\omega$. $M$ is the midpoint of $XY$ and $AM = 13, BM = 5$, and $AB
 area of AXBY can be expressed as $m\sqrt{p}+n$, where $m, n$, and $p$ are positive integers such
 that $m$ and $n$ are relatively prime and $p$ is not divisible by the square of a prime, find
 the remainder when $m + n + p$ is divided by $1000$.}
+
+\begin{sol}
+$\boxed{058}$
+\end{sol}
 \setcounter{problem}{0}
+
 \section{Misc}
 These are problems that don't really fall into any other category at all.
+
 \subsection{General}
-\prob{2}{Math Prizes For Girls 2019}{Let $a_{1}, a_{2}, \ldots , a_{2019}$ be a sequence of real numbers. For every five
+\prob{1}{Math Prizes For Girls 2019}{Let $a_{1}, a_{2}, \ldots , a_{2019}$ be a sequence of real numbers. For every five
 indices $i, j, k$, and $m$ from $1$ through $2019$, at least two of the
 numbers $a_{i},a_{j},a_{k}$ and $a_{m}$ have the same absolute value. What
 is the greatest possible number of distinct real numbers in the given
@@ -1426,13 +1763,42 @@ sequence?}
 There can't be five or more distinct absolute values because then we can just take those five. It's clear that only having four distinct absolute values work. By the Pigeonhole Principle, at least two are the same. Then, from those four, we can have at most $4\cdot 2=\boxed{8}$ distinct real numbers.
 \end{sol}
 
-\prob{3}{ARML Local 2014}{The sequence of words $\{a_{n}\}$ is defined as follows: $a_{1} = X, a_{2} = O$, and for $n \ge 3$, an is $a_{n-1}$ followed by the reverse of $a_{n-2}$. For example, $a_{3} = OX, a_{4} = OXO, a_{5} = OXOXO$, and
+\prob{1}{AlcumusGuy Mock AMC 10 2016-2017}{How many of the following four statements are true?}
+
+\begin{enumerate}
+	\item It is possible to find an even number of even integers such that the sum of their reciprocals is 1.
+
+	\item It is possible to find an even number of odd integers such that the sum of their reciprocals is 1.
+
+	\item It is possible to find an odd number of even integers such that the sum of their reciprocals is 1.
+
+	\item It is possible to find an odd number of odd integers such that the sum of their reciprocals is 1.
+\end{enumerate}
+
+\begin{sol}
+$\boxed{3}$
+\end{sol}
+
+\prob{2}{ARML 2014}{The sequence of words $\{a_{n}\}$ is defined as follows: $a_{1} = X, a_{2} = O$, and for $n \ge 3$, an is $a_{n-1}$ followed by the reverse of $a_{n-2}$. For example, $a_{3} = OX, a_{4} = OXO, a_{5} = OXOXO$, and
 $a_{6} = OXOXOOXO$. Compute the number of palindromes in the first $1000$ terms of this
 sequence.}
 
 \begin{sol}
 Only $a_{3n}$ are not palindromes. We can prove this by induction. Let $\overline{a}$ be the reverse of $a$. Let $a_{3n+1}=x,a_{3n+2}=y$ and assume those are palindromes. Then, $a_{3n+3}=y\overline{x}$ which cannot be a palindrome (the length is less than twice of $y$) and $a_{3n+4}=y\overline{x}y$ which is a palindrome as $y$ is a palindrome. Also, $a_{3n+5}=y\overline{x}yx\overline{y}$. This also a palindrome.
 Then, our answer is $1000-333=\boxed{667}$.
+\end{sol}
+
+\prob{3}{MMATHS 2019}{S is a set of positive integers with the following properties:
+\begin{enumerate}
+\item There are exactly 3 positive integers missing from S.
+
+\item If a and b are elements of S, then a + b is an element of S. (We allow a and b to be the same.)
+\end{enumerate}
+How many possibilities are there for the set S?}
+
+\begin{sol}
+1 must be missing. Then, do casework on second missing number.
+$\boxed{4}$
 \end{sol}
 \subsection{Games}
 
