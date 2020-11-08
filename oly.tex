@@ -19,6 +19,17 @@ integer?}
 
 \setcounter{problem}{0}
 \section{Number Theory}
+
+\prob{1}{AoPS Forum}{$a,b \in N$ and $ab\mid (a^2 + b^2)$, then prove that $a = b$.}
+
+\begin{sol}
+First, $a=b$ is equivalent to $\nu_{p}(a) = \nu_{p}(b)$ for all primes $p$. Also, $ab\mid (a^2+b^2)$ is equivalent to $\nu_{p}(a)+\nu_{p}(b)\leq \nu_{p}(a^2+b^2)$ for all primes $p$. Then, suppose $x=\nu_{p}(a) > \nu_{p}(b)=y$ for some prime $p$. Then, $\nu_{p}(a^2)=2x$ and $\nu_{p}(b^2)=2y$. So, $\nu_{p}(a^2+b^2)=2x$. Then, we have $x+y\leq 2x$ which implies $y\leq x$. This is a contradiction to our assumption $x>y$. Similarily, $\nu_{p}(a)<\nu_{p}(b)$ for some prime $p$ is impossible. So, $\nu_{p}(a)=\nu_{p}(b)$ for all primes $p$.
+\end{sol}
+\prob{1}{AoPS Forum}{Let $a$ and $b$ be positive integers such that $a|b^2$, $b^2|a^3$, $a^3|b^4$, $b^4|a^5$, $\cdots$. Prove that $a=b$.}
+
+\begin{sol}
+Let $p$ be any prime. Then, we need to show that $\nu_{p}(a) = \nu_{p}(b)$. Let $\nu_{p}(a)=x$ and $\nu_{p}(b)=y$. Then, $a^{2n-1}|b^{2n}\implies (2n-1)x \leq (2n)y\implies \frac{x}{y} \leq \frac{2n}{2n-1} = 1 + \frac{1}{2n-1}$. Similarily, $b^{2n}|a^{2n+1} \implies \frac{x}{y} \ge \frac{2n}{2n+1} = 1 - \frac{1}{2n+1}$. Clearly, as $n$ goes to infinity, $1-\frac{1}{2n+1}$ goes to $1$ and $1+\frac{1}{2n-1}$ goes to $1$. Because $\frac{x}{y}$ is bounded between these these two terms always, $\frac{x}{y}=1\implies x=y$
+\end{sol}
 \prob{1}{IMO 2005/4}{Determine all positive integers relatively prime to all terms of the infinite sequence $a_{n}= 2^n+ 3^n+ 6^n-1$ for $n\ge 1$.}
 
 \begin{sol}

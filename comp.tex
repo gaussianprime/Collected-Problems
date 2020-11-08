@@ -633,8 +633,6 @@ $$3^x+5^x+7^x+11^x+13^x+17^x+19^x$$ is prime.}
 Considering $\pmod{3}$, we get $3(1)^x+3(-1)^x=0\pmod{3}$ which is impossible as the expression is clearly $>3$. So, $\boxed{0}$.
 \end{sol}
 
-\prob{3}{LMT Fall 2019}{Determine the remainder when $13^{2020} +11^{2020}$ is divided by $144$.}
-
 \prob{3}{AMC 10B 2018/16}{Let $a_1,a_2,\dots,a_{2018}$ be a strictly increasing sequence of positive integers such that\[a_1+a_2+\cdots+a_{2018}=2018^{2018}.\]What is the remainder when $a_1^3+a_2^3+\cdots+a_{2018}^3$ is divided by $6$?}
 
 \begin{sol}
@@ -787,8 +785,17 @@ $S^{K}(N)=S^{K+1}(N)\implies S^{K}(N)=S(S^{K}(N))$. Note that for $n\ge 10$, $S(
 \subsection{Binomial Theorem}
 \prob{1}{BMT 2015}{Compute the sum of the digits of $1001^{10}$.}
 
+\prob{3}{LMT Fall 2019}{Determine the remainder when $13^{2020} +11^{2020}$ is divided by $144$.}
+
+\begin{sol}
+$13^{2020} + 11^{2020} = (12+1)^{2020}+(12-1)^{2020} = 12\cdot \binom{2020}{1}+1-12\cdot \binom{2020}+1\pmod{144}=\boxed{2}$
+\end{sol}
+
 \prob{7}{AIME I 2020/12}{Let $n$ be the least positive integer for which $149^n-2^n$ is divisible by $3^3\cdot5^5\cdot7^7.$ Find the number of positive integer divisors of $n.$}
 
+\begin{sol}
+$n=3^2\cdot 4\cdot 5^4\cdot 7^6=2^2\cdot 3^2\cdot 5^4\cdot 7^5$. So, $3\cdot 3\cdot 5\cdot 6=\boxed{270}$
+\end{sol}
 \subsection{Series and Sequences}
 \prob{1}{ARML 2009}{Let $p$ be a prime number. If $p$ years ago, the ages of three children formed a geometric
 sequence with a sum of $p$ and a common ratio of $2$, compute the sum of the children’s current
@@ -858,7 +865,7 @@ that are relatively prime to $n$. Find the sum of all positive integers $n$ such
 $$6x^2 + y^2 + 6x = 3xy + 6y + x^2y.$$
 $S$ contains a unique ordered pair $(a, b)$ with a maximal value of $b$. Compute $a + b$.}
 
-\prob{5}{PHS HMMT TST 2020}{Find the unique triplet of integers $(a, b, c)$ with $a > b > c$ such that $a+b+c = 95$ and $a^2+b^2+c^3=3083$.}
+\prob{5}{PHS HMMT TST 2020}{Find the unique triplet of integers $(a, b, c)$ with $a > b > c$ such that $a+b+c = 95$ and $a^2+b^2+c^2=3083$.}
 
 \prob{5}{BMT 2019}{0. Let S(n) be the sum of the squares of the positive integers less than and coprime to n. For
 example, $S(5) = 1^2 + 2^2 + 3^2 + 4^2$, but $S(4) = 1^2 + 3^2$.
@@ -964,13 +971,32 @@ is $S$, compute $|\log_{2}(S)|$.}
 \prob{7}{HMMT Feburary 2017}{A polynomial P of degree $2015$ satisfies the equation $P(n) = \frac{1}{n^2}$ for $n = 1, 2, \ldots , 2016$. Find
 $\lfloor 2017P(2017) \rfloor$}
 
-\prob{8}{AIME I 2014/14}{Let $m$ be the largest real solution to the equation
+\prob{7}{AIME I 2014/14}{Let $m$ be the largest real solution to the equation
 
 $$ \dfrac{3}{x-3} + \dfrac{5}{x-5} + \dfrac{17}{x-17} + \dfrac{19}{x-19} = x^2 - 11x - 4$$
 
 There are positive integers $a, b,$ and $c$ such that $m = a + \sqrt{b + \sqrt{c}}$. Find $a+b+c$.}
 
+\prob{8}{AoPS Forums}{Given $x_1,x_2,x_3,x_4$ are the roots of $P(x)=2x^4-5x+1$, find the value of $\sum_{i=1}^4 \frac{1}{(1-x_i)^3}$.}
+
+\begin{sol}
+$\ln P(x) = \sum \ln (x-x_{i})$
+Taking the derivative of both sides,
+$\frac{P\rq{}(x)}{P(x)} = \sum \frac{1}{x-x_{i}}$.
+We take the derivative more times to get
+$\sum_{i=1}^4 \frac{1}{(1-x_i)^3}=\frac{P'''(1)[P(1)]^2-3P''(1)P'(1)P(1)+2[P'(1)]^3}{2[P(1)]^3}$
+
+\href{https://artofproblemsolving.com/community/c728438h2121954}
+$\frac{-339}{8}$
+\end{sol}
+
 \subsubsection{Newton's Sums}
+\prob{3}{AoPS Forums}{Let $a_1, a_2, a_3$ be the roots to the polynomial $x^3-2x^2-3x+16$; find $$a_1^3(a_2+a_3)+a_2^3(a_1+a_3)+a_3^3(a_1+a_2)$$}
+
+\begin{sol}
+$a_{1}+a_{2}=2-a_{3}$
+Then, you get $2\sum a_{1}^3 - \sum a_{1}^4 = -3\sum a_{1}^2+16\sum a_{1}=-3(4+6)+16\cdot 2=-30+32=\boxed{2}$
+\end{sol}
 \prob{3}{BMT 2015}{Let $r, s$, and $t$ be the three roots of the equation $8x^3 + 1001x + 2008 = 0$. Find
 $(r + s)^3 + (s + t)^3 + (t + r)^3$}
 
@@ -1019,6 +1045,30 @@ $\boxed{2023}$
 
 \prob{6}{AMC 12B 2017/23}{The graph of $y=f(x)$, where $f(x)$ is a polynomial of degree $3$, contains points $A(2,4)$, $B(3,9)$, and $C(4,16)$. Lines $AB$, $AC$, and $BC$ intersect the graph again at points $D$, $E$, and $F$, respectively, and the sum of the $x$-coordinates of $D$, $E$, and $F$ is $24$. What is $f(0)$?}
 
+\subsubsection{Generating Functions}
+\prob{7}{BMT 2018}{Find the value of
+$$\frac{1}{\sqrt{2}}+\frac{2^2}{\sqrt{4}}+\frac{3^2}{\sqrt{8}}\cdots$$}
+
+\begin{sol}
+Let $f(x)=1^2x+2^2x^2+3^2x^3\cdots$.
+Then, we want to find $f(\frac{1}{\sqrt{2}})$.
+
+Now, let the coefficient of $x^{i}$ be $a_{i}$. So, $a_{i}=a_{i-1}+2i-1\implies a_{i-1}=a_{i-2}+2i-3$. Then, $a_{i}-a_{i-1} = a_{i-1}-a_{i-2}+2$. Then, $a_{i-1}-a_{i-2} = a_{i-2}-a_{i-3}+2$ and subtracting, $a_{i}-2a_{i-1}+a_{i-2}=a_{i-1}-2a_{i-2}+a_{i-3}\implies a_{i}=3a_{i-1}-3a_{i-2}+a_{i-3}$.
+
+Then, $f(x)=(3x-3x^2+x^3)f(x)+x^2+x\implies -x^2-x=(x-1)^3f(x)\implies f(x)=\frac{-(x)(x+1)}{(x-1)^3}$
+Then, we plug in $x=\frac{1}{\sqrt{2}}$
+
+$\boxed{24+17\sqrt{2}}$
+\end{sol}
+
+\prob{7}{BMT 2018}{Let $F_{1} = 0, F_{2} = 1$ and $F_{n} = F_{n-1} + F_{n-2}$. Compute
+$$\sum_{n=1}^{\infty} \frac{\sum_{i=1}^{n} F_{i}}{3^{n}}$$}
+
+\begin{sol}
+This is equivalent to $\sum_{i=1}^{\infty} \frac{F_{i}}{3^{i}} \sum_{j=0} \frac{1}{3^{j}}$ = \frac{3}{2} \sum_{i=0}^{\infty} \frac{F_{i}}{3^{i}}$ .
+Let $f(x)=F_{0}+F_{1}x+F_{2}x^2\cdots$. We want to find $f(\frac{1}{3})$.
+Then, $f(x)= (x+x^2)f(x) +x \implies f(x)(1-x-x^2)=x^2\implies f(x)=\frac{x}{1-x-x^2}$. Then, $f(\frac{1}{3}) = \frac{3}{5}$. Then, $\boxed{\frac{9}{10}}$.
+\end{sol}
 \subsection{Complex Numbers}
 
 \prob{4}{HMMT Feburary 2016}{Let $z$ be a complex number such that $|z| = 1$ and $|z - 1.45| = 1.05$. Compute the real part of $z$.}
@@ -1027,6 +1077,16 @@ $\boxed{2023}$
 represented by points in the complex plane, are the three distinct vertices of an equilateral
 triangle?}
 
+\prob{7}{hukilau17 FAIME 2020}{If x, y are real numbers such that
+$$x^3=3xy^2+18$$
+$$y^3=3x^2y+26$$
+Find $x^2+y^2$.
+}
+
+\begin{sol}
+Multiply second equation by $i$.
+$\boxed{10}$
+\end{sol}$
 \prob{8}{2015 AIME I/13}{With all angles measured in degrees, the product 
 $$\prod_{k=1}^{45}  \csc^2(2k - 1)^{\circ}=m^n,$$
 where $m$ and $n$ are integers greater than $1$. Find $m + n$.}
@@ -1221,12 +1281,6 @@ $\frac{\boxed{1}{8}}$
 $$\sum_{i=0}^{2015} \lfloor \frac{2^{i}}{25} \rfloor $$
 is divided by $100$, where $\lfloor x \rfloor$ denotes the largest integer not greater than $x$.}
 
-\prob{8}{BMT 2018}{Find the value of
-$$\frac{1}{\sqrt{2}}+\frac{2^2}{\sqrt{4}}+\frac{3^2}{\sqrt{8}}\cdots$$}
-
-\begin{sol}
-$\boxed{24+17\sqrt{2}}$
-\end{sol}
 \subsubsection{Telescoping}
 
 \prob{3}{Purple Comet 2015 HS}{
@@ -1243,11 +1297,20 @@ $$\sum_{n=3}^{10} \frac{\binom{n}{2}}{\binom{n}{3}\binom{n+1}{3}}$$
 can be written in the form $\frac{m}{n}$ , where $m$ and $n$ are relatively prime positive integers. Compute $m + n$}
 
 \begin{sol}
+$\binom{n}{2}=\binom{n+1}{3}-\binom{n}{3}$
+So, $\frac{\binom{n}{2}}{\binom{n}{3}\binom{n+1}{3}} = \frac{1}{\binom{n}{3}}-\frac{1}{\binom{n+1}}{3}$
 $\frac{164}{165}\implies \boxed{329}$
+\end{sol}
+
+\prob{5}{MMATHS 2020}{Let $p(x)$ be the monic cubic polynomial with roots $\sin^2(1^{\circ})$, $\sin^2(3^{\circ})$, and $\sin^2(9^{\circ})$. Suppose that $p\left(\frac{1}{4}\right)=\frac{\sin(a^{\circ})}{n\sin(b^{\circ})}$, where $0 <a,b \le 90$ and $a,b,n$ are positive integers.  What is $a+b+n$?}
+
+\begin{sol}
+$f(x)=(x-\sin^2(1))(x-\sin^2(3))(x-\sin^2(9))$
+so, $f(\frac{1}{4}) = (\frac{1}{4}-1+\cos^2(1))(\frac{1}{4}-1+\cos^2(3))(\frac{1}{4}-1+\cos^2(9)) = (\frac{4\cos^2(1)-3)}{4})(\frac{4\cos^2(3)-3)}{4})(\frac{4\cos^2(9)-3)}{4}) = \frac{\cos(3)}{4\cos(1)}\frac{\cos(9)}{4\cos(3)}\frac{\cos(27)}{4\cos(9)=\frac{\cos(27)}{64\cos(1))=\frac{\sin(63)}{64\sin(89)}$. Then, $63+64+89=\boxed{216}$
 \end{sol}
 \subsection{Trigonometry}
 
-\prob{2}{ARML Local 2020}{A real number $x$ is selected uniformly at random between $0$ aned $\pi$. Compute the probability that $\sin(x)\cos(x) < \frac{1}{4}$}
+\prob{2}{ARML Local 2020}{A real number $x$ is selected uniformly at random between $0$ and $\pi$. Compute the probability that $\sin(x)\cos(x) < \frac{1}{4}$}
 
 \prob{4}{MA$\theta$ 1992}{If $A$ and $B$ are both in $[0,2\pi)$ and $A$ and $B$ satisfy the equations
 $$\sin A + \sin B = \frac{1}{3}$$
@@ -1262,6 +1325,7 @@ Use induction to show this is just $\boxed{\arctan \frac{n}{n+2}}$.
 
 \prob{6}{Purple Comet 2015 HS}{
 Let $x$ be a real number between 0 and $\tfrac{\pi}{2}$ for which the function  $3\sin^2 x + 8\sin x \cos x + 9\cos^2 x$ obtains its maximum value, $M$. Find the value of $M + 100\cos^2x$.}
+
 \prob{6}{ARML 2009}{If $6 \tan^{-1} x + 4 \tan^{-1}(3x) = \pi$, compute $x^2$}
 
 \begin{sol}
@@ -1550,7 +1614,7 @@ folded and unfolded parts of the triangle?}
 \prob{3}{BMT 2018}{If $A$ is the area of a triangle with perimeter $1$, what is the largest possible value of $A^2$?}
 
 \begin{sol}
-Using Heron's Formula and a smoothing argument gives that an equilaterial triangle gives the largest area.  So, we have $s=\frac{1}{3}$ and $A=\frac{s^2\sqrt{3}}{4}=\frac{\sqrt{3}}{36}$. So, $A^2=\frac{3}{36^2}=\frac{1}{12\cdot 36}=\boxed{\frac{1}{432}}$.
+Using Heron's Formula and a smoothing argument gives that an equilaterial triangle gives the largest area.  So, we have $s=\frac{1}{3}$ and $A=\frac{s^2\sqrt{3}}{4}=\frac{\sqrt{3}}{36}$. So, $A^2=\frac{3}{36^2}=\Fefrac{1}{12\cdot 36}=\boxed{\frac{1}{432}}$.
 \end{sol}
 
 \prob{4}{MMATHS 2018}{
@@ -1613,8 +1677,7 @@ diagonals is perpendicular to both bases, then what is the length of the other d
 
 \prob{2}{Autumn Mock AMC 10}{Equilateral triangle ABC has side length $6$. Points $D, E, F$ lie within the lines $AB, BC$ and $AC$ such that $BD=2AD$, $BE=2CE$, and $AF=2CF$. Let $N$ be the numerical value of the area of triangle $DEF$. Find $N^2$.}
 
-\prob{2}{OMO Spring 2019}{In triangle ABC, side AB has length 10, and the A- and B-medians have length 9 and 12, respectively.
-Compute the area of the triangle.}
+\prob{2}{OMO Spring 2019}{In triangle ABC, side AB has length 10, and the A- and B-medians have length 9 and 12, respectively. Compute the area of the triangle.}
 
 \begin{sol}
 $\boxed{72}$
