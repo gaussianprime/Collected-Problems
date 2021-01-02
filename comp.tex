@@ -5,6 +5,8 @@
 \title{Collected Problems: Computational}
 \author{William Dai}
 \date{Started June 30, 2020}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\cis}{cis}
 
 \excludecomment{sol}
 \begin{document}
@@ -31,6 +33,8 @@ three digit top-heavy numbers exist? (No number can have a leading zero.)}
 
 \begin{sol}
 Consider $7,8,9$ to be the same and assign actual values at end, do casework on number of $7,8,9$.
+
+$\boxed{207}$
 \end{sol}
 
 \prob{3}{PuMAC 2019}{Suppose Alan, Michael, Kevin, Igor, and Big Rahul are in a running race. It is given that
@@ -44,6 +48,14 @@ $m/n$, where m, n are relatively prime, positive integers. Compute $m + n$.}
 First, find total number of outcomes. Then, casework on if Big Rahul wins by himself or if he ties for first
 \end{sol}
 
+\prob{3}{2018 Memorial Day Mock AMC 10}{In the $xy$-coordinate plane, three distinct points with integer $x$- and $y$- coordinates are randomly chosen within the area bounded by $-1 \leq x \leq 1$ and $-1 \leq y \leq 1$. What is
+the probability that the three points, when connected, form a triangle with an area of
+$1$?}
+
+\begin{sol}
+$\boxed{\frac{8}{21}}$
+\end{sol}
+
 \prob{3}{PuMAC 2019}{Prinstan Trollner and Dukejukem are competing at the game show WASS. Both players spin
 a wheel which chooses an integer from 1 to 50 uniformly at random, and this number becomes
 their score. Dukejukem then flips a weighted coin that lands heads with probability 3/5. If
@@ -55,16 +67,61 @@ $m/n$ where $m, n$ are co-prime positive integers. Compute $m + n$.}
 Casework on if Dukejukem flips heads or tails on coin.
 \end{sol}
 
+\prob{3}{Scrabber94 Mock AMC 10 2020}{Robert writes all positive divisors of the number $216$ on separate slips of
+paper, then places the slips into a hat. He randomly selects three slips from
+the hat, with replacement. What is the probability that the product of the
+numbers on the three slips Robert selects is a divisor of $216$?}
+
+\begin{sol}
+$\boxed{\frac{25}{256}}$
+\end{sol}
+
+\prob{4}{Scrabber94 Mock AMC 10 2020}{How many ways can six people of different heights stand in line such that for
+all $1 \leq k \leq 6$, the kth tallest person must stand next to either the (k + 1)th
+or (k - 1)th tallest person (or both)? In particular, the tallest person must
+stand next to the second tallest person, and the shortest person must stand
+next to the second shortest person.}
+
+\begin{sol}
+$\boxed{54}$
+\end{sol}
+
 \prob{4}{Purple Comet 2015 HS}{
 Seven people of seven different ages are attending a meeting. The seven people leave the meeting one at a
 time in random order. Given that the youngest person leaves the meeting sometime before the oldest
 person leaves the meeting, the probability that the third, fourth, and fifth people to leave the meeting do so in order of their ages (youngest to oldest) is $\frac{m}{n}$ , where m and n are relatively prime positive integers. Find $m + n$.}
 
 \begin{sol}
- Casework on if youngest or oldest in third, fourth, fifth block.
+ Casework on if youngest or oldest in third, fourth, fifth block. $\boxed{25}$
 \end{sol}
 
-\prob{5}{AIME I 2020/5}{Six cards numbered $1$ through $6$ are to be lined up in a row. Find the number of arrangements of these six cards where one of the cards can be removed leaving the remaining five cards in either ascending or descending order.}
+\prob{4}{Payback Mock AMC 10}{Let $T$ be the set of positive integer divisors of $27000$. Find the number of positive
+integers that can be expressed as a product of $3$ pairwise distinct elements of $T$.}
+
+\begin{sol}
+$\boxed{944}$
+\end{sol}
+
+\prob{4}{PersonPsychopath\rq{}s 2nd 2015-2016 Mock AMC 10}{A number is called elegant if, for all $0 \leq d \leq 9$, the digit $d$ does not appear more than $d$ times. For example, the number $3$ cannot appear more than $3$ times in an elegant number (and the digit $0$ cannot appear at all). How many positive $4$-digit elegant numbers exist? Some numbers to include
+are $1345, 5999, 6554$ and $7828$.}
+
+\begin{sol}
+Complementary count and casework on if $1,2,3$ is overused. Note that there are no overlaps.
+$\boxed{6110}$
+\end{sol}
+
+\prob{4}{AIME I 2020/5}{Six cards numbered $1$ through $6$ are to be lined up in a row. Find the number of arrangements of these six cards where one of the cards can be removed leaving the remaining five cards in either ascending or descending order.}
+
+\begin{sol}
+$\boxed{52}$
+\end{sol}
+
+\prob{5}{AMC 10A 2020}{
+Jason rolls three fair standard six-sided dice. Then he looks at the rolls and chooses a subset of the dice (possibly empty, possibly all three dice) to reroll. After rerolling, he wins if and only if the sum of the numbers face up on the three dice is exactly $7.$ Jason always plays to optimize his chances of winning. What is the probability that he chooses to reroll exactly two of the dice?}
+
+\begin{sol}
+$\boxed{\frac{7}{36}}$
+\end{sol}
 
 \prob{5}{AMC 12B 2017/22}{Abby, Bernardo, Carl, and Debra play a game in which each of them starts with four coins. The game consists of four rounds. In each round, four balls are placed in an urn---one green, one red, and two white. The players each draw a ball at random without replacement. Whoever gets the green ball gives one coin to whoever gets the red ball. What is the probability that, at the end of the fourth round, each of the players has four coins?}
 
@@ -184,6 +241,15 @@ For the second case, this clearly has $6$ ordered $(a,b,c)$.
 Then, our probability is $\frac{42}{216}=\boxed{\frac{7}{36}}$.
 \end{sol}
 
+\prob{4}{2018 Memorial Day Mock AMC 10}{How many integer values of n between 1 and 100, inclusive, cause the value of the
+following expression to be an integer?
+$$\frac{\sqrt[2]{n^{3n}}}{\sqrt[3]{n^{2n}}}$$
+}
+
+\begin{sol}
+$\boxed{21}$
+\end{sol}
+
 \prob{4}{PuMAC 2019}{Keith has 10 coins labeled 1 through 10, where the ith coin has weight $2^i$. The coins are all
 fair, so the probability of flipping heads on any of the coins is $\frac{1}{2}$. After flipping all of the
 coins, Keith takes all of the coins which land heads and measures their total weight, $W$. If the
@@ -266,6 +332,17 @@ Let the $i$th dice roll $x_{i}$. Notice that $x_{i}\ge 1$. Let $x_{i}'=x_{1}-1$.
 We can do casework on the number of elements $k$. Then, we can only have numbers in the range $\{k,k+1\cdots 15\}$. Now, let the elements in the subset be $a_{1},a_{2}\cdots a_{k}$. Let $d_{1}=a_{1}-k$, $d_{2}=a_{2}-a_{1}$, $d_{3}=a_{3}-a_{2}$ and so on until $d_{k}=a_{k}-a_{k-1}$ and $d_{k+1}=15-a_{k}$. We have that $d_{1}+d_{2}\cdots + d_{k}+d_{k+1}=15-k$. 
 
 Notice that $d_{2},d_{3}\cdots d_{k}\ge 2$ to satisfy that no two consecutive integers are in $S$. So, let $d_{k}'=d_{k}-2$ for $k=2,3\cdots k$. So, $d_{1}+d_{2}'+d_{3}'\cdots +d_{k}'+d_{k+1}=15-k-2(k-1)=17-3k$. By Stars and Bars, there are $\binom{17-2k}{k}$ ordered $(k+1)$-tuplets $(d_{1},d_{2}\cdots d_{k+1})$. Notice that $(d_{1},d_{2}\cdots d_{k+1})$ determines $a_{1},a_{2}\cdots a_{k}$.
+\end{sol}
+
+\prob{4}{PersonPsychopath\rq{}s 2nd 2015-2016 Mock AMC 10}{Define an increasing sequence $a_{1},a_{2}\ldots a_{k}$ of integers to be $n$-true if it satises the following conditions for positive integers $n$ and $k$:
+\begin{itemize}
+\item The difference between any two consecutive terms is less than $n$.
+\item The sequence must start with $0$ and end with $10$.
+\end{itemize}
+How many $5$-true sequences exist?}
+
+\begin{sol}
+$\boxed{401}$
 \end{sol}
 
 \subsubsection{Expected Value}
@@ -395,6 +472,13 @@ to. What is the probability that it is back at the top vertex after three days?}
 \begin{sol}
 $\boxed{\frac{2}{9}}$
 \end{sol}
+
+\prob{1}{PersonPsychopath\rq{}s 2nd 2015-2016 Mock AMC 10}{Ten different people are attending a party. Three of them have black shirts, four of them have red shirts, two people are wearing blue shirts, and only one person wears a white shirt. Each person then shakes hands with everyone wearing a shirt of different color than himself, and two people with the same shirt color do not shake hands. How many distinct handshakes take place?}
+
+\begin{sol}
+$\boxed{35}$
+\end{sol}
+
 \prob{1}{Mandelbrot Nationals Sample Test}{Michael Jordan's probability of hitting any basketball shot is three times greater than mine, which never exceeds a third. To beat him in a game, I need to hit a shot myself and have Jordan miss the same shot. If I pick my shot optimally, what is the maximum probability of winning which I can attain?}
 
 \begin{sol} 
@@ -521,6 +605,16 @@ $100L + MT = 0\pmod{MT}\implies 100L =0\pmod{MT}$. Max $LMT$ occurs when $L=9$ a
 
 \prob{2}{BMT 2018}{How many multiples of 20 are also divisors of 17!?}
 
+\prob{2}{Scrabbler94 Mock AMC 10 2020}{Let $n$ be the smallest positive integer with the property that $\lcm(n, 2020!) =
+2021!$, where $\lcm(a, b)$ denotes the least common multiple of $a$ and $b$. How
+many positive factors does $n$ have?}
+
+\begin{sol}
+By Legendre\rq{}s, $2021!$ has $43^{48}\cdot 47^{43}$.
+So, $n=43^{48}\cdot 47^{43}\implies 49\cdot 44 =\boxed{2156}$
+\end{sol}
+
+
 \prob{2}{NanoMath Fall Meet 2020}{ If $\phi(n)$ is the number of integers $1\leq p \leq n$ such that $p$ is relatively prime to $n$, then find the number of even values $n$ between $1$ and $100$ inclusive for which $\phi(n)=\phi(\frac{n}{2})$}
 
 \begin{sol}
@@ -532,6 +626,10 @@ $$\sum_{i=1}^{n} a_{i} +b_{i}.$$}
 
 \prob{3}{HMMT Feburary 2018}{Distinct prime numbers $p,q,r$ satisfy the equation $$2pqr + 50pq = 7pqr + 55pr = 8pqr + 12qr  =A$$ for some positive integer $A$. What is $A$?}
 
+\begin{sol}
+$\boxed{110}$
+\end{sol}
+
 \prob{3}{Math Prizes For Girls 2019}{How many positive integers less than 4000 are not divisible by 2, not
 divisible by 3, not divisible by 5, and not divisible by 7?}
 
@@ -539,8 +637,7 @@ divisible by 3, not divisible by 5, and not divisible by 7?}
 The amount of numbers in $[210n+1, 210n+210]$ that are not divisible by any of $2,3,5,7$ is $\phi(210)=\frac{1}{2}\cdot \frac{2}{3}\cdot \frac{4}{5}\cdot \frac{6}{7}\cdot 210= 48$. Then, the amount of such numbers in $[1,3990]$ is $19\cdot 48= 912$.  In, $[3991, 4000]$, only $3991$ is relatively prime to both $2,3,5,7$. So, our answer is $\boxed{913}$.
 \end{sol}
 
-\prob{3}{MA$\theta$ 2018}{The number $1 \cdot 1! + 2 \cdot 2! + 3 \cdot 3! +\cdots + 100 \cdot 100!$ ends with a string of 9s. How many
-consecutive 9s are at the end of the number?}
+\prob{3}{MA$\theta$ 2018}{The number $1 \cdot 1! + 2 \cdot 2! + 3 \cdot 3! +\cdots + 100 \cdot 100!$ ends with a string of 9s. How many consecutive 9s are at the end of the number?}
 
 \begin{sol}
 $n\cdot n! = (n+1)!-n!$, then telescope to get $101!-1!$. Then, we are finding how many $0$'s does $101!$ have at the end which is equivalent to the number of factors of $10$. The number of factors of $10$ is equivalent to the number of factors of $5$. By Legendre's, there are $20+4=\boxed{24}$ 5's.
@@ -621,6 +718,14 @@ Also, $19!=0\pmod{125}$ by Legendre's so $H=0$. Note that $19!=0\pmod{9}$ so $T+
 Let $N=201820182018\ldots$ [2018 times]. We will find $N\pmod{3}$ and $N\pmod{5}$ and then use CRT. Clearly, $N\pmod{5}=3$. Also, $N\pmod{3}=2018\cdot 2018=(-1)^2=1$. Then, $N\pmod{15}=\boxed{13}$.
 \end{sol}
 
+\prob{2}{NEMO 2017}{Let $a, b, c$ be distinct integers from the set \{3, 5, 7, 8\}. What is the greatest possible value of the units digit of $a^{(b^c)}$?}
+
+\begin{sol}
+We try $9$. This either comes from $a=3,7$. For, $a=3$, $b^c=2\pmod{4}$ which is impossible. For $a=7$, $b^c=2\pmod{4}$.
+
+We try $8$. This comes from $a=8$. Then $b^c=1\pmod{4}$ which comes from $b=5$.
+$\boxed{8}$
+\end{sol}
 \prob{2}{BMT 2020}{Compute the remainder when $98!$ is divided by $101$}
 
 \begin{sol}
@@ -684,6 +789,14 @@ $$=1+1$$
 $$=\boxed{2}$$
 
 \end{sol}
+
+\prob{4}{NEMO 2017}{Find all positive integers $1 \leq k \leq 289$ such that $k^2-32$ is divisible by $289$.}
+
+\begin{sol}
+$k=\pm 7 \pmod{17}$.
+Let $k=17a\pm 7$. Then, $k^2-32=17(\pm 14a+1)=0\pmod{289}$ so $14a+1=0\pmod{17}\implies -3a=33\pmod{17}\implies a=6\pmod{17}$ and $-14a+1=0\pmod{17}\implies 3a=33\implies a =11$. So, $k=\boxed{109, 180}$.
+\end{sol}
+
 \prob{4}{SLLKK AIME 2020}{Smush is a huge Kobe Bryant fan. Smush randomly draws n jerseys
 from his infinite collection of Kobe jerseys, each being either the recent \#24 jersey or the
 throwback \#8 jersey with equal probability. Let $p(n)$ be the probability that Smush can
@@ -712,6 +825,15 @@ $\boxed{21}$
 \begin{sol}
 Factorize it into $8(27(3^{2n-2}+3^{2n-4}\cdots + 1)+5n)$ and analyze the inner term $\pmod{8}$ and $\pmod{16}$. Then, get $\boxed{6}$.
 \end{sol}
+
+\prob{5}{PMC Mock AMC 10 2020}{
+For all positive intgers $n$, let $f(n)$ denote the remainder when ${{(n+1)^{(n+2)}}^{\cdots}}^{2n}$ is divided by $n^2$. Compute $f(101)$.
+}
+
+\begin{sol}
+Repeated Euler\rq{}s Totient, $\boxed{506}$
+\end{sol}
+
 \prob{6}{PHS HMMT TST 2020}{Find the largest integer $0 < n < 100$ such that $n^2 + 2n$ divides $4(n-1)! + n + 4$.}
 
 \begin{sol}
@@ -720,8 +842,18 @@ For $n$ is even, $n^2+2n=(n)(n+2)=4(\frac{n}{2})(\frac{n+2}{2})$. $4(n-1)!=0\pmo
 The largest twin primes in the range are $\boxed{71},73$.
 \end{sol}
 
+\prob{7}{NEMO 2017}{Compute the remainder when $\binom{3^4}{3^2}$ is divided by $3^8$.}
+
+\begin{sol}
+Consider $f(x)=(x-1)(x-2)\cdots (x-8)-8!$.
+$\boxed{2925}$
+\end{sol}
+
 \prob{7}{HMMT November 2014}{Suppose that $m$ and $n$ are integers with $1 \leq m \leq 49$ and $n \ge 0$ such that $m$ divides $n^{n+1} + 1$. What is the number of possible values of $m$?}
 
+\begin{sol}
+$\boxed{29}$
+\end{sol}
 
 \prob{7}{BMT 2018}{How many $1 < n \leq 2018$ such that the set $\{0, 1, 1+2, \ldots, 1+2+3+\cdots+i, \ldots , 1+2+\cdots+n-1\}$
 is a permutation of $\{0, 1, 2, 3, 4, \cdots , n - 1\}$ when reduced modulo $n$?}
@@ -782,13 +914,45 @@ natural numbers with stability $3$. Compute the sum of the two least entries of 
 $S^{K}(N)=S^{K+1}(N)\implies S^{K}(N)=S(S^{K}(N))$. Note that for $n\ge 10$, $S(n) <10$. So, $S^{N}(N)$ is a one digit number. So, if a number has stability $3$, this implies that the first time $S^{k}(N)$ is a one-digit number is when $k=3$. Then, $S^{2}(N)\ge 10$ and $S(N)\ge 19$. So, the two smallest are $199,289$. Summing, we get $\boxed{488}$.
 \end{sol}
 
+\prob{6}{Scrabbler94 Mock AMC 10 2020}{How many ordered 11-tuples $(a_0, a_1, a_2, \ldots , a_{10})$ of integers satisfy the equation
+$a_0 + 2a_1 + 2^{2}a_2 + \ldots + 2^{10}a_{10} = 2020$
+where $0 \leq a_i \leq 2$ for all $0 \leq i \leq 10$?}
+
+\begin{sol}
+$\boxed{51}$
+\end{sol}
+
+\subsection{Diophantine Equations}
+
+\prob{4}{2018 Memorial Day Mock AMC 10}{$q$ and $r$ are positive integers in the following equation. 
+$$\frac{q}{r} + \frac{r}{q} = \frac{qr}{144}$$
+There is only one possible value of $q+r$. Let $S(n)$ represent the sum of the digits of positive integer $n$. What is $S(q+r)$?}
+
+\begin{sol}
+$\boxed{8}$
+\end{sol}
 \subsection{Binomial Theorem}
-\prob{1}{BMT 2015}{Compute the sum of the digits of $1001^{10}$.}
+\prob{2}{BMT 2015}{Compute the sum of the digits of $1001^{10}$.}
+
+\begin{sol}
+$(1000+1)^{10}$, no overlap.
+$2(1+1+4+5+1+2+2+1)+2+5+2=\boxed{43}$
+\end{sol}
 
 \prob{3}{LMT Fall 2019}{Determine the remainder when $13^{2020} +11^{2020}$ is divided by $144$.}
 
 \begin{sol}
 $13^{2020} + 11^{2020} = (12+1)^{2020}+(12-1)^{2020} = 12\cdot \binom{2020}{1}+1-12\cdot \binom{2020}+1\pmod{144}=\boxed{2}$
+\end{sol}
+
+\prob{3}{NEMO 2017}{Find the last two digits of $17^{(20^{17})}$
+in base 9. (Here, the numbers given are in base 10.)}
+
+\begin{sol}
+$(18-1)^{20^{17}}=-18\cdot 20^{17}+1$. Then, $20^{17}\pmod{9} = 2^{17}=\frac{1}{2} = 5$. Then, $-18\cdot 5+1=-89=74\pmod{81}$.
+So, we have $82_{9}$.
+
+$\boxed{82}$
 \end{sol}
 
 \prob{7}{AIME I 2020/12}{Let $n$ be the least positive integer for which $149^n-2^n$ is divisible by $3^3\cdot5^5\cdot7^7.$ Find the number of positive integer divisors of $n.$}
@@ -800,6 +964,10 @@ $n=3^2\cdot 4\cdot 5^4\cdot 7^6=2^2\cdot 3^2\cdot 5^4\cdot 7^5$. So, $3\cdot 3\c
 \prob{1}{ARML 2009}{Let $p$ be a prime number. If $p$ years ago, the ages of three children formed a geometric
 sequence with a sum of $p$ and a common ratio of $2$, compute the sum of the children’s current
 ages.}
+
+\begin{sol}
+$\boxed{30}$
+\end{sol}
 
 \prob{3}{ARML 2014}{For each positive integer $k$, let $S_{k}$ denote the infinite arithmetic sequence of integers with first term $k$ and common difference $k^2$. For example, $S_{3}$ is the sequence $3, 12, 21,\ldots$ Compute
 the sum of all $k$ such that $306$ is an element of $S_{k}$}
@@ -814,6 +982,21 @@ $\boxed{10}$
 
 \begin{sol}
 Note that $0=(-1010+1010)+(-1009+1009)\cdots + (-1+1)$. So, our answer is $\boxed{0}$.
+\end{sol}
+
+\prob{2}{PersonPsychopath\rq{}s 2nd 2015-2016 Mock AMC 10}{A positive integer has the property that the product of its digits is $10!$. What is the minimum
+possible sum of its digits?}
+
+\begin{sol}
+Use as many $2,3,5,7$ as possible. $\boxed{45}$
+\end{sol}
+
+\prob{2}{Reun\rq{}s Thanksgiving 2017 Mock AMC 10}{Dene the operation $a\circ b$ for positive integers as $ab^{a}$ For some constant x,  the pair $(m, n)$ satises $m \circ n = n^{m+2}$ and $m + n = x$. Similarly, the pair
+$(p, q)$ satises $p \circ q = q^{p+2}$ and $p + q = 3x$. If $m, n, p$ and $q$ are distinct,
+what is the smallest possible value of $mq + np$?}
+
+\begin{sol}
+$\boxed{630}$
 \end{sol}
 
 \prob{2}{OMO Spring 2019}{Daniel chooses some distinct subsets of $\{1, . . . , 2019\}$ such that any two distinct subsets chosen are disjoint. Compute the maximum possible number of subsets he can choose}
@@ -858,14 +1041,34 @@ The number of blocks taken is $N(100-\lceil \sqrt{N} \rceil)$. Note that the max
 $\boxed{67^2}$
 \end{sol}
 
+\prob{Reun\rq{}s Thanksgiving 2017 Mock AMC 10}{Denote by $S(n)$ the sum of the digits of $n$: Find the sum of all positive
+integers $n < 100$ such that $S(n^2) = (S(n))^2$}
+
+\begin{sol}
+Casework, note that $S(n) \leq 6$, $\boxed{176}$
+\end{sol}
+
 \prob{4}{BMT 2019}{For a positive integer $n$, define $\phi(n)$ as the number of positive integers less than or equal to $n$
 that are relatively prime to $n$. Find the sum of all positive integers $n$ such that $\phi(n)=20$}
+
+\prob{4}{DMC Mock AMC 10}{Joy picks an integer $n$ from the interval $[1, 40]$. She tells Amy the remainder when
+$n$ is divided by $7$ and Sid the number of divisors of $n$. Amy and Sid both know $n$ is
+in the interval $[1, 40]$, but they get confused and believe Amy was told the number of
+divisors and Sid was told the remainder. Amy says, “I know what $n$ is.” Sid replies,
+“If so, then I also know what $n$ is.” As it turns out, they thought of the same value
+but were wrong due to their confusion. If Amy and Sid tell the truth based on their
+beliefs and can reason perfectly, what is the sum of all possible actual values of $n$?
+}
+
+\begin{sol}
+$\boxed{24}$
+\end{sol}
 
 \prob{5}{CNCM Online Round 2}{Let $S$ be the set of all ordered pairs $(x, y)$ of integer solutions to the equation
 $$6x^2 + y^2 + 6x = 3xy + 6y + x^2y.$$
 $S$ contains a unique ordered pair $(a, b)$ with a maximal value of $b$. Compute $a + b$.}
 
-\prob{5}{PHS HMMT TST 2020}{Find the unique triplet of integers $(a, b, c)$ with $a > b > c$ such that $a+b+c = 95$ and $a^2+b^2+c^2=3083$.}
+\prob{5}{PHS HMMT TST 2020}{Find the unique triplet of integers $(a, b, c)$ with $a > b > c$ such that $a+b+c = 65$ and $a^2+b^2+c^2=3083$.}
 
 \prob{5}{BMT 2019}{0. Let S(n) be the sum of the squares of the positive integers less than and coprime to n. For
 example, $S(5) = 1^2 + 2^2 + 3^2 + 4^2$, but $S(4) = 1^2 + 3^2$.
@@ -874,6 +1077,7 @@ form
 $$\frac{p^2q^2}{6}(a-\frac{b}{c})$$
 where $a, b$, and $c$ are positive integers, with $b$ and $c$ coprime and $b < c$. Find $a$.
 }
+
 
 \prob{6}{CNCM PoTD}{How many positive integers $k$ are there such that $101\leq k\leq 10000$ and $\lfloor \sqrt{k-100}\rfloor$ is a divisor of $k$?}
 
@@ -887,6 +1091,13 @@ $\boxed{15}$
 
 \subsection{Polynomials}
 Generally uses the following techniques: Vieta's, Binomial Theorem, Multinomial Theorem, Remainder Theorem, Newton's Sums, Reciprocal Roots Trick, Quadratic Formula (including using Determinant), Finite Differences, $x+\frac{k}{x}$ subsitution, Polynomial Interpolation
+
+\prob{1}{Scrabber94 Mock AMC 10 2020}{Let $f(x) = |x+4|$ and $g(x) = x^2$ for all real numbers $x$. How many real
+numbers $x$ satisfy $f(g(x)) = g(f(x))$?}
+
+\begin{sol}
+$\boxed{1}$
+\end{sol}
 
 \prob{1}{CRMT Math Bowl 2019}{Find the sum of all real numbers such that 
 $$\sqrt[4]{16x^4-32x^3+24x^2-8x+1}=5$$
@@ -928,12 +1139,34 @@ Let the line have the equation $y=mx+b$. Then, $mx+b=x^3+x+2014\implies x^2+(1-m
 Let $r$ be the common root. Then, $r^2-ar+24=0\implies a = r + \frac{24}{r}$ and $r^2-br+36=0\implies b = r + \frac{36}{r}$. Since $a,b$ are integers, this implies $r|\gcd(24,36)=12$ ($r$ can be both positive and negative divisors). Then, there are $2\cdot 2\cdot 3 =12$ values for $r$ which then determine $(a,b)$. Also, clearly they don't have two roots in common as both are monic and the constant term is different. Our answer is $\boxed{12}$.
 \end{sol}
 
+\prob{3}{Reun\rq{}s Thanksgiving 2017 Mock AMC 10}{For integers a and b, the three roots $X_{1},X_{2}$ and $X_{3}$ of the cubic function
+$$f(x) = ax^3 - bx^2 + 286x - 120$$
+exist such that $X_{i} = \frac{m+i-1}{m+i-2}$ 
+for some positive integer constant $m$
+What is the sum of the digits of $b$?}
+
+\begin{sol}
+$m=4$, $\boxed{11}$
+\end{sol}
+
 \prob{3}{AMC 10A 2015/23}{The zeroes of the function $f(x)=x^2-ax+2a$ are integers. What is the sum of the possible values of $a$?}
 
 \begin{sol}
 If the roots are integers, then the discriminant must be a perfect square; otherwise, the roots are irrational. Then, $a^2-8a=n^2$ for some positive integer $n$. This gives $(a-4)^2-n^2=16\implies (a-n-4)(a+n-4)=16$. Note that the sum of the roots is $2a-8$. We have factor pairs $(-16,-1),(-8,-2),(-4,-4),(1,16),(2,8),(4,4)$. Note that if the roots are integers, $a$ must also be a integer because $a$ is the sum of the roots by Vieta's. From this, we get $a=-1, 0, 9, 8$. Trying, we get that all of these work. So, the sum is $\boxed{16}$.
 \end{sol}
 
+\prob{4}{Payback Mock AMC 10}{Find the number of pairs of integers $(a, c)$ such that the function $f(x)=x^2-ax+ac$
+has two integer roots(not necessarily distinct) and $1 \leq c \leq 5$.}
+
+\begin{sol}
+$\boxed{20}$
+\end{sol}
+
+\prob{4}{2018 Memorial Day Mock AMC 10}{The quadratic equations $y = ax^2 + 20x+ 32$ and $y = x^2 +bx+ 16$ share the same vertex in the xy-coordinate plane. If $a$ and $b$ are integers, what is $a + b$?}
+
+\begin{sol}
+$\boxed{9}$
+\end{sol}
 \prob{4}{HMMT Feburary 2017}{Let $Q(x) = a_{0} + a_{1}x + · · · + a_{n}x^n$ be a polynomial with integer coefficients, and $0 \leq ai < 3$ for all $0 \leq i \leq n$.
 Given that $Q(\sqrt{3}) = 20 + 17\sqrt{3}$, compute $Q(2)$}
 
@@ -962,6 +1195,13 @@ Some pattern finding gives $f^{n}(x)=0$ has solutions $x=-2\pm 2^{\frac{1}{2^{n}
 Divide by $r^2$ and subsitute $t=r+\frac{4}{r}$.
 \end{sol}
 
+\prob{4}{Scrabbler94 Mock AMC 10 2020}{Let $f^1(x) = x^2 - 20$ for all real numbers $x$, and let $f^k(x) = f^1(f^{k-1}(x))$ for all integers $k \ge 2$. Let $x_0$ and $x_1$ be the smallest and largest real solutions
+to the equation $f^{2020}(x) = 0$, respectively. What is the largest integer less
+than or equal to $x^{2}_{0}+ x^{2}_{1}$?}
+
+\begin{sol}
+$\boxed{49}$
+\end{sol}
 \prob{4}{PHS HMMT TST 2020}{Let $a,b,c$ be the distinct real roots of $x^3+2x+5$. Find $(8-a^3)(8-b^3)(8-c^3)$.}
 
 \prob{4}{PuMAC 2019}{Let Q be a quadratic polynomial. If the sum of the roots of $Q^{100}(x)$ (where $Q^{i}(x)$ is defined
@@ -1091,6 +1331,7 @@ $\boxed{10}$
 $$\prod_{k=1}^{45}  \csc^2(2k - 1)^{\circ}=m^n,$$
 where $m$ and $n$ are integers greater than $1$. Find $m + n$.}
 \subsection{Manipulation}
+
 \prob{1}{LMT Fall 2019}{If the numerator of a certain simplfied fraction is added to the numerator and the denominator of the fraction, the result is $\frac{20}{19}$. What is the fraction?}
 
 \prob{1}{AMC 10A 2020/7}{The $25$ integers from $-10$ to $14,$ inclusive, can be arranged to form a $5$-by-$5$ square in which the sum of the numbers in each row, the sum of the numbers in each column, and the sum of the numbers along each of the main diagonals are all the same. What is the value of this common sum?}
@@ -1113,6 +1354,9 @@ We square twice to get $x^2+\frac{1}{x^2}=3$ and $x^4+\frac{1}{x^4}=7$. Then, no
 
 \prob{2}{LMT Spring 2020}{Let a,b be real numbers satisfying $a^2 +b^2 = 3ab = 75$ and $a > b$. Compute $a^3-b^3$.}
 
+\begin{sol}
+$\boxed{500}$
+\end{sol}
 \prob{2}{HMMT November 2013}{Evaluate 
 $$\frac{1}{2-\frac{1}{2-\frac{1}{2- \cdots\frac{1}{2-\frac{1}{2}}}}}$$
 where the digit $2$ appears $2013$ times}
@@ -1225,6 +1469,16 @@ $$\lfloor \sum_{k=2018}^{\infty} \frac{2019!-2018!}{k!}\rfloor.$$
 $\boxed{2019}$
 \end{sol}
 
+\prob{1}{NEMO 2017}{I am thinking of a geometric sequence with $9600$ terms, $a_1, a_2, \ldots, a_{9600}$. The sum of the terms with indices divisible by three (i.e. $a_3 + a_6 + \cdots + a_{9600}$) is $\frac{1}{56}$ times the sum of the other terms (i.e. $a_1 + a_2 + a_4 + a_5 + · · · + a_{9598} + a_{9599}$). Given that the terms with even indices sum to $10$, what is the
+smallest possible sum of the whole sequence?}
+
+\begin{sol}
+$$(a_3 + a_6 + \cdots + a_{9600}$) \frac{1}{r^2}+\frac{1}{r} =  a_1 + a_2 + a_4 + a_5 + · · · + a_{9598} + a_{9599}$$
+$$\frac{1}{r^2}+\frac{1}{r}=56 \implies \frac{1}{r}=7,-8$.
+
+If even add to $10$, then odd add to $\frac{10}{r}$. So, we want to maximize $r$. So, $\frac{1}{r}=7$ and the sum is $70+10=\boxed{80}$
+\end{sol}
+
 \prob{3}{NanoMath Fall Meet 2020}{Let $a_0, a_1, a_2, \ldots$ be an arithmetic sequence of positive integers. If $a_0 + a_1 + \cdots + a_{10} = 209$ and $a_{a_{0}} +
 a_{a_{1}} + \cdots + a_{a_{10}} = 671$, then find $a_0$.}
 
@@ -1255,6 +1509,17 @@ $$\sum_{i=0}^{10} a_{n}$$}
 
 \begin{sol}
 $\boxed{143}$
+\end{sol}
+\prob{3}{Reun\rq{}s Thanksgiving Mock AMC 10}{Let $N=3+66+333+6666+33333+\ldots + \underbrace{666\cdots 666}_{\text{2016 6\rq{}s}} + \underbrace{333\cdots 333}_{\text{2017 3\rq{}s}}$. Find the sum of the digits of $N$}
+
+\begin{sol}
+$\boxed{4053}$
+\end{sol}
+
+\prob{3}{2018 AMC 12A/18}{Let $A$ be the set of positive integers that have no prime factors other than $2$, $3$, or $5$. The infinite sum $$\frac{1}{1} + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \frac{1}{6} + \frac{1}{8} + \frac{1}{9} + \frac{1}{10} + \frac{1}{12} + \frac{1}{15} + \frac{1}{16} + \frac{1}{18} + \frac{1}{20} + \cdots$$of the reciprocals of the elements of $A$ can be expressed as $\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. What is $m+n$?}
+
+\begin{sol}
+$\boxed{19}$
 \end{sol}
 
 \prob{4}{Math Prizes For Girls 2019}{For each integer from 1 through 2019, Tala calculated the product of
@@ -1332,6 +1597,12 @@ Let $x$ be a real number between 0 and $\tfrac{\pi}{2}$ for which the function  
 $\boxed{\frac{15-8\sqrt{3}}{33}}$
 \end{sol}
 \subsection{Logarithms}
+\prob{2}{AMC 12A 2018/14}{The solutions to the equation $\log_{3x} 4 = \log_{2x} 8$, where $x$ is a positive real number other than $\tfrac{1}{3}$ or $\tfrac{1}{2}$, can be written as $\tfrac {p}{q}$ where $p$ and $q$ are relatively prime positive integers. What is $p + q$?}
+
+\begin{sol}
+$\boxed{31}$
+\end{sol}
+
 \prob{2}{MA$\theta$ 1991}{Given that $\log_{10}2 \approx 0.3010$, how many digits are in $5^{44}$?}
 
 \begin{sol}
@@ -1447,15 +1718,35 @@ radical form.}
 By AM-GM, $(1+20x^2)\ge 2\sqrt{5}\cdot |x|$ and $(1+19y^2)\ge \sqrt{19}\cdot |y|$. Then, we get $(1+20x^2)(1+19y^2)\ge 2\sqrt{95} \cdot |x|\cdot |y|$ as $|x|,|y|$ are positive. Now, if both $x,y$ have the same sign, then $|x||y|=xy$ so $K=2\sqrt{95}$ for that case. But, if $x,y$ have opposite signs, $|x||y|=-xy$ so $(1+20x^2)(1+19y^2)\ge -19\sqrt{95}xy$. If $K$ was any larger in this case, it would not work. So, the least $K$ is $\boxed{-19\sqrt{95}}$.
 \end{sol}
 
+\prob{3}{PMC Mock AMC 10 2020}{An infinite geometric series with initial term $a$ and common ratio $b$ sums to $b - a$.
+What is the maximum possible value of $a$?}
+
+\begin{sol}
+Isolate $a$ and use AM-GM, $\boxed{3-2\sqrt{2}}$
+\end{sol}
+
 \prob{4}{HMMT November 2013}{ Find the largest real number $\lambda$ such that $a^2 + b^2 + c^2 + d^2 \geq ab + \lambda bc + cd$ for all real numbers $a, b, c, d$.}
 
 \prob{5}{HMMT February 2014}{Suppose that $x$ and $y$ are positive real numbers such that $x^2-xy+2y^2=8$.  Find the maximum possible value of $x^2+xy+2y^2$.}
+
 
 \prob{5}{BMT 2019}{Find the number of ordered integer triplets $x, y, z$ with absolute value less than or equal to $100$
 such that $2x^2 + 3y^2 + 3z^2 + 2xy + 2xz - 4yz < 5$}
 
 \begin{sol}
  $(x+y)^2+(x+z)^2+2(y-z)^2<5$
+\end{sol}
+
+\subsection{Floors, Ceilings, Fractional Parts}
+\prob{4}{Czech And Slovak MO}{
+Solve the equation $x\cdot  \lfloor x\cdot \lfloor x \cdot \lfloor x \rfloor \rfloor \rfloor = 88$ in the set of real numbers.}
+
+\begin{sol}
+$x\ge 4$ gives that the expression is at least $4^4=256$ and $x\leq 3$ gives it is at most $27$.
+So $x$ is in $[3,4]$. Since the expression is monotonically increasing, there is one solution.
+Then, we have $x=\frac{88}{k}$ for some integer. So, we need to test $k=23,24\ldots 28,29$.
+
+We get $x=\boxed{\frac{88}{28}=\frac{22}{7}}$
 \end{sol}
 
 \subsection{Fake Algebra}
@@ -1476,6 +1767,10 @@ We rewrite to get $(x-2)^2+y^2=1$ which is the equation of a circle. Let $P=(x,y
 \prob{3}{Magic Math AMC 10 2020}{Find the number of ordered pairs of real numbers $(x, y)$ satisfying $x =\frac{2y}{y^2-1}$ and $y =\frac{2x}{x^2-1}$.
 }
 
+\begin{sol}
+Let $x=\tan  \alpha$ and $y=\tan \beta. $\boxed{5}$
+\end{sol}
+
 \prob{4}{ARML 2014}{Compute the area of the region defined by $x^2 + y^2 \leq |x| + |y|$.}
 \begin{sol}
 $\boxed{2+\pi}$
@@ -1488,12 +1783,69 @@ Compute the maximum possible value of $(\log xy)^2$.
 Subsitute $\log x =a$, $\log y = b$. You get the equation of a circle $(a-1)^2+(b-1)^2=2$. You want to find the y-intersect of tangent line with slope $-1$ on "top" of the circle. Draw a perpendicular to the line from the center to find the tangency point. This has slope $1$ and it is $\sqrt{2}$ long. So, the coordinates of this tangency is $(2,2)$ and $a+b=4$. We get $(a+b)^2=\boxed{16}$.
 \end{sol}
 
+\prob{5}{PersonPyschopath\rq{}s 2nd 2015-2016 Mock AMC 10}{What is the square root of the value of 
+$$(\sqrt{85}+\sqrt{205}+\sqrt{218})(-\sqrt{85}+\sqrt{205}+\sqrt{218})(\sqrt{85}-\sqrt{205}+\sqrt{218})(\sqrt{85}+\sqrt{205}-\sqrt{218})$$}
+
+\begin{sol}
+Heron\rq{}s Formula, triangle inscribed in a square. Then, $\boxed{254}$
+\end{sol}
+
 \prob{7}{HMMT February 2014}{Given that $a, b,$ and $c$ are complex numbers satisfying
 $$a^2 + ab + b^2 = 1+ i$$
 $$b^2 + bc + c^2 = 2$$
 $$c^2 + ca + a^2 = 1,$$
 compute $(ab + bc + ca)^2$}
 
+\subsection{Graphing}
+
+\prob{4}{Reun\rq{}s Thanksgiving 2017 Mock AMC 10}{Two functions $f$ and $g$ exist such that
+$$f(x)=-\frac{x-15}{x+1}$$
+and
+$$g(x)=-\frac{x+17}{x+1}$$
+intersect the circle $x^2+y^2=c$ for some constant $c$ at exactly $8$ points.
+What is the least possible integer value of $c$?}
+
+\begin{sol}
+Furthest point from graph of $f(x)$ and $g(x)$ to origin is $\sqrt{50}$, $\boxed{51}$
+\end{sol}
+
+\subsection{Miscellaneous}
+
+\prob{2}{NEMO 2017}{
+Find all ordered 8-tuples of positive integers $(a, b, c, d, e, f, g, h)$ such that:
+$$\frac{1}{a^3}+\frac{1}{b^3}+\frac{1}{c^3}+\frac{1}{d^3}+\frac{1}{e^3}+\frac{1}{f^3}+\frac{1}{g^3}+\frac{1}{h^3}=1$$
+}
+
+\begin{sol}
+Bounding argument, WLOG $a$ largest, then $a=1$ and $a\ge 3$ don\rq{}t work. $\boxed{(2,2,2,2,2,2,2,2)}$.
+\end{sol}
+
+\prob{3}{PersonPsychopath\rq{}s 2nd 2015-2016 Mock AMC 10}{A certain post office only uses rectangular prism shaped packages that come in two sizes: small and large. All small packages have a surface area of 200 and a volume of 160. Doubling the height in a small package will result in a large package. If the surface area of each large package is equal
+to its volume, what is the sum of the length, width, and height of the small package?}
+
+\begin{sol}
+$\boxed{19}$
+\end{sol}
+
+\prob{3}{Payback Mock AMC 10}{A $20 \times 20$ multiplication table has twenty numbers representing each individual row
+and column, namely $2^{0},2^{1},2^{2}\ldots 2^{19}$ A number is formed by multiplying its row-
+number and column-number. What is the remainder when the sum of all numbers in the multiplication table is divided by 5?}
+
+\begin{sol}
+$\boxed{0}$
+\end{sol}
+
+\prob{4}{NEMO 2017}{The value of the expression
+$$\sqrt{1+\sqrt{\sqrt[3]{32}-\sqrt[3]{16}}} + \sqrt{1-\sqrt{\sqrt[3]{32}-\sqrt[3]{16}}}$$
+can be written as $\sqrt[m]{n}$, where $m$ and $n$ are positive integers. Compute the smallest possible value of
+$m + n$.}
+
+\begin{sol}
+Let the left term be $a$ and the right term be $b$.
+Then, $a^2+b^2=2$. 
+$ab=\sqrt{1-\sqrt[3]{32}+\sqrt[3]{16}}=\sqrt[3]{4}-1$.
+Then, $(a+b)^2=2\sqrt[3]{4}=2^{\frac{5}{3}}$. So, $a+b=2^{\frac{5}{6}}=32^{\frac{1}{6}}$. So, $\boxed{38}$.
+\end{sol}
 \setcounter{problem}{0}
 \section{Geometry}
 
@@ -1531,6 +1883,17 @@ Both ants walk at the same speed. When the ants meet for the eleventh
 time (including the time at the origin), their paths will enclose $10$
 squares. What is the total area of these squares?}
 
+\begin{sol}
+$\boxed{770}$
+\end{sol}
+
+\prob{4}{AMC 12A 2018/22}{The solutions to the equations $z^2=4+4\sqrt{15}i$ and $z^2=2+2\sqrt 3i,$ where $i=\sqrt{-1},$ form the vertices of a parallelogram in the complex plane. The area of this parallelogram can be written in the form $p\sqrt q-r\sqrt s,$ where $p,$ $q,$ $r,$ and $s$ are positive integers and neither $q$ nor $s$ is divisible by the square of any prime number. What is $p+q+r+s?$}
+
+\begin{sol}
+DeMovire, Half-Angle, and then Shoelace
+$\boxed{20}$
+\end{sol}
+
 \prob{5}{BMT 2019}{
 A regular hexagon has positive integer side length. A laser is emitted from one of the hexagon’s
 corners, and is reflected off the edges of the hexagon until it hits another corner. Let $a$ be the
@@ -1559,6 +1922,15 @@ Let $x$ be the original side length of the cube. Then, we have $(x+1)(x-1)(x)+5=
 The surface area of a cube with volume $1$ is $6\cdot 1^2=6$. Then, the surface area of the larger cube is $12$ and so each face has area $2$. This implies the side length is $\sqrt{2}$. The volume is $2\sqrt{2}$.
 \end{sol}
 
+\prob{1}{Reun\rq{}s Thanksgiving 2017 Mock AMC 10}{A silo is a three-dimensional structure, made up of a cylinder and a cone
+with equal radii of 3, that stores fodder. The height of the conic part of
+the silo is 3 units. When the entire silo is half full of fodder, the cylindrical
+part of the silo is $\frac{2}{3}$ full of fodder. What is the volume of the silo?}
+
+\begin{sol}
+$\boxed{36\pi}$
+\end{sol}
+
 \prob{1}{BMT 2018}{A cube has side length $5$. Let $S$ be its surface area and $V$ its volume. Find $\frac{S^3}{V^2}$.}
 
 \begin{sol}
@@ -1581,6 +1953,15 @@ We consider the sphere in the positive x,y,z direction. Then the center $C$ of t
 So, the furthest distance is $\boxed{1+\sqrt{3}}$.
 \end{sol}
 \prob{3}{AIME 1984/9}{In tetrahedron $ABCD$, edge $AB$ has length 3 cm. The area of face $ABC$ is $15\mbox{cm}^2$ and the area of face $ABD$ is $12 \mbox { cm}^2$. These two faces meet each other at a $30^\circ$ angle. Find the volume of the tetrahedron in $\mbox{cm}^3$.}
+
+\prob{3}{Scrabber94 Mock AMC 10 2020}{A right triangular prism has all edges of length 2. An ant crawls on the
+exterior of the prism from point A to point B, where B is the midpoint of
+the edge opposite A as shown. What is the shortest possible distance the
+ant crawls?}
+
+\begin{sol}
+Make a net. Then, $\boxed{\sqrt{7+2\sqrt{3}}$.
+\end{sol}
 
 \prob{3}{HMMT February 2014}{Let $C$ be a circle in the $xy$ plane with radius 1 and center $(0, 0, 0)$, and let P be a point in space
 with coordinates $(3, 4, 8)$. Find the largest possible radius of a sphere that is contained entirely in the
@@ -1617,6 +1998,12 @@ folded and unfolded parts of the triangle?}
 Using Heron's Formula and a smoothing argument gives that an equilaterial triangle gives the largest area.  So, we have $s=\frac{1}{3}$ and $A=\frac{s^2\sqrt{3}}{4}=\frac{\sqrt{3}}{36}$. So, $A^2=\frac{3}{36^2}=\Fefrac{1}{12\cdot 36}=\boxed{\frac{1}{432}}$.
 \end{sol}
 
+\prob{4}{PersonPsychopath\rq{}s 2nd 2015-2016 Mock AMC 10}{Two unit circles are externally tangent to each other at point $P$. A pair of perpendicular lines is drawn such that each line is tangent to a different circle. Let the intersection of these lines be $I$. What is the minimum possible length of $PI$?}
+
+\begin{sol}
+$\boxed{\sqrt{2}-1}$
+\end{sol}
+
 \prob{4}{MMATHS 2018}{
 $A, B, C, D$ all lie on a circle with $AB = BC = CD$. If the distance between any two of these points is a positive integer, what is the smallest possible perimeter of quadrilateral $ABCD$}
 
@@ -1642,6 +2029,39 @@ lines $AE$ and $CG$. If $DA = 35, DG = 20$, and $BF = 25\sqrt{2}$, find $DP^2$.}
 Spiral Similarity from ABCD to DEFG. $\boxed{768}$
 \end{sol}
 
+\subsection{Trigonometry}
+\prob{3}{AMC 12B 2017/15}{Let $ABC$ be an equilateral triangle. Extend side $\overline{AB}$ beyond $B$ to a point $B'$ so that $BB'=3 \cdot AB$. Similarly, extend side $\overline{BC}$ beyond $C$ to a point $C'$ so that $CC'=3 \cdot BC$, and extend side $\overline{CA}$ beyond $A$ to a point $A'$ so that $AA'=3 \cdot CA$. What is the ratio of the area of $\triangle A'B'C'$ to the area of $\triangle ABC$?}
+
+\begin{sol}
+$\sqrt{37}$
+\end{sol}
+
+\prob{3}{ARML 2014}{In triangle $ABC, a = 12, b = 17,$ and $c = 13$. Compute $b cos C - c cos B$.}
+
+\begin{sol}
+Find the expression in terms of segments and use Pythaogrean Theorem and Difference of Squares to easily compute.
+$\boxed{10}$
+\end{sol}
+
+\prob{4}{AMC 12A 2018/20}{Triangle $ABC$ is an isosceles right triangle with $AB=AC=3$. Let $M$ be the midpoint of hypotenuse $\overline{BC}$. Points $I$ and $E$ lie on sides $\overline{AC}$ and $\overline{AB}$, respectively, so that $AI>AE$ and $AIME$ is a cyclic quadrilateral. Given that triangle $EMI$ has area $2$, the length $CI$ can be written as $\frac{a-\sqrt{b}}{c}$, where $a$, $b$, and $c$ are positive integers and $b$ is not divisible by the square of any prime. What is the value of $a+b+c$?}
+
+\begin{sol}
+$\boxed{12}$
+\end{sol}
+
+\prob{4}{ARML 2014}{In triangle $\triangle ABC$, $BC = 2$. Point $D$ is on $AC$ such that $AD = 1$ and $CD = 2$. If
+$m\angle BDC = 2m\angle A$, compute $\sin A$.}
+
+\begin{sol}
+Note that $\angle DBA = \angle A$ so $BD=DA=1$. We then apply Law of Cosines on $\triangle BDC$ and bash to get $\boxed{\frac{\sqrt{6}}{4}}$.
+\end{sol}
+
+\prob{5}{AMC 12A 2018/23}{In $\triangle PAT,$ $\angle P=36^{\circ},$ $\angle A=56^{\circ},$ and $PA=10.$ Points $U$ and $G$ lie on sides $\overline{TP}$ and $\overline{TA},$ respectively, so that $PU=AG=1.$ Let $M$ and $N$ be the midpoints of segments $\overline{PA}$ and $\overline{UG},$ respectively. What is the degree measure of the acute angle formed by lines $MN$ and $PA?$}
+
+\begin{sol}
+Sum to product formula, $\boxed{80^{\circ}}$.
+\end{sol}
+
 \subsection{General}
 \prob{1}{MA$\theta$ 2018}{A parallelograms has diagonals of length $10$ and $20$. Find the area inclosed by the circle inscribed in the parallelogram.
 }
@@ -1653,16 +2073,38 @@ $\angle BAC$.}
 \prob{1}{PHS PuMAC TST 2017}{In triangle $ABC$, let $D$ and $E$ be the midpoints of $BC$ and $AC$. Suppose $AD$ and $BE$ meet at $F$. If
 the area of $\triangle DEF$ is $50$, then what is the area of $\triangle CDE$?}
 
+\prob{1}{PersonPsychopath\rq{}s 2nd Mock AMC 10}{In convex pentagon $ABCDE, AB = 40, BC = 20, CD = 5$, and $DE = 37$. If $\angle A, \angle B$, and $\angle C$ are all right angles, what is the length of $EA$?}
+
+\begin{sol}
+$\boxed{88}$
+\end{sol}
+
 \prob{1}{AMC 10A 2019/13}{Let $\triangle ABC$ be an isosceles triangle with $BC = AC$ and $\angle ACB = 40^{\circ}$. Construct the circle with diameter $\overline{BC}$, and let $D$ and $E$ be the other intersection points of the circle with the sides $\overline{AC}$ and $\overline{AB}$, respectively. Let $F$ be the intersection of the diagonals of the quadrilateral $BCDE$. What is the degree measure of $\angle BFC?$}
+
+\begin{sol}
+$\boxed{110}$
+\end{sol}
 
 \prob{2}{AMC 10B 2011/17}{In the given circle, the diameter $\overline{EB}$ is parallel to $\overline{DC}$, and $\overline{AB}$ is parallel to $\overline{ED}$. The angles $AEB$ and $ABE$ are in the ratio $4 : 5$. What is the degree measure of angle $BCD?$}
 
+\begin{sol}
+$\boxed{130}$
+\end{sol}
+
 \prob{2}{Brazil 2007}{Let $ABC$ be a triangle with circumcenter $O$. Let $P$ be the intersection of straight lines $BO$ and $AC$ and $\omega$ be the circumcircle of triangle $AOP$. Suppose that $BO = AP$ and that the measure of the arc $OP$ in $\omega$, that does not contain $A$, is $40^{\circ}$. Determine the measure of the angle $\angle OBC$.}
+
+\begin{sol}
+$\boxed{30^{\circ}}$
+\end{sol}
 
 \prob{2}{BMT 2018}{A $1$ by $1$ square ABCD is inscribed in the circle $m$. Circle $n$ has radius $1$ and is centered around
 $A$. Let $S$ be the set of points inside of $m$ but outside of $n$. What is the area of $S$?}
 
 \prob{2}{AMC 10B 2011/18}{Rectangle $ABCD$ has $AB = 6$ and $BC = 3$. Point $M$ is chosen on side $AB$ so that $\angle AMD = \angle CMD$. What is the degree measure of $\angle AMD?$}
+
+\begin{sol}
+$\boxed{75^{\circ}}$
+\end{sol}
 
 \prob{2}{TAMU 2019}{Let $AA_{1}$ be an altitude of triangle $\triangle ABC$, and let $A_{2}$ be the midpoint of the side $BC$.
 Suppose that $AA_{1}$ and $AA_{2}$ divide angle $\angle BAC$ into three equal angles. Find the product of the angles of 
@@ -1677,6 +2119,10 @@ diagonals is perpendicular to both bases, then what is the length of the other d
 
 \prob{2}{Autumn Mock AMC 10}{Equilateral triangle ABC has side length $6$. Points $D, E, F$ lie within the lines $AB, BC$ and $AC$ such that $BD=2AD$, $BE=2CE$, and $AF=2CF$. Let $N$ be the numerical value of the area of triangle $DEF$. Find $N^2$.}
 
+\begin{sol}
+$\boxed{12}$
+\end{sol}
+
 \prob{2}{OMO Spring 2019}{In triangle ABC, side AB has length 10, and the A- and B-medians have length 9 and 12, respectively. Compute the area of the triangle.}
 
 \begin{sol}
@@ -1688,16 +2134,34 @@ Three mutually externally tangent circles are internally tangent to a circle wit
 radius $\frac{1}{3}$, the largest possible radius of the third inner circle can be expressed in the form $\frac{a+b\sqrt{c}}{d}$ where $c$ is squarefree
 and $\gcd(a,b,d) = 1$. Find $a +b +c +d$.}
 
-\prob{3}{AHSME 1984/28}{Triangle ABC has area 10. Points D, E, and F, all distinct from A, B, and C, are on sides AB, BC, and CA, respectively, and AD = 2, DB = 3. Triangle ABE and quadrilateral
-DBEF have equal areas s. Find s.}
+\prob{2}{2018 AMC 12A/17}{Farmer Pythagoras has a field in the shape of a right triangle. The right triangle's legs have lengths 3 and 4 units. In the corner where those sides meet at a right angle, he leaves a small unplanted square $S$ so that from the air it looks like the right angle symbol. The rest of the field is planted. The shortest distance from $S$ to the hypotenuse is 2 units. What fraction of the field is planted?}
+
+\begin{sol}
+$\boxed{\frac{145}{147}}$
+\end{sol}
+
+\prob{2}{2018 AMC 12A/18}{Triangle $ABC$ with $AB=50$ and $AC=10$ has area $120$. Let $D$ be the midpoint of $\overline{AB}$, and let $E$ be the midpoint of $\overline{AC}$. The angle bisector of $\angle BAC$ intersects $\overline{DE}$ and $\overline{BC}$ at $F$ and $G$, respectively. What is the area of quadrilateral $FDBG$?}
+
+\begin{sol}
+$\boxed{75}$
+\end{sol}
+
+\prob{3}{AHSME 1984/28}{Triangle ABC has area $10$. Points $D, E$, and $F$, all distinct from $A, B$, and $C$, are on sides $AB, BC$, and $CA$, respectively, and $AD = 2, DB = 3$. Triangle ABE and quadrilateral
+$DBEF$ have equal areas $s$. Find $s$.}
 
 \prob{3}{FARML 2012/6}{In triangle $ABC,$ $AB=7,$ $AC=8,$ and $BC=10.$ $D$ is on $AC$ and $E$ is on $BC$ such that $\angle AEC=\angle BED=\angle B+\angle C.$ Compute the length $AD.$}
+
+\begin{sol}
+$\frac{13}{8}$
+\end{sol}
 
 \prob{3}{HMMT November 2013}{Let ABC be an isosceles triangle with $AB = AC$. Let D and E be the midpoints of segments $AB$ and $AC$, respectively. Suppose that there exists a point F on ray $\overrightarrow{DE}$ outside of $ABC$ such that triangle $BFA$ is similar to triangle $ABC$. Compute $\frac{AB}{BC}$ .}
 
 \prob{3}{Magic Math AMC 10 2020}{Two concentric circles have radii $\sqrt{2}$ and $2$. Three points $A, B, C$ are chosen on the larger circle such that $\triangle ABC$ is equilateral. Find the area of the region in the smaller circle that is also inside the triangle.}
 
-\prob{3}{AMC 12B 2017/15}{Let $ABC$ be an equilateral triangle. Extend side $\overline{AB}$ beyond $B$ to a point $B'$ so that $BB'=3 \cdot AB$. Similarly, extend side $\overline{BC}$ beyond $C$ to a point $C'$ so that $CC'=3 \cdot BC$, and extend side $\overline{CA}$ beyond $A$ to a point $A'$ so that $AA'=3 \cdot CA$. What is the ratio of the area of $\triangle A'B'C'$ to the area of $\triangle ABC$?}
+\begin{sol}
+$3+\frac{\pi}{2}$
+\end{sol}
 
 \prob{3}{CNCM Online Round 2}{There is a rectangle $ABCD$ such that $AB = 12$ and $BC = 7$. $E$ and $F$ lie on sides $AB$
 and CD respectively such that $\frac{AE}{EB} = 1$ and $\frac{CF}{FD} =\frac{1}{2}$. Call $X$ the intersection of $AF$ and $DE$. What is
@@ -1730,15 +2194,22 @@ $$A_{k-1}C_{k}:C_{k}B_{k-1}=1:3$$
 What is the value of the infinite series:
 $$\sum_{i=0}^{\infty} \text{Area}[\triangle A_{k}B_{k}C_{k}]$$}
 
-\prob{3}{ARML 2014}{In triangle $ABC, a = 12, b = 17,$ and $c = 13$. Compute $b cos C - c cos B$.}
+\prob{3}{PersonPsychopath\rq{}s 2nd 2015-2016 Mock AMC 10}{In $\triangle ABC$, $\angle A = 90^{\circ}$. Points $X$ and $Y$ lie on $AB$ and $AC$ respectively such that $\frac{AX}{AB} = \frac{1}{2}$ and $\frac{AY}{AC} = \frac{1}{3}$. $BY$ and $CX$ intersect at $I$. What is the ratio of the area of $AXIY$ to $\triangle ABC$?}
 
 \begin{sol}
-Find the expression in terms of segments and use Pythaogrean Theorem and Difference of Squares to easily compute.
-$\boxed{10}$
+$\boxed{\frac{7}{30}}$
 \end{sol}
+
 \prob{4}{Mandelbrot Nationals 2009}{Triangle ABC has sides of length $AB =\sqrt{41}, AC = 5$,and $BC = 8$. Let O be the center of the circumcircle of $\triangle ABC$, and let $A'$ be the point diametrically opposite $A$, as shown. Determine the area of $\triangle A'BC$.
 }
 
+\prob{4}{DMC Mock AMC 10}{In trapezoid $ABCD$ with $\overline{AD}|| \overline{BC}$ and side lengths $AD = 18$, $BC = 20$, and
+$AB = CD = 8$, let $X$ be the intersection of line $AB$ and the bisector of $\angle ADC$, and
+let $Y$ be the intersection of line $CD$ and the bisector of $\angle DAB$. What is $XY$ ?}
+
+\begin{sol}
+$\boxed{24}$
+\end{sol}
 \prob{4}{HMMT February 2014}{Triangle ABC has sides $AB = 14,BC = 13,$ and $CA = 15$. It is inscribed in circle, which has center $O$. Let $M$ be the midpoint of $AB$, let $B'$ be the point on  diametrically opposite $B$, and let $X$ be the intersection of $AO$ and $MB'$. Find the length of $AX$.}
 
 \begin{sol}
@@ -1757,12 +2228,6 @@ Law of Cosines and Pythagorean Theorem gives $CP=33$.
 Let $BG=2x, GB_{1}=x$ and $CG=2y, GC_{1}=y$. Set systems of equations and solve.
 \end{sol}
 
-\prob{4}{ARML 2014}{In triangle $\triangle ABC$, $BC = 2$. Point $D$ is on $AC$ such that $AD = 1$ and $CD = 2$. If
-$m\angle BDC = 2m\angle A$, compute $\sin A$.}
-
-\begin{sol}
-Note that $\angle DBA = \angle A$ so $BD=DA=1$. We then apply Law of Cosines on $\triangle BDC$ and bash to get $\boxed{\frac{\sqrt{6}}{4}}$.
-\end{sol}
 \prob{4}{AIME 2005}{In quadrilateral $ABCD$, let $BC=8, CD=12, AD=10$ and $\angle A = \angle B = 60^{\circ}$. Given that $AB = p + \sqrt{q},$ where $p$ and $q$ are positive integers, find $p+q.$}
 
 \begin{sol}
@@ -1781,6 +2246,13 @@ Compute the area of $\triangle A$}
 \prob{5}{PHS HMMT TST 2020}{$\triangle$ ABC has side lengths $AB = 11, BC = 13, CA = 20$. A circle is drawn with diameter $AC$. Line $AB$
 intersects the circle at $D \neq A$, and line BC intersects the circle at $E \neq B$. Find the length of $DE$.}
 
+\prob{5}{NEMO 2017}{In convex equilateral hexagon $ABCDEF$, $AC = 13$, $CE = 14$, and $EA = 15$. It is given that the area of $ABCDEF$ is twice the area of triangle $ACE$. Compute $AB$.}
+
+\begin{sol}
+Reflect $B,D,F$ over $AC,CE,EA$ respectively. Then $[AB\rq{}C] + [CD\rq{}E] + [E\rq{}FA] = [ABC]$. Note that LHS monotonically increases as $ AB$ increases. Then, note that this is satisified when $AB=R$ which implies the $B\rq{}, D\rq{}, F\rq{}$ are circumcenter. 
+$\boxed{\frac{65}{8}}$
+\end{sol}
+
 \prob{5}{CMIMC 2020}{
 Let $ABC$ be a triangle with centroid $G$ and $BC = 3$. If $ABC$ is similar to $GAB$, compute the area of $ABC$.
 }
@@ -1791,6 +2263,13 @@ Let $ABC$ be a triangle with centroid $G$ and $BC = 3$. If $ABC$ is similar to $
 $\sqrt{129}$
 \end{sol}
 
+\prob{5}{Scrabber94 Mock AMC 10 2020}{Parallelogram $ABCD$ has $AB = CD = 10$, $BC = AD = 6$, and $BD = 8$.
+Let $O_1, O_2, O_3$, and $O_4$ be the circumcenters of $\triangle ABC, \triangle ABD, \triangle ACD$,
+and $\triangle BCD$, respectively. What is the area of quadrilateral $O_{1}O_{2}O_{3}O_{4}$?}
+
+\begin{sol}
+$\boxed{27}$
+\end{sol}
 \prob{5}{Magic Math AMC 10 2020}{Six points $A, B, C, D, E, F$ are selected on a circle with center $O$ such that $ABCDEF$ is an equiangular hexagon with $AB = CD = EF < BC = DE = F A$. Diagonals $AD, BE, F C$ are
 drawn, intersecting at points $X, Y, Z$. The three circles passing through $O$ and two of $X, Y, Z$
 are each internally tangent to $O$. Find $BC/AB$.}
@@ -1829,13 +2308,13 @@ There can't be five or more distinct absolute values because then we can just ta
 \prob{1}{AlcumusGuy Mock AMC 10 2016-2017}{How many of the following four statements are true?}
 
 \begin{enumerate}
-	\item It is possible to find an even number of even integers such that the sum of their reciprocals is 1.
+	\item It is possible to find an even number of even integers such that the sum of their reciprocals is 1.
 
-	\item It is possible to find an even number of odd integers such that the sum of their reciprocals is 1.
+	\item It is possible to find an even number of odd integers such that the sum of their reciprocals is 1.
 
-	\item It is possible to find an odd number of even integers such that the sum of their reciprocals is 1.
-
-	\item It is possible to find an odd number of odd integers such that the sum of their reciprocals is 1.
+	\item It is possible to find an odd number of even integers such that the sum of their reciprocals is 1.
+	
+	\item It is possible to find an odd number of odd integers such that the sum of their reciprocals is 1.
 \end{enumerate}
 
 \begin{sol}
@@ -1864,6 +2343,15 @@ How many possibilities are there for the set S?}
 $\boxed{4}$
 \end{sol}
 \subsection{Games}
+
+\prob{2}{2018 Memorial Day Mock AMC 10}{Ashley and Ben are playing a game. At the beginning of the game, $n = 1$. Starting with Ashley, the players then take turns multiplying $n$ by an integer between $2$ and $9$,
+inclusive. The first player to get a product of at least $100$ wins. If neither player makes
+any mistakes, how many different integers can Ashley multiply n by on her first turn
+in order to win?}
+
+\begin{sol}
+$\boxed{4}$
+\end{sol}
 
 \prob{2}{BmMT 2016}{
 Suppose you have a $20 \times 16$ bar of chocolate squares. You want to break the bar into smaller
@@ -1905,4 +2393,22 @@ knights on my right.” How many knaves are in the line?
 \begin{sol}
 $5$ knaves on the left, $5$ knights on the right gives a valid solution. So, $\boxed{5}$.
 \end{sol}
+
+\prob{2}{Scrabbler94 Mock AMC 10 2020}{If today is rainy, then Erin wears a raincoat. If today is rainy and Erin
+is wearing a raincoat, then Erin will not get wet outside. Which of the
+following statement(s) is logically implied from the above two statements?
+
+I: If today is not rainy, then Erin is not wet outside.
+
+II: If Erin is not wet outside, then today is not rainy.
+
+III: If Erin is wet outside, then today is not rainy.
+
+IV: If Erin is wet outside, then Erin is not wearing a raincoat.
+}
+
+\begin{sol}
+$\boxed{\text{only }III}$
+\end{sol}
+
 \end{document}
